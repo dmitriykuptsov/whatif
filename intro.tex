@@ -1,6 +1,6 @@
 \chapter{Introduction}
 
-Back in end of \it{1960’s} when the Internet was a rather small 
+Back in end of {\it 1960’s} when the Internet was a rather small 
 network, which was interconnecting major universities, governmental 
 and military organizations, very little attention was devoted to 
 security. Nowadays, when the Internet has become extremely 
@@ -12,14 +12,14 @@ branch-office networks (for example, consider a factory that has
 many SCADA devices and a mission control center that is miles and 
 miles away). Since these networks geographically separated, connecting 
 them becomes a necessity, and so is the security of these networks. 
-This is when the layer-3 virtual private networks (\it{L3-VPN}) and layer-2 
-virtual private LAN services (\it{L2-VPLS}) solutions become handy. 
+This is when the layer-3 virtual private networks ({\it L3-VPN}) and layer-2 
+virtual private LAN services ({\it L2-VPLS}) solutions become handy. 
 There are, however, other requirements that need to be taken into 
 account. Scalability, resilience to various attacks, from man-in-the-middle 
 to integrity violation attacks, to rather fundamental attacks on 
 asymmetric algorithms (such as RSA, DSA and their elliptic curve 
 counterparts, Diffie-Hellman and Eliptic Curve DH, for sampling) 
-using, for example, \it{Shor’s quantum computer algorithm} to factorize 
+using, for example, {\it Shor’s quantum computer algorithm} to factorize 
 large numbers, and massive brute force attacks on hash algorithms 
 should be considered thoroughly. With this in mind, in this work we 
 present different security solutions, which can be used to build secure 
@@ -241,7 +241,19 @@ find more information about hash functions here [].
 
 \subsection{Key exchange protocols}
 
+Key exchange are important in modern systems as they allow negotiation of common 
+key over insecure channel. Of course, RSA can be used to deliver a session key
+by encrypting it with the recepients public key, but specially crafted key negotiation
+algorithms exist in practice. Two bright examples are Diffie-Hellman (DH) and Eliptic Curve 
+DH. 
+
+
+
 \subsection{Post-quantum Lattice-based cryptography}
+
+Shor's algorithm, implemented on quantum computer makes factoring of large 
+numbers efficiently. 
+
 
 \section{Security protocols}
 
@@ -257,9 +269,9 @@ find more information about hash functions here [].
 
 \subsubsection{QinQ tunneling}
 
-\subsubsection{MPLS-based VPLS}
+\subsubsection{MPLS tunelling}
 
-\subsection{L3 Virtual Private LAN (VPN) security solutions}
+\subsection{Virtual Private LAN (L3-VPN) security solutions}
 
 \subsubsection{Multipoint to single point VPN}
 
@@ -267,7 +279,7 @@ find more information about hash functions here [].
 
 \chapter{Results}
 
-\section{Hardware-enable symmetric cryptography}
+\section{Hardware-enabled symmetric cryptography}
 
 \section{Host Identity Protocol based VPLS}
 

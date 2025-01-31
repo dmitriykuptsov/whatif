@@ -4,21 +4,18 @@ Release version: 3.71 (04 mar 2019)
 Compiled with:   ICU version 68.2
 
 The top-level auxiliary file: book.aux
-The style file: abbrv.bst
+The style file: acm.bst
 Reallocated glb_str_ptr (elt_size=8) to 10 items from 0.
 Reallocated global_strs (elt_size=200001) to 10 items from 0.
 Reallocated glb_str_end (elt_size=8) to 10 items from 0.
-Database file #1: mybib.bib
- Illegal end of database file---line 24 of file mybib.bib
- : year = {2008},
- :               
-I'm skipping whatever remains of this entry
+Database file #1: book.bib
+Warning--I didn't find a database entry for "Stinson:Cryptography"
 
 Here's how much of BibTeX's memory you used:
- Cites:                 1 out of 750
- Fields:               12 out of 5000
- Hash table:       199853 out of 200000
- Strings:             501 out of 200000
- Free string pool:   3801 out of 65000
- Wizard functions:   2118 out of 3000
-(There was 1 error message)
+ Cites:                 0 out of 750
+ Fields:                0 out of 5000
+ Hash table:       199843 out of 200000
+ Strings:             525 out of 200000
+ Free string pool:   3886 out of 65000
+ Wizard functions:   2253 out of 3000
+(There was 1 warning)

@@ -1,121 +1,104 @@
-\documentclass[12pt]{book}
-
-\usepackage{url}
-\usepackage{amssymb,amsthm}
-\usepackage{graphicx,color}
-
-\usepackage{longtable}
-
-\usepackage{balance}
-
-\usepackage{cite}
-\usepackage{amsmath}
-\usepackage{amssymb}
-
-\usepackage{color, colortbl}
-\usepackage{times}
-\usepackage{caption}
-\usepackage{rotating}
-\usepackage{subcaption}
-\usepackage{mathtools}
-
-\usepackage{setspace}
-
-\usepackage{listings}
-
-
-\usepackage{python}
-
-\usepackage[T2A]{fontenc}
+%\documentclass[draft*, dissertation]{aaltoseries}
+\documentclass[dissertation]{aaltoseries}
 \usepackage[utf8]{inputenc}
-\usepackage{bm}
+\usepackage{lipsum}
+\usepackage[finnish,english]{babel}
+\usepackage{xspace}
+\usepackage{url}
+%\usepackage{algorithm}
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+\usepackage{xcolor,colortbl}
+\usepackage[centerlast,it,IT,small]{subfigure}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{multirow} 
+\usepackage{multicol} 
+\usepackage{rotating}
+\usepackage{balance}
+\usepackage{tikz}
+\usepackage{rawfonts}
+\usepackage[caption=true]{subfig}
 
-\usepackage[Sonny]{fncychap}
+\definecolor{Gray}{gray}{0.9}
+\definecolor{mGray}{gray}{0.8}
+\definecolor{dGray}{gray}{0.7}
 
-\usepackage{geometry}
-
-\newtheorem{theorem}{Theorem}
-\newtheorem{example}{Example}
-\newtheorem{definition}{Definition}
-\newtheorem{lemma}{Lemma}
-
-\renewcommand{\chaptername}{Chapter}
-\renewcommand{\contentsname}{Table of contents}
-\renewcommand{\bibname}{References}
-\renewcommand{\tablename}{Table}
-\renewcommand{\figurename}{Figure}
-
-\newcommand{\XXXnote}[1]{{\bf\color{red} XXX: #1}}
-\newcommand{\YYYnote}[1]{{\bf\color{red} YYY: #1}}
-\newcommand*{\etal}{{\it et al.}}
-
-\newcommand{\eat}[1]{}
+\newcommand{\disc}[1]{#1} 
+\newcommand{\todo}[1]{{\disc{\bf\color{red} TODO: #1}}} 
+\newcommand\eat[1]{}
 \newcommand{\bi}{\begin{itemize}}
 \newcommand{\ei}{\end{itemize}}
 \newcommand{\im}{\item}
 \newcommand{\eg}{{\it e.g.}\xspace}
 \newcommand{\ie}{{\it i.e.}\xspace}
 \newcommand{\etc}{{\it etc.}\xspace}
+\newcommand{\etal}{{\it et al.}\xspace}
 
-\newcommand{\ccb}{\cellcolor{blue}}
-\newcommand{\ccl}{\cellcolor{lightblue}}
-\newcommand{\ccr}{\cellcolor{red}}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
 
 \definecolor{blue}{rgb}{0.48,0.7,0.98}
 \definecolor{lightblue}{rgb}{0.85,1,1}
 \definecolor{red}{rgb}{0.76,0.23,0.23}
 
-\def\P{\mathop{\mathsf{P}}}
-\def\E{\mathop{\mathsf{E}}}
 
+\newcommand{\ccb}{\cellcolor{blue}}
+\newcommand{\ccl}{\cellcolor{lightblue}}
+\newcommand{\ccr}{\cellcolor{red}}
+
+\let\quoteOLD\quote
+\def\quote{\quoteOLD\it}
 
 
 \begin{document}
 
-\sloppy
-%\title{Python в алгоритмах для детей и взрослых}
-%\author{Written by artificial intelligence}
-%\maketitle
+    \begin{titlepage}
+    \newgeometry{left=7.5cm} %defines the geometry for the titlepage
+    \pagecolor{blue}
+    %\noindent
+    \color{white}
+    \noindent\\[10em]
+    {\huge \textsf{Building scalable and secure L2 and L3 overlays with Host Identity Protocol}}
+    \vskip\baselineskip
+    %\noindent
+    \vfill
+    \color{white}
+    \makebox[0pt][l]{\rule{1.3\textwidth}{1pt}}
+    \par
+    %\noindent
+    \textbf{\textsf{Dmitriy Kuptsov}}
+    \par
+    %\noindent
+    \textsf{2025}
+    \textsf{What if}
+    \end{titlepage}
+    \restoregeometry % restores the geometry
+    \nopagecolor% Use this to restore the color pages to white
 
-\begin{titlepage}
-\newgeometry{left=7.5cm} %defines the geometry for the titlepage
-\pagecolor{blue}
-\noindent
-\color{white}
-%\includegraphics[width=5cm]{graphics/binary_tree.png}\\[20em]
-\noindent\\[10em]
-{\huge \textsf{Building scalable and secure L2 and L3 overlays with Host Identity Protocol}}
-\vskip\baselineskip
-\noindent
-\vfill
-\color{white}
-\makebox[0pt][l]{\rule{1.3\textwidth}{1pt}}
-\par
-\noindent
-\textbf{\textsf{Dmitriy Kuptsov}}
-\par
-\noindent
-\textsf{2025}
-\textsf{What if}
-\end{titlepage}
-\restoregeometry % restores the geometry
-\nopagecolor% Use this to restore the color pages to white
+
 
 \tableofcontents
+%\listofpublications
 
+%\chapter{Introduction}
+\input{intro}
 
-\input intro.tex
-%\input background.tex
-%\input data.tex
-%\input preprocess.tex
-%\input metrics.tex
-%\input solution.tex
-%\input conclusions.tex
+%\chapter{Background and Related Work}
+%\input{background}
 
-\bibliographystyle{abbrv}
-\bibliography{mybib}
+%\chapter{Summary of Results}
+%\input{research}
+
+%\chapter{Conclusions}
+%\input{conclusions}
+
+\bibliographystyle{acm}
+\bibliography{book}
+
 
 \end{document}
-
-
-
