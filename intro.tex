@@ -251,9 +251,55 @@ DH.
 
 \subsection{Post-quantum Lattice-based cryptography}
 
-Shor's algorithm, implemented on quantum computer makes factoring of large 
-numbers efficiently. 
+Shor's algorithm, implemented on quantum computer makes certain computational 
+problems (such as, factoring of large numbers and descrite logarithm problem) 
+feasible in polynomial time. 
 
+From linear algebra we know that solving equation $\bf{Ax}=\bf{b}$ is simple using
+Gaussian elimination. However, if a random noise is added to the equation $\bf{Ax} + \bf{e} = \bf{b}$ the 
+problem is considered as hard as CVP on lattice.
+
+Given a matrix $\bf{A} \sim U(Z^{nxm}_q)$, $\bf{s} \sim U(Z^{n}_q)$ and $\bf{e} \sim D_{Z^{m}, \sigma}$ 
+sampled from discrete (clipped) Gaussian distribution with parameter $\sigma$. We require that, the probability
+$P[e < q/4]$ is high (\ie $99.99\%$) to ensure correct decryption of the message and achieve required 
+level of security. To ensure that $\bf{e}$ is always less than $q/4$ the values are drawn with resampling
+or clipping. We require, that the parameter $\sigma = q/16$.
+
+\begin{equation}
+    {\bf A}=\begin{bmatrix}
+        a_{11}       & a_{12} & a_{13} & \dots & a_{1n} \\
+        a_{21}       & a_{22} & a_{23} & \dots & a_{2n} \\
+        \hdotsfor{5} \\
+        a_{m1}       & a_{m2} & a_{m3} & \dots & a_{mn}
+    \end{bmatrix}
+\end{equation}
+
+\begin{equation}
+    {\bf s}=\begin{bmatrix}
+        s_{1} \\
+        s_{2} \\
+        \dots \\
+        s_{n} 
+    \end{bmatrix}
+\end{equation}
+
+\begin{equation}
+    {\bf e}=\begin{bmatrix}
+        e_{1} \\
+        e_{2} \\
+        \dots \\
+        e_{n} 
+    \end{bmatrix}
+\end{equation}
+
+Once the parameters are generated, compute ${\bf Ax}+{\bf e} = {\bf b}$. Then, the public 
+key is $({\bf A, b})$ and the private key is ${\bf s}$.
+
+To encrypt the message $\mu \in \{0, 1\}$ choose ${\bf r} \sim U(\{0, 1\}^m)$. Then compute ${\bf u}={\bf rA}$ and 
+$v={\bf rb}+\lfloor q/2 \rceil \mu$. The ciphertext is $({\bf u}, v)$.
+
+To decrypt the message compute $v - \bf{u s}$, if the result is less than $q/4$ output $0$, if the result
+is larger than $q/4$ output $1$. 
 
 \section{Security protocols}
 
