@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  1 FEB 2025 16:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  1 FEB 2025 16:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1012,17 +1012,25 @@ Overfull \hbox (6.10172pt too wide) in paragraph at lines 222--230
  suc-cess-fully found
  []
 
-[12] [13] [14] [15] [16
+[12] [13] [14]
 
-] [17] [18
+LaTeX Warning: Citation `gurtov:hip' on page 15 undefined on input line 347.
 
-]) (./book.bbl [19] [20
+[15]
+
+LaTeX Warning: Citation `ssl' on page 16 undefined on input line 364.
+
+[16] [17] [18
+
+] [19] [20
+
+]) (./book.bbl [21] [22
 
 ]
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [21] (./book.aux)
+) [23] (./book.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1053,10 +1061,10 @@ mf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2021/texmf-dist
 type1/urw/ncntrsbk/uncb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/u
 rw/ncntrsbk/uncr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncnt
 rsbk/uncri8a.pfb>
-Output written on book.pdf (21 pages, 190614 bytes).
+Output written on book.pdf (23 pages, 193584 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
- 103 compressed objects within 2 object streams
+ 151 PDF objects out of 1000 (max. 8388607)
+ 107 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

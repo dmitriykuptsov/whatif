@@ -333,9 +333,49 @@ the security does not come for free.
 
 \subsection{Host Identity Protocol (HIP)}
 
-\subsection{Transport Layer Security Protocol (TLS)}
+Internet was designed initially so that the Internet Protocol (IP) address has a dual role: it 
+is the locator, so that the routers can find the recipient of a message, and it is an identifier 
+so that the upper layer protocols (such as TCP and UDP) can make bindings (for example, transport 
+layer sockets use IP addresses and ports to make connections). This becomes a problem when a networked 
+device roams from one network to another, and so the IP address changes, leading to failures in 
+upper-layer connections. The other problem is the establishment of an authenticated channel between 
+the communicating parties. In practice, when making connections, the long-term identities of the parties 
+are not verified. Of course, solutions such as SSL can readily solve the problem at hand. However, SSL 
+is suitable only for TCP connections, and most of the time, practical use cases include only secure web 
+surfing and the establishment of VPN tunnels. Host Identity Protocol, on the other hand, is more flexible: 
+it allows peers to create authenticated secure channels on the network layer, so all upper-layer protocols 
+can benefit from such channels. More on the protocol can be found in~\cite{gurtov:hip}.
+
+HIP relies on the 4-way handshake to establish an authenticated session. During the handshake, the 
+peers authenticate each other using long-term public keys and derive session keys using Diffie-Hellman 
+or Elliptic Curve (EC) Diffie-Hellman algorithms. To combat the denial-of-service attacks, HIP also 
+introduces computational puzzles. 
+
+HIP uses a truncated hash of the public key as an identifier in the form of an IPv6 address and 
+exposes this identifier to the upper layer protocols so that applications can make regular 
+connections (for example, applications can open regular TCP or UDP socket connections). At the 
+same time, HIP uses regular IP addresses (both IPv4 and IPv6 are supported) for routing purposes. 
+Thus, when the attachment of a host changes (and so does the IP address used for routing purposes), 
+the identifier, which is exposed to the applications, stays the same. HIP uses a particular 
+signaling routine to notify the corresponding peer about the locator change. More information 
+about HIP can be found in RFC 7401. 
+
+\subsection{Secure socket layer (SSL)}
+Secure socket layer (SSL)~\cite{ssl} and Transport Layer Security (TLS) are an application 
+layer solutions to secure TCP connections. SSL was standardized in RFC 6101. 
+TLS was standardized in RFC 5246. And was designed to prevent eavesdropping, man 
+in-the-middle attacks, tampering and message forgery. In SSL the communicating 
+hosts can authenticate each other with help of longer term identities - public key certificates.
+SSL is greate for building VPN tunnels and protecting upper layer protocols such as HTTP
+
 
 \subsection{Secure Shell Protocol (SSH)}
+
+Secure Shell protocol (SSH) is the application layer protocol which provides an encrypted channel 
+for insecure networks. SSH was originally designed to provide secure remote command-line, login, 
+and command execution. But in fact, any network service can be secured with SSH. Moreover, SSH 
+provides means for creating VPN tunnels between the spatially separated networks: SSH is a great 
+protocol for forwarding local traffic through remote servers. 
 
 \section{L2, L3 and L4 tunneling}
 

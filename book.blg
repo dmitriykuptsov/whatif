@@ -10,12 +10,14 @@ Reallocated global_strs (elt_size=200001) to 10 items from 0.
 Reallocated glb_str_end (elt_size=8) to 10 items from 0.
 Database file #1: book.bib
 Warning--I didn't find a database entry for "Stinson:Cryptography"
+Warning--I didn't find a database entry for "gurtov:hip"
+Warning--I didn't find a database entry for "ssl"
 
 Here's how much of BibTeX's memory you used:
  Cites:                 0 out of 750
- Fields:                0 out of 5000
- Hash table:       199843 out of 200000
- Strings:             525 out of 200000
- Free string pool:   3886 out of 65000
+ Fields:               46 out of 5000
+ Hash table:       199841 out of 200000
+ Strings:             527 out of 200000
+ Free string pool:   3899 out of 65000
  Wizard functions:   2253 out of 3000
-(There was 1 warning)
+(There were 3 warnings)
