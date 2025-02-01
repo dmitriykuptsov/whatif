@@ -63,8 +63,8 @@ instructions.} Here our focus is on the microbanchmarking of two implementations
 of AES and SHA-256 hashing algorithm, identification of the bottlenecks and 
 further recommendations for our prototype implementation of Host Identity Based VPLS and L3-VPN.
 
-Second, {\it what is the scalability of Host Identity Protocol based VPLS and does 
-it perform in emulated environment such as Mininet.} Here we seek the answer to 
+Second, {\it what is the scalability of Host Identity Protocol based VPLS and how does 
+it perform in emulated environments such as Mininet.} Here we seek the answer to 
 the question whether the HIP-VPLS is usable in environments close to real-life setups.
 
 Third, {\it what is the performance of Python based HIP-VPLS on real hardware}. By 
@@ -324,10 +324,12 @@ compute $v - \bf{u s}$, if the result is less than $q/4$ output $0$, if the resu
 is larger than $q/4$ output $1$. 
 
 The major disadvantage of lattice-based cryptography is the size of the keys and actual ciphertext. For example,
-security of LWE depends on two parameters $n$ and $q$. By choosing $n=1024$ and $q=2^{32}$, the size of ciphertext
-for a message of $256$ bits long (for example, this is the size of the key for AES-256 symmetric algorithm), 
-the size of the ciphertext will be $O(n\log q) \approx 4\cdot 1024$ B or roughly $4$ KB. All in all 
-the security does not come for free.
+security of LWE depends on two parameters $n$ and $q$. By choosing $n=512$ and $q=2^{16}$, the size of ciphertext
+for a message of $k=256$ bits long (for example, this is the size of the key for AES-256 symmetric algorithm), 
+the size of the ciphertext will be $O(k \cdot n \cdot \log q) \approx 256 \cdot 16 \cdot 512$ bits or roughly wopping 
+$256$ KB. All in all the security does not come for free. Of course, there are way much practical implementations
+if LWE-based encryption algorithms, for example, the reader can take a look at Kyber~\cite{} which has practical 
+implementation in TLS library.
 
 \section{Security protocols}
 
@@ -393,7 +395,43 @@ protocol for forwarding local traffic through remote servers.
 
 \chapter{Results}
 
+
 \section{Hardware-enabled symmetric cryptography}
+
+Part of the work that we have done was related to porting parts of the code to pure C 
+and special Intel CPU instructions. In this section we will describe our achivements 
+in this direction. 
+
+For the benchmarkings we have selected three implementaitons. The first one was pure 
+Python based. For that purpose we have used PyCryptodome library. The second implementation
+was a Python wrapper to C library that was using special Intel CPU instructions to boost 
+the AES and SHA-based HMAC operations. The third implementation was pure C library 
+which was using Intel NI instructions. The results for AES-256 and HMAC operations 
+for varying block sizes is shown in Figure~\ref{}. The plots show the average 
+running time in miroseconds with the $95\%$ confidence intervals. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{graphics/crypto/aes.pdf}
+    \caption{AES-256 encryption (microseconds)}
+    \label{fig:aes}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{graphics/crypto/hmac.pdf}
+    \caption{HMAC calculation (microseconds)}
+    \label{fig:aes}
+\end{figure}
+
+
+What related to cryptographical operations. 
+For standard packet of size $1500$ bytes we have compared the performance (combined HMAC and AES-256)
+and it turned out, on one hand, that implementation of cryptography in pure C with CPU instructions is 
+$12.1x$ faster than pure Python implmentation. On the other hand, Python implemenation with bindings
+to C library demonstrated performance which was $2.3x$ faster.
+
+
 
 \section{Host Identity Protocol based VPLS}
 
