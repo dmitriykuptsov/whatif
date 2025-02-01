@@ -248,22 +248,44 @@ algorithms exist in practice. Two bright examples are Diffie-Hellman (DH) and El
 DH. 
 
 
-
 \subsection{Post-quantum Lattice-based cryptography}
 
 Shor's algorithm, implemented on quantum computer makes certain computational 
 problems (such as, factoring of large numbers and descrite logarithm problem) 
-feasible in polynomial time. 
+feasible in polynomial time. This shutters the security of the Internet, and 
+so rigorous research was initiated to fill the gap. In what follows we discuss
+certain hard mathimatical problem on latticies and show the workings of the 
+Learning With Errors (LWE) public key encryption scheme. In fact majority of 
+NIST's candidates for post-quantum public key encryption algorithms are based 
+on LWE.
+
+A lattice is a mathematical structure which consists of integers in $n$-dimensions 
+arranged in a structured lattice-like way. Mathematically, the lattice is defined as follows:
+$$\Lambda({\bf B}) = \{{\bf Bx}, {\bf x} \in \mathbb{Z}^n \}$$ where ${\bf B}$ is a matrix of basis vectors
+that generate the lattice. We should note that there exist large number of basis vectors, some are {\it good}
+some are {\it bad}.
+
+A { \bf closest vector problem (CVP) } on latticies, which is considered NP-hard, is not solvable even on 
+quantum computers, can be defined as follows. Given a point $t \in \mathbb{R}^n$ and a lattice
+$\Lambda({\bf B})$, the task is to find a closes point ${\bf Bx}$ on lattice: 
+
+$$\min_{\forall {\bf x} \in \mathbb{Z}^n} \|{\bf Bx} - {\bf t}\|$$ 
+
+In practice the above problem is extremely hard to solve which makes lattice-based cryptography 
+attractive to cryptographers.
 
 From linear algebra we know that solving equation $\bf{Ax}=\bf{b}$ is simple using
-Gaussian elimination. However, if a random noise is added to the equation $\bf{Ax} + \bf{e} = \bf{b}$ the 
-problem is considered as hard as CVP on lattice.
+Gaussian elimination. However, if a random noise is added to the equation $$\bf{Ax} + \bf{e} = \bf{b}$$ the 
+problem is considered as hard as CVP on lattice. Solving the above problem directly relates to 
+solving the CVP problem on lattice if the parameters are selcted carefully.
 
-Given a matrix $\bf{A} \sim U(Z^{nxm}_q)$, $\bf{s} \sim U(Z^{n}_q)$ and $\bf{e} \sim D_{Z^{m}, \sigma}$ 
+Given a matrix $\bf{A} \sim U(\mathbb{Z}^{nxm}_q)$, $\bf{s} \sim U(\mathbb{Z}^{n}_q)$ and $\bf{e} \sim D_{\mathbb{Z}^{m}, \sigma}$ 
 sampled from discrete (clipped) Gaussian distribution with parameter $\sigma$. We require that, the probability
-$P[e < q/4]$ is high (\ie $99.99\%$) to ensure correct decryption of the message and achieve required 
-level of security. To ensure that $\bf{e}$ is always less than $q/4$ the values are drawn with resampling
-or clipping. We require, that the parameter $\sigma = q/16$.
+$P[e < q/4]$ is high (\ie $99.99\%$) to ensure correct decryption of the message and to achieve required 
+level of security. This can be achived by setting the parameter for discrete normal distribution carefully, \ie $4\sigma < q/(4m)$.
+
+To ensure that $\bf{re}$ is always less than $q/4$ the values are drawn with resampling
+or clipping. We require, further, that the parameter $\sigma = q/(16m)$.
 
 \begin{equation}
     {\bf A}=\begin{bmatrix}
@@ -292,14 +314,20 @@ or clipping. We require, that the parameter $\sigma = q/16$.
     \end{bmatrix}
 \end{equation}
 
-Once the parameters are generated, compute ${\bf Ax}+{\bf e} = {\bf b}$. Then, the public 
-key is $({\bf A, b})$ and the private key is ${\bf s}$.
+Once the parameters are generated, we can compute ${\bf As}+{\bf e} = {\bf b}$. Then, the public 
+key is $({\bf A, b})$ and the private key is ${\bf s}$. Derving ${\bf s}$ from ${\bf b}$ is a hard 
+task at hand.
 
 To encrypt the message $\mu \in \{0, 1\}$ choose ${\bf r} \sim U(\{0, 1\}^m)$. Then compute ${\bf u}={\bf rA}$ and 
-$v={\bf rb}+\lfloor q/2 \rceil \mu$. The ciphertext is $({\bf u}, v)$.
-
-To decrypt the message compute $v - \bf{u s}$, if the result is less than $q/4$ output $0$, if the result
+$v={\bf rb}+\lfloor q/2 \rceil \mu$. The ciphertext is $({\bf u}, v)$. To decrypt the message 
+compute $v - \bf{u s}$, if the result is less than $q/4$ output $0$, if the result
 is larger than $q/4$ output $1$. 
+
+The major disadvantage of lattice-based cryptography is the size of the keys and actual ciphertext. For example,
+security of LWE depends on two parameters $n$ and $q$. By choosing $n=1024$ and $q=2^{32}$, the size of ciphertext
+for a message of $256$ bits long (for example, this is the size of the key for AES-256 symmetric algorithm), 
+the size of the ciphertext will be $O(n\log q) \approx 4\cdot 1024$ B or roughly $4$ KB. All in all 
+the security does not come for free.
 
 \section{Security protocols}
 
