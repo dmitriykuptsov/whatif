@@ -25,7 +25,7 @@ should be considered thoroughly. With this in mind, in this work we
 present different security solutions, which can be used to build secure 
 L2 and L3 overlay networks. We present the limitations of each solution 
 and identify how they can be avoided using various VPLS and L3-VPN.
-With this in mind, we start with a background material on cryptography. 
+We start with a background material on cryptography. 
 Here we discuss various symmetric and asymmetric encryption algorithms, 
 present the definition of hash functions, which considered secure nowadays, 
 and discuss several key agreement algorithms. To make the discussion 
@@ -491,12 +491,46 @@ cumulatively. In fact this exactly the result we get in our experiments.
 
 \section{Scalable multipoint to multipoint VPN using HIP protocol}
 
+The overall architecture which we have implemented in
+Mininet framework is shown in Figure~\cite{fig:l3vpn}. The architecture
+of the distributed L3-VPN network is of hub-and-spoke type.
+Hub nodes comprise the backbone of the network, whereas,
+multiple spoke PE elements are attached to the hubs. This
+allows to achieve scalability property. The security of the 
+network is achieved by using Host Identity Protocol to negotiated
+the authentication and encryption keys, whereas, the actual packet authentication
+and encryption is performed on hop-by-hop bases using HMAC-SHA256
+algorithm. 
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\textwidth]{graphics/arch.png}
     \caption{HIP-based L3-VPN in Mininet}
-    \label{fig:testbed}
+    \label{fig:l3vpn}
 \end{figure}
+
+\section{Comparison of various solutions}
+
+In what follows, we compare now different approaches, identify there
+characteristics and limitation. In Table~\cite{tab:analysis} we 
+compare three different approaches for building overlays with Host 
+Identity Protocol. 
+ 
+\begin{table*}
+    \small
+    \begin{tabular}{|l|c|c|c|}
+    \hline
+    Characteristic $\downarrow$ \ Overlay type $\rightarrow$ & L2-VPN & L3-VPN & HIP-VPLS \\\hline
+    Size of forwarding/routing table & $O(n)$ & $O(m)$ & $O(n)$\\\hline
+    Number of links in mesh & $O(k^2)$ & $O(k^2)$ & $O(l^2)$ \\\hline
+    Privacy (exposure of information) & MACs & IPs & No \\\hline
+    Encryption and authentication & Hop-by-hop & Hop-by-hop & PE-to-PE \\\hline
+    Tunneling mode & Ethernet-in-IP & IP-in-IP & Ethernet-in-IP \\\hline
+    Loop free-topology & 802.1d & Controller & Not required \\\hline
+    \end{tabular}
+    \label{tab:analysis}
+    \caption {Comparison study of different multipoint VPLS/VPN designs}
+\end{table*}
 
 \chapter{Conclusions}
 

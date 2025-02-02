@@ -8,16 +8,21 @@ The style file: acm.bst
 Reallocated glb_str_ptr (elt_size=8) to 10 items from 0.
 Reallocated global_strs (elt_size=200001) to 10 items from 0.
 Reallocated glb_str_end (elt_size=8) to 10 items from 0.
-Database file #1: book.bib
-Warning--I didn't find a database entry for "Stinson:Cryptography"
-Warning--I didn't find a database entry for "gurtov:hip"
-Warning--I didn't find a database entry for "ssl"
+Database file #1: mybib.bib
+ Illegal end of database file---line 24 of file mybib.bib
+ : year = {2008},
+ :               
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "fig:l3vpn"
+Warning--I didn't find a database entry for "tab:analysis"
+Warning--to sort, need author or key in ssl
+Warning--empty publisher in gurtov:hip
 
 Here's how much of BibTeX's memory you used:
- Cites:                 0 out of 750
- Fields:               46 out of 5000
- Hash table:       199841 out of 200000
- Strings:             527 out of 200000
- Free string pool:   3899 out of 65000
+ Cites:                 3 out of 750
+ Fields:               12 out of 5000
+ Hash table:       199839 out of 200000
+ Strings:             540 out of 200000
+ Free string pool:   4185 out of 65000
  Wizard functions:   2253 out of 3000
-(There were 3 warnings)
+(There was 1 error message)

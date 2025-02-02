@@ -1,3 +1,18 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{ssl}
+{The Secure Sockets Layer (SSL) Protocol Version 3.0}.
+\newblock https://datatracker.ietf.org/doc/html/rfc6101.
+
+\bibitem{gurtov:hip}
+{\sc Gurtov, A.}
+\newblock {\em Host Identity Protocol (HIP): Towards the Secure Mobile
+  Internet}.
+\newblock 2008.
+
+\bibitem{Stinson:Cryptography}
+{\sc Stinson, D.}
+\newblock {\em Cryptography: Theory and Practice, Second Edition}, 2nd~ed.
+\newblock CRC/C\&H, 2002.
 
 \end{thebibliography}
