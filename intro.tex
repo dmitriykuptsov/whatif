@@ -428,12 +428,42 @@ running time in miroseconds with the $95\%$ confidence intervals.
 What related to cryptographical operations. 
 For standard packet of size $1500$ bytes we have compared the performance (combined HMAC and AES-256)
 and it turned out, on one hand, that implementation of cryptography in pure C with CPU instructions is 
-$12.1x$ faster than pure Python implmentation. On the other hand, Python implemenation with bindings
-to C library demonstrated performance which was $2.3x$ faster.
-
+$12.1$ faster than pure Python implmentation. On the other hand, Python implemenation with bindings
+to C library demonstrated performance which was $2.3$ faster. By making back of the envelop calculations
+we predict that Python implmentation can achive roughly $60$ Mbits/s in upload and download directions
+cumulatively. In fact this exactly the result we get in our experiments.
 
 
 \section{Host Identity Protocol based VPLS}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{graphics/testbed.png}
+    \caption{Testbed}
+    \label{fig:testbed}
+\end{figure}
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{graphics/throughput/download.pdf}
+    \caption{Download throughput, Mbit/s}
+    \label{fig:download}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{graphics/throughput/upload.pdf}
+    \caption{Upload throughput, Mbit/s}
+    \label{fig:upload}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{graphics/throughput/ping.pdf}
+    \caption{Ping latency, ms}
+    \label{fig:ping}
+\end{figure}
 
 \section{Scalable multipoint to multipoint VPN using HIP protocol}
 

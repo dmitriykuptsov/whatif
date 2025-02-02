@@ -1,0 +1,200 @@
+Test #1
+Download: 50130.16 Kb/s
+Upload: 43319.87 Kb/s
+Ping: 5.103
+Test #2
+Download: 47788.95 Kb/s
+Upload: 46438.34 Kb/s
+Ping: 4.938
+Test #3
+Download: 50290.56 Kb/s
+Upload: 45173.39 Kb/s
+Ping: 4.611
+Test #4
+Download: 50061.00 Kb/s
+Upload: 45432.25 Kb/s
+Ping: 4.828
+Test #5
+Download: 50563.06 Kb/s
+Upload: 43614.32 Kb/s
+Ping: 4.933
+Test #6
+Download: 48920.18 Kb/s
+Upload: 44752.45 Kb/s
+Ping: 4.978
+Test #7
+Download: 49785.98 Kb/s
+Upload: 46063.62 Kb/s
+Ping: 4.802
+Test #8
+Download: 42241.06 Kb/s
+Upload: 58016.40 Kb/s
+Ping: 5.195
+Test #9
+Download: 50684.10 Kb/s
+Upload: 45251.65 Kb/s
+Ping: 4.898
+Test #10
+Download: 49664.19 Kb/s
+Upload: 44707.76 Kb/s
+Ping: 4.751
+Test #11
+Download: 49547.97 Kb/s
+Upload: 45875.23 Kb/s
+Ping: 4.647
+Test #12
+Download: 50697.09 Kb/s
+Upload: 62800.23 Kb/s
+Ping: 4.931
+Test #13
+Download: 50286.23 Kb/s
+Upload: 44353.32 Kb/s
+Ping: 4.78
+Test #14
+Download: 51234.70 Kb/s
+Upload: 55792.29 Kb/s
+Ping: 5.293
+Test #15
+Download: 41436.04 Kb/s
+Upload: 57248.59 Kb/s
+Ping: 5.116
+Test #16
+Download: 50909.38 Kb/s
+Upload: 45746.56 Kb/s
+Ping: 5.032
+Test #17
+Download: 40984.21 Kb/s
+Upload: 56447.20 Kb/s
+Ping: 5.286
+Test #18
+Download: 50145.37 Kb/s
+Upload: 42793.31 Kb/s
+Ping: 4.853
+Test #19
+Download: 48490.74 Kb/s
+Upload: 60739.30 Kb/s
+Ping: 4.748
+Test #20
+Download: 51249.66 Kb/s
+Upload: 62391.33 Kb/s
+Ping: 5.461
+Test #21
+Download: 50111.97 Kb/s
+Upload: 45419.52 Kb/s
+Ping: 5.158
+Test #22
+Download: 49620.83 Kb/s
+Upload: 46311.33 Kb/s
+Ping: 4.985
+Test #23
+Download: 49998.14 Kb/s
+Upload: 44610.57 Kb/s
+Ping: 4.814
+Test #24
+Download: 49617.94 Kb/s
+Upload: 46395.33 Kb/s
+Ping: 4.943
+Test #25
+Download: 50522.97 Kb/s
+Upload: 46554.54 Kb/s
+Ping: 4.819
+Test #26
+Download: 50324.68 Kb/s
+Upload: 46764.09 Kb/s
+Ping: 5.322
+Test #27
+Download: 50049.71 Kb/s
+Upload: 43953.13 Kb/s
+Ping: 4.778
+Test #28
+Download: 49726.60 Kb/s
+Upload: 45342.28 Kb/s
+Ping: 4.633
+Test #29
+Download: 49966.84 Kb/s
+Upload: 46836.71 Kb/s
+Ping: 5.015
+Test #30
+Download: 49982.95 Kb/s
+Upload: 42975.40 Kb/s
+Ping: 4.842
+Test #31
+Download: 51590.02 Kb/s
+Upload: 57293.68 Kb/s
+Ping: 5.225
+Test #32
+Download: 49451.64 Kb/s
+Upload: 46135.31 Kb/s
+Ping: 4.945
+Test #33
+Download: 49533.45 Kb/s
+Upload: 45799.16 Kb/s
+Ping: 4.915
+Test #34
+Download: 50028.93 Kb/s
+Upload: 45492.30 Kb/s
+Ping: 4.861
+Test #35
+Download: 49939.49 Kb/s
+Upload: 45776.75 Kb/s
+Ping: 4.831
+Test #36
+Download: 49959.30 Kb/s
+Upload: 46314.65 Kb/s
+Ping: 4.933
+Test #37
+Download: 50282.60 Kb/s
+Upload: 45297.90 Kb/s
+Ping: 5.099
+Test #38
+Download: 50158.74 Kb/s
+Upload: 45931.88 Kb/s
+Ping: 5.136
+Test #39
+Download: 50348.56 Kb/s
+Upload: 45485.89 Kb/s
+Ping: 4.865
+Test #40
+Download: 50247.04 Kb/s
+Upload: 46523.85 Kb/s
+Ping: 4.813
+Test #41
+Download: 49549.52 Kb/s
+Upload: 38706.40 Kb/s
+Ping: 4.876
+Test #42
+Download: 50680.06 Kb/s
+Upload: 14603.35 Kb/s
+Ping: 5.013
+Test #43
+Download: 49250.78 Kb/s
+Upload: 47302.51 Kb/s
+Ping: 4.631
+Test #44
+Download: 49859.29 Kb/s
+Upload: 44746.49 Kb/s
+Ping: 5.283
+Test #45
+Download: 50409.62 Kb/s
+Upload: 44234.34 Kb/s
+Ping: 5.041
+Test #46
+Download: 41901.48 Kb/s
+Upload: 58587.31 Kb/s
+Ping: 5.131
+Test #47
+Download: 49115.10 Kb/s
+Upload: 45082.46 Kb/s
+Ping: 4.86
+Test #48
+Download: 51492.16 Kb/s
+Upload: 52171.66 Kb/s
+Ping: 5.147
+Test #49
+Download: 50319.17 Kb/s
+Upload: 45983.83 Kb/s
+Ping: 4.986
+Test #50
+Download: 49967.77 Kb/s
+Upload: 46073.32 Kb/s
+Ping: 4.996
