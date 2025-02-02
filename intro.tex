@@ -76,7 +76,7 @@ based on Host Identity Protocol}. Here we focus on rather different approach of 
 secure networks: We consider L3-VPN where nodes in different branches offices form separate 
 broadcast domains, but still can communicate with each other (with assistance of IPv4 
 routing protocol). Here, we want to answer how to tackle the scalability issues of 
-VPN network by adding hierarchy into the architecture?  
+VPN network by adding hierarchy into the architecture.
 
 
 \chapter{Background}
@@ -333,6 +333,10 @@ implementation in TLS library.
 
 \section{Security protocols}
 
+Equiped with basic understanding of the cryptography we will now dive into discussion of some 
+of the well-known security protocols, including IPSec, HIP, TLS and SSH. All these protocols
+make a solid basis for the secure internetworking.
+
 \subsection{Host Identity Protocol (HIP)}
 
 Internet was designed initially so that the Internet Protocol (IP) address has a dual role: it 
@@ -380,6 +384,17 @@ provides means for creating VPN tunnels between the spatially separated networks
 protocol for forwarding local traffic through remote servers. 
 
 \section{L2, L3 and L4 tunneling}
+
+Virtual Private LAN Services (or VPLS), L3-VPNs, L4 tunneling are pretty standard nowadays. 
+Companies build security solutions to provide Layer-2 and Layer-3 services for branch offices: 
+VPLS are typically built as overlays on top of Layer-3 (IP), whereas L3-VPNS are IP-in-IP. 
+
+In VPLS, when a frame arrives at VPLS provider equipment (PE), it is encapsulated 
+into an IP packet and is sent out to all other VPLS network elements comprising emulated LAN. 
+Security of such overlays is important for obvious reasons: customers do not want their corporate 
+traffic to be sniffed and analyzed. In this work, we build such a secure overlay with Host Identity 
+Protocol. In this section we will briefly review some of widely existing solutions to build L2, L3 and L4
+overlays.
 
 \subsection{Virtual Private LAN Services (VPLS) L2VPN solutions}
 
@@ -515,7 +530,7 @@ In what follows, we compare now different approaches, identify there
 characteristics and limitation. In Table~\cite{tab:analysis} we 
 compare three different approaches for building overlays with Host 
 Identity Protocol. 
- 
+
 \begin{table*}
     \small
     \begin{tabular}{|l|c|c|c|}
