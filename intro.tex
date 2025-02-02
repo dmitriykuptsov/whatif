@@ -395,6 +395,14 @@ protocol for forwarding local traffic through remote servers.
 
 \chapter{Results}
 
+In this chpater we are going to present the results that we have obtained 
+throughout several years that we have spent building various systems. We start 
+with the results for cryptographic library which we have implmented to 
+boost the performance of AES and HMAC algorithms on Intel CPUs. We then 
+present the results for complete HIP-VPLS architecture and present the 
+lookings of the web interface which was used to configure the HIP switches.
+Finally, we present the design and implmentation of the hierarchical L3-VPN
+in Mininet emulator.  
 
 \section{Hardware-enabled symmetric cryptography}
 
@@ -444,28 +452,51 @@ cumulatively. In fact this exactly the result we get in our experiments.
 \end{figure}
 
 
-\begin{figure}[h!]
+\begin{table}
     \centering
-    \includegraphics[width=0.9\textwidth]{graphics/throughput/download.pdf}
-    \caption{Download throughput, Mbit/s}
-    \label{fig:download}
-\end{figure}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    Statistics     & Upload (Mbits/s)        & Download (Mbits/s)     & Lattency (ms) \\\hline
+    Sample mean    & $46.1$                  & $48.2$                 & $5.0$         \\
+    Sample std     & $7.1$                   & $2.3$                  & $0.19$        \\
+    Sample median  & $44.8$                  & $48.8$                 & $4.9$         \\
+    Sample min     & $14.3$                  & $40.0$                 & $4.6$         \\
+    Sample max     & $61.3$                  & $50.4$                 & $5.4$         \\
+    \hline
+    \end{tabular}
+    \caption{Performance of HIP-VPLS on Intel N95 CPU}  
+    \label{tab:binary}
+\end{table}
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.9\textwidth]{graphics/throughput/upload.pdf}
-    \caption{Upload throughput, Mbit/s}
-    \label{fig:upload}
-\end{figure}
+%\begin{figure}[h!]
+%    \centering
+%    \includegraphics[width=0.9\textwidth]{graphics/throughput/download.pdf}
+%    \caption{Download throughput, Mbit/s}
+%    \label{fig:download}
+%\end{figure}
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.9\textwidth]{graphics/throughput/ping.pdf}
-    \caption{Ping latency, ms}
-    \label{fig:ping}
-\end{figure}
+%\begin{figure}[h!]
+%    \centering
+%    \includegraphics[width=0.9\textwidth]{graphics/throughput/upload.pdf}
+%    \caption{Upload throughput, Mbit/s}
+%    \label{fig:upload}
+%\end{figure}
+
+%\begin{figure}[h!]
+%    \centering
+%    \includegraphics[width=0.9\textwidth]{graphics/throughput/ping.pdf}
+%    \caption{Ping latency, ms}
+%    \label{fig:ping}
+%\end{figure}
 
 \section{Scalable multipoint to multipoint VPN using HIP protocol}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{graphics/arch.png}
+    \caption{HIP-based L3-VPN in Mininet}
+    \label{fig:testbed}
+\end{figure}
 
 \chapter{Conclusions}
 

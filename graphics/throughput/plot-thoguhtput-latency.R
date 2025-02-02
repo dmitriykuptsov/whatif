@@ -1,5 +1,11 @@
 data<-read.csv("ping.txt", header=T)
 
+mean(data$Latency)
+sd(data$Latency)
+median(data$Latency)
+min(data$Latency)
+max(data$Latency)
+
 require(ggplot2)
 
 pdf("ping.pdf")

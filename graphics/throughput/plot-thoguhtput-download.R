@@ -1,5 +1,11 @@
 data<-read.csv("download.txt", header=T)
 
+mean(data$Throughput/1024)
+sd(data$Throughput/1024)
+median(data$Throughput/1024)
+min(data$Throughput/1024)
+max(data$Throughput/1024)
+
 require(ggplot2)
 
 pdf("download.pdf")
