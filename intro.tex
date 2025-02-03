@@ -403,8 +403,8 @@ overlays.
 \subsubsection{QinQ tunneling}
 
 When the path from one network to the other, such as branch office to head office,
-traverses only layer-2 switches, the VPLS can be oranized with the help of 
-802.1Q protocol. Broadly, speaking this is not a protocol as such, but rather 
+traverses only layer-2 switches (IP routing is involved), the VPLS can be oranized 
+with the help of 802.1Q protocol. Broadly, speaking this is not a protocol as such, but rather 
 VLAN tag based switching which can be inserted in L2 header of an Ethernet frame. 
 
 \subsubsection{MPLS tunelling}
@@ -559,13 +559,6 @@ The testbed configuration is shown on the Figure~\ref{fig:testbed}
 %controll lists (ACL) and configure traffic shaper. We are going to discuss each feature seperately 
 %in the proceeding paragraphs.  
 
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.7\textwidth]{graphics/arch.png}
-\caption{System architecture}
-\label{fig:architecture}
-\end{figure} 
-
 According to the protocol, on the one hand, every HIP-VPLS 
 switch reports to the central controller (and is authenticated 
 using the HMAC algorithm together with the shared symmetric 
@@ -657,7 +650,7 @@ algorithm.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.9\textwidth]{graphics/arch.png}
+    \includegraphics[width=0.9\textwidth]{graphics/l3-vpn.png}
     \caption{HIP-based L3-VPN in Mininet}
     \label{fig:l3vpn}
 \end{figure}

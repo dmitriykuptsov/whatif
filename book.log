@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  3 FEB 2025 19:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  3 FEB 2025 20:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1042,51 +1042,42 @@ File: graphics/mininet.png Graphic file (type png)
 <use graphics/mininet.png>
 Package pdftex.def Info: graphics/mininet.png  used on input line 536.
 (pdftex.def)             Requested size: 258.91896pt x 213.95981pt.
-<graphics/arch.png, id=105, 307.29204pt x 152.27289pt>
-File: graphics/arch.png Graphic file (type png)
-<use graphics/arch.png>
-Package pdftex.def Info: graphics/arch.png  used on input line 564.
-(pdftex.def)             Requested size: 258.91896pt x 128.30566pt.
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Warning: Reference `fig:architecture' on page 22 undefined on input line 
+542.
 
 [22 <./graphics/mininet.png>]
-<graphics/testbed.png, id=110, 518.53725pt x 597.13087pt>
+<graphics/testbed.png, id=109, 518.53725pt x 597.13087pt>
 File: graphics/testbed.png Graphic file (type png)
 <use graphics/testbed.png>
-Package pdftex.def Info: graphics/testbed.png  used on input line 593.
+Package pdftex.def Info: graphics/testbed.png  used on input line 586.
 (pdftex.def)             Requested size: 332.895pt x 383.34694pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (11.08405pt too wide) in paragraph at lines 610--620
+ [23 <./graphics/testbed.png>]
+Overfull \hbox (11.08405pt too wide) in paragraph at lines 603--613
  [][] 
  []
 
 
-LaTeX Warning: Citation `fig:l3vpn' on page 23 undefined on input line 648.
+LaTeX Warning: Citation `fig:l3vpn' on page 24 undefined on input line 641.
 
-[23 <./graphics/arch.png>]
-File: graphics/arch.png Graphic file (type png)
-<use graphics/arch.png>
-Package pdftex.def Info: graphics/arch.png  used on input line 660.
-(pdftex.def)             Requested size: 332.895pt x 164.96342pt.
-
+<graphics/l3-vpn.png, id=114, 443.91847pt x 371.28712pt>
+File: graphics/l3-vpn.png Graphic file (type png)
+<use graphics/l3-vpn.png>
+Package pdftex.def Info: graphics/l3-vpn.png  used on input line 653.
+(pdftex.def)             Requested size: 332.895pt x 278.43066pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Citation `tab:analysis' on page 24 undefined on input line 668.
+LaTeX Warning: Citation `tab:analysis' on page 24 undefined on input line 661.
 
 
-Overfull \hbox (24.51083pt too wide) in paragraph at lines 674--685
+Overfull \hbox (24.51083pt too wide) in paragraph at lines 667--678
 [][]
  []
 
-[24 <./graphics/testbed.png>] [25] [26
+[24] [25 <./graphics/l3-vpn.png>] [26
 
 ]) (./book.bbl [27] [28
 
@@ -1105,8 +1096,8 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  18613 strings out of 478994
- 352059 string characters out of 5858184
- 1169608 words of memory out of 5000000
+ 352071 string characters out of 5858184
+ 1170608 words of memory out of 5000000
  35623 multiletter control sequences out of 15000+600000
  469939 words of font info for 143 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1130,7 +1121,7 @@ nts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/typ
 e1/urw/ncntrsbk/uncb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/
 ncntrsbk/uncr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrsb
 k/uncri8a.pfb>
-Output written on book.pdf (29 pages, 8547006 bytes).
+Output written on book.pdf (29 pages, 8488235 bytes).
 PDF statistics:
  195 PDF objects out of 1000 (max. 8388607)
  132 compressed objects within 2 object streams
