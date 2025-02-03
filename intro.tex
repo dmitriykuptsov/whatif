@@ -18,7 +18,7 @@ There are, however, other requirements that need to be taken into
 account. Scalability, resilience to various attacks, from man-in-the-middle 
 to integrity violation attacks, to rather fundamental attacks on 
 asymmetric algorithms (such as RSA, DSA and their elliptic curve 
-counterparts, Diffie-Hellman and Eliptic Curve DH, for sampling) 
+counterparts, Diffie-Hellman and Eliptic Curve DH, for example) 
 using, for example, {\it Shor’s quantum computer algorithm} to factorize 
 large numbers, and massive brute force attacks on hash algorithms 
 should be considered thoroughly. With this in mind, in this work we 
@@ -96,7 +96,7 @@ material with the discussion of post-quantum computer public key encryption
 solution based on lattice (more specifically we will discuss Learning With Errors 
 (LWE) algorithm). We believe that, eventually, this type of cryptography will be 
 the replacement for traditional RSA and DH algorithms, which rely on the hardness 
-of factorization of the big numbers and discrete logarithms. In the epilog of this 
+of factorization of the big numbers and discrete logarithms. In the epilogue of this 
 section, we will put few words on how lattice public key cryptography can be used, 
 for example, together with Host Identity Protocol.
 
@@ -142,7 +142,7 @@ For example, block cipher (such as AES, 3DES, Twofish~\cite{Stinson:Cryptography
 use blocks of data (typically, the size of the block is 128, 160, 256 
 bits~\cite{Stinson:Cryptography}), and encrypts or 
 decrypts one block at a time. There are different modes of operation, though, 
-for block ciphers, examples are counter mode and cipher block chaning. The latter 
+for block ciphers, examples are counter mode and cipher block chaining. The latter 
 one uses so-called initialization vector to add extra randomness into encryption 
 process, and encryption of proceeding blocks depends on the output of the previous 
 block. Modes of operations are important for security reasons. However, not all 
@@ -174,8 +174,8 @@ we provide a description of RSA algorithm.
 In RSA cryptosystem, the sender generates a pair of keys as follows: 
 First, the sender chooses large enough two prime numbers $p$ and $q$. Next, 
 the sender computes $n=pq$ and evaluates Euler’s phi function: $\phi(n)=(p-1)(q-1)$. 
-This is the same as the number of numbers coprime to $n$. The sender then selects at 
-random encryption exponent $e$ such that $1<e<\phi(n)$ such that $e$ is coprime to $\phi(n)$ 
+This is the same as the number of numbers co-prime to $n$. The sender then selects at 
+random encryption exponent $e$ such that $1<e<\phi(n)$ such that $e$ is co-prime to $\phi(n)$ 
 and computes the decryption exponent d such that $ed \equiv 1\ mod\ \phi(n)$ using modular 
 multiplicative inverse.
 
@@ -243,7 +243,7 @@ find more information about hash functions here [].
 
 Key exchange are important in modern systems as they allow negotiation of common 
 key over insecure channel. Of course, RSA can be used to deliver a session key
-by encrypting it with the recepients public key, but specially crafted key negotiation
+by encrypting it with the recipients public key, but specially crafted key negotiation
 algorithms exist in practice. Two bright examples are Diffie-Hellman (DH) and Eliptic Curve 
 DH. 
 
@@ -251,10 +251,10 @@ DH.
 \subsection{Post-quantum Lattice-based cryptography}
 
 Shor's algorithm, implemented on quantum computer makes certain computational 
-problems (such as, factoring of large numbers and descrite logarithm problem) 
+problems (such as, factoring of large numbers and discrete logarithm problem) 
 feasible in polynomial time. This shutters the security of the Internet, and 
 so rigorous research was initiated to fill the gap. In what follows we discuss
-certain hard mathimatical problem on latticies and show the workings of the 
+certain hard mathematical problem on lattices and show the workings of the 
 Learning With Errors (LWE) public key encryption scheme. In fact majority of 
 NIST's candidates for post-quantum public key encryption algorithms are based 
 on LWE.
@@ -277,15 +277,16 @@ attractive to cryptographers.
 From linear algebra we know that solving equation $\bf{Ax}=\bf{b}$ is simple using
 Gaussian elimination. However, if a random noise is added to the equation $$\bf{Ax} + \bf{e} = \bf{b}$$ the 
 problem is considered as hard as CVP on lattice. Solving the above problem directly relates to 
-solving the CVP problem on lattice if the parameters are selcted carefully.
+solving the CVP problem on lattice if the parameters are selected carefully.
 
 Given a matrix $\bf{A} \sim U(\mathbb{Z}^{nxm}_q)$, $\bf{s} \sim U(\mathbb{Z}^{n}_q)$ and $\bf{e} \sim D_{\mathbb{Z}^{m}, \sigma}$ 
 sampled from discrete (clipped) Gaussian distribution with parameter $\sigma$. We require that, the probability
 $P[e < q/4]$ is high (\ie $99.99\%$) to ensure correct decryption of the message and to achieve required 
-level of security. This can be achived by setting the parameter for discrete normal distribution carefully, \ie $4\sigma < q/(4m)$.
+level of security. This can be achieved by setting the parameter for discrete normal distribution carefully, \ie $4\sigma < q/(4m)$.
 
 To ensure that $\bf{re}$ is always less than $q/4$ the values are drawn with resampling
-or clipping. We require, further, that the parameter $\sigma = q/(16m)$.
+or clipping. We require, further, that the parameter $\sigma = q/(16m)$. We now defined 
+matrix ${\bf A}$, secret key ${\bf s}$ and noise vector ${\bf e}$ as follows:
 
 \begin{equation}
     {\bf A}=\begin{bmatrix}
@@ -315,7 +316,7 @@ or clipping. We require, further, that the parameter $\sigma = q/(16m)$.
 \end{equation}
 
 Once the parameters are generated, we can compute ${\bf As}+{\bf e} = {\bf b}$. Then, the public 
-key is $({\bf A, b})$ and the private key is ${\bf s}$. Derving ${\bf s}$ from ${\bf b}$ is a hard 
+key is $({\bf A, b})$ and the private key is ${\bf s}$. Deriving ${\bf s}$ from ${\bf b}$ is a hard 
 task at hand.
 
 To encrypt the message $\mu \in \{0, 1\}$ choose ${\bf r} \sim U(\{0, 1\}^m)$. Then compute ${\bf u}={\bf rA}$ and 
@@ -326,14 +327,14 @@ is larger than $q/4$ output $1$.
 The major disadvantage of lattice-based cryptography is the size of the keys and actual ciphertext. For example,
 security of LWE depends on two parameters $n$ and $q$. By choosing $n=512$ and $q=2^{16}$, the size of ciphertext
 for a message of $k=256$ bits long (for example, this is the size of the key for AES-256 symmetric algorithm), 
-the size of the ciphertext will be $O(k \cdot n \cdot \log q) \approx 256 \cdot 16 \cdot 512$ bits or roughly wopping 
+the size of the ciphertext will be $O(k \cdot n \cdot \log q) \approx 256 \cdot 16 \cdot 512$ bits or roughly whooping 
 $256$ KB. All in all the security does not come for free. Of course, there are way much practical implementations
 if LWE-based encryption algorithms, for example, the reader can take a look at Kyber~\cite{} which has practical 
 implementation in TLS library.
 
 \section{Security protocols}
 
-Equiped with basic understanding of the cryptography we will now dive into discussion of some 
+Equipped with basic understanding of the cryptography we will now dive into discussion of some 
 of the well-known security protocols, including IPSec, HIP, TLS and SSH. All these protocols
 make a solid basis for the secure internetworking.
 
@@ -372,7 +373,7 @@ layer solutions to secure TCP connections. SSL was standardized in RFC 6101.
 TLS was standardized in RFC 5246. And was designed to prevent eavesdropping, man 
 in-the-middle attacks, tampering and message forgery. In SSL the communicating 
 hosts can authenticate each other with help of longer term identities - public key certificates.
-SSL is greate for building VPN tunnels and protecting upper layer protocols such as HTTP
+SSL is great for building VPN tunnels and protecting upper layer protocols such as HTTP
 
 
 \subsection{Secure Shell Protocol (SSH)}
@@ -410,28 +411,28 @@ overlays.
 
 \chapter{Results}
 
-In this chpater we are going to present the results that we have obtained 
+In this chapter we are going to present the results that we have obtained 
 throughout several years that we have spent building various systems. We start 
-with the results for cryptographic library which we have implmented to 
+with the results for cryptographic library which we have implemented to 
 boost the performance of AES and HMAC algorithms on Intel CPUs. We then 
 present the results for complete HIP-VPLS architecture and present the 
 lookings of the web interface which was used to configure the HIP switches.
-Finally, we present the design and implmentation of the hierarchical L3-VPN
+Finally, we present the design and implementation of the hierarchical L3-VPN
 in Mininet emulator.  
 
 \section{Hardware-enabled symmetric cryptography}
 
 Part of the work that we have done was related to porting parts of the code to pure C 
-and special Intel CPU instructions. In this section we will describe our achivements 
+and special Intel CPU instructions. In this section we will describe our achievements 
 in this direction. 
 
-For the benchmarkings we have selected three implementaitons. The first one was pure 
+For the benchmarkings we have selected three implementations. The first one was pure 
 Python based. For that purpose we have used PyCryptodome library. The second implementation
 was a Python wrapper to C library that was using special Intel CPU instructions to boost 
 the AES and SHA-based HMAC operations. The third implementation was pure C library 
 which was using Intel NI instructions. The results for AES-256 and HMAC operations 
 for varying block sizes is shown in Figure~\ref{}. The plots show the average 
-running time in miroseconds with the $95\%$ confidence intervals. 
+running time in microseconds with the $95\%$ confidence intervals. 
 
 \begin{figure}[h!]
     \centering
@@ -448,16 +449,84 @@ running time in miroseconds with the $95\%$ confidence intervals.
 \end{figure}
 
 
-What related to cryptographical operations. 
-For standard packet of size $1500$ bytes we have compared the performance (combined HMAC and AES-256)
-and it turned out, on one hand, that implementation of cryptography in pure C with CPU instructions is 
-$12.1$ faster than pure Python implmentation. On the other hand, Python implemenation with bindings
-to C library demonstrated performance which was $2.3$ faster. By making back of the envelop calculations
-we predict that Python implmentation can achive roughly $60$ Mbits/s in upload and download directions
-cumulatively. In fact this exactly the result we get in our experiments.
-
+What related to cryptographical operations. For standard packet of size $1500$ 
+bytes we have compared the performance (combined HMAC and AES-256) and it turned 
+out, on one hand, that implementation of cryptography in pure C with CPU instructions is 
+$12.1$ faster than pure Python implementation. On the other hand, Python implementation with bindings
+to C library demonstrated performance which was $2.3$ times faster. By making back of the envelop calculations
+we predict that Python implementation can achieve roughly $461$ Mbits/s in upload and download directions
+cumulatively. However, in practice, given other operations with packets we did not get this result 
+in our experiments (more about performance of HIP-VPLS on real hardware can be found in proceeding 
+chapter). For the plain C implementation with AES and SHA instructions the performance would be 
+better and constitute astonishing $2.5$ Gbits/s. Would someone need to run the code in production
+the entire code needs to be rewritten in plain C programming language.
 
 \section{Host Identity Protocol based VPLS}
+
+Virtual Private LAN Services (VPLS) provide means for building Layer 2 communication 
+on top of existing IP networks. VPLS can be built using various approaches. However, 
+when building a production-grade VPLS solution one needs to have a clear picture of 
+how such aspects as security, mobility, and L2 issues will be solved.
+
+In what follows, we will demonstrate how to build the VPLS using Host Identity Protocol (HIP). 
+Our initial goal was not to build a production-grade implementation of HIP-switches. Instead, 
+at first we were only interested in demonstrating proof of a concept solution that uses 
+Mininet – a framework for emulating L2 and L3 networks. It is worth mentioning that the code 
+we have produced can be also deployed (under certain conditions; for example, our HIP implementation 
+does not feature the NAT traversal mechanisms) on the real hardware. An we are going to demonstrate 
+working prototype in the later part of this document.
+
+While building HIP-switches (the switches that are deployed at the border of a network) 
+we came across several challenges. First, to avoid loops the undelying network needs to support 
+the IEEE 802.1D protocol (or its modification - this really depends on the version of the protocol 
+supported by the switches). This problem was initially addressed in the relevant IETF draft. 
+Second, there were certain issues with MTU and the inability of the Linux kernel to deliver IP 
+packets when those are fragmented in user space and injected into the network stack using raw 
+sockets. And finally, it took us some time to repackage the existing implementation of HIP protocol 
+as a library, so that it will be agnostic about low-level networking (such as raw sockets, etc.). 
+In proceeding paragraphs, we will demonstrate the usage of HIP-based VPLS using loop-free L2 topology,
+that is achieved by using 802.1d STP protocol.
+
+We now turn our attention to our attention to real-life deployment 
+of HIP-VPLS. The system architecture is shown in Figure~\ref{fig:architecture}. 
+Apart from the HIP-VPLS switches, we have also implemented a unique 
+control-plane protocol on top of the SSL protocol. 
+
+%In our architecture, HIP switch controller is a central server instance that collects information from the HIP-switches
+%and allows one to perform configuration of such parameters as firewall rules, HIP hosts file, MAC-based access
+%controll lists (ACL) and configure traffic shaper. We are going to discuss each feature seperately 
+%in the proceeding paragraphs.  
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{graphics/arch.png}
+\caption{System architecture}
+\label{fig:architecture}
+\end{figure} 
+
+According to the protocol, on the one hand, every HIP-VPLS 
+switch reports to the central controller (and is authenticated 
+using the HMAC algorithm together with the shared symmetric 
+master secret). In the implementation switches report their presence every $5$ 
+seconds. On the other hand, every HIP-VPLS switch obtains 
+the configuration from the central controller (such as mesh 
+configuration, HIT resolver information, firewall rules, and 
+MAC-based ACL). In the future, we also plan to support traffic 
+shaper functionality.
+
+Although we did not implement a traffic shaper feature in our 
+HIP switches and HIP  controller, it is still valuable for future 
+work. For example, different hosts can be served differently 
+(with more bandwidth) than others by using traffic shaping. If 
+some hosts in the HIP-VPLS network send delay-sensitive traffic, 
+for example, curtain rules can be configured on the HIP controller 
+to give a needed advantage over other hosts in the network. We 
+leave this for future discussions and work.
+
+In the testbed, we had a multihomed server (with one IP facing 
+the public network so that HIP switches will be able to connect to 
+the controller in the Internet, and one IP in the private range), 
+several legacy microcomputers, IP camera, and DHCP/DNS server.
 
 \begin{figure}[h!]
     \centering
