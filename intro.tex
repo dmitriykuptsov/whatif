@@ -487,10 +487,30 @@ as a library, so that it will be agnostic about low-level networking (such as ra
 In proceeding paragraphs, we will demonstrate the usage of HIP-based VPLS using loop-free L2 topology,
 that is achieved by using 802.1d STP protocol.
 
+The working prototype logical network diagram is shown in the Figure~\ref{fig:mininet}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/mininet.png}
+    \caption{Mininet HIP-VPLS logical diagram}
+    \label{fig:mininet}
+\end{figure}
+
 We now turn our attention to our attention to real-life deployment 
 of HIP-VPLS. The system architecture is shown in Figure~\ref{fig:architecture}. 
 Apart from the HIP-VPLS switches, we have also implemented a unique 
 control-plane protocol on top of the SSL protocol. 
+
+In our deployment we have used the following setup. For HIP switches we 
+have used the dual-network Intel N95 computing platform. We have used $8$ 
+port SNR switches to connect 3 HIP switches, that way we have mimicked the 
+IP overlay in the setup. HIP switches had two interfaces: one is facing 
+LAN network, the other one is facing the WAN network. The microcomputers for
+HIP switches had the following characteristics: they had $1$GB of RAM memory, 
+dual core Intel N95 CPU (with support for AES and SHA2 NI instructions), 256 of 
+solid state hard drive. To wire the routers we have used SNR switches 
+(each switch had $8$ $1$GB/s ports, and two Small Form Factor (SFP) slots). 
+The testbed configuration is shown on the Figure~\ref{fig:testbed}
 
 %In our architecture, HIP switch controller is a central server instance that collects information from the HIP-switches
 %and allows one to perform configuration of such parameters as firewall rules, HIP hosts file, MAC-based access
@@ -511,8 +531,10 @@ master secret). In the implementation switches report their presence every $5$
 seconds. On the other hand, every HIP-VPLS switch obtains 
 the configuration from the central controller (such as mesh 
 configuration, HIT resolver information, firewall rules, and 
-MAC-based ACL). In the future, we also plan to support traffic 
-shaper functionality.
+MAC-based ACL). The architecture of HIP-VPLS switches is such
+that extra functionality can be easily implemented. For example,
+such thing as traffic shaper can be incorporated into the design
+quite easily.
 
 Although we did not implement a traffic shaper feature in our 
 HIP switches and HIP  controller, it is still valuable for future 
