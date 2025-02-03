@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  3 FEB 2025 17:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  3 FEB 2025 19:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -953,14 +953,14 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 18.99994pt on input line 87.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 87.
+(Font)              scaled to size 18.99994pt on input line 86.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 86.
 
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 87.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 86.
 
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1003,80 +1003,86 @@ Overfull \hbox (6.10172pt too wide) in paragraph at lines 222--230
  []
 
 [12] [13] [14] [15]
-Overfull \hbox (2.60837pt too wide) in paragraph at lines 389--392
+Overfull \hbox (2.60837pt too wide) in paragraph at lines 389--393
 \T1/pnc/m/n/10.95 Virtual Pri-vate LAN Ser-vices (or VPLS), L3-VPNs, L4 tun-nel
 -ing are pretty
  []
 
-[16] [17] [18
+[16] [17]
+<graphics/vpn-central.png, id=76, 369.2997pt x 305.16008pt>
+File: graphics/vpn-central.png Graphic file (type png)
+<use graphics/vpn-central.png>
+Package pdftex.def Info: graphics/vpn-central.png  used on input line 431.
+(pdftex.def)             Requested size: 332.895pt x 275.08853pt.
+ [18 <./graphics/vpn-central.png>]
 
-]
+LaTeX Warning: Reference `' on page 19 undefined on input line 476.
 
-LaTeX Warning: Reference `' on page 19 undefined on input line 434.
-
-<graphics/crypto/aes.pdf, id=79, 505.89pt x 505.89pt>
+<graphics/crypto/aes.pdf, id=82, 505.89pt x 505.89pt>
 File: graphics/crypto/aes.pdf Graphic file (type pdf)
 <use graphics/crypto/aes.pdf>
-Package pdftex.def Info: graphics/crypto/aes.pdf  used on input line 439.
+Package pdftex.def Info: graphics/crypto/aes.pdf  used on input line 481.
 (pdftex.def)             Requested size: 332.895pt x 332.90036pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<graphics/crypto/hmac.pdf, id=80, 505.89pt x 505.89pt>
+<graphics/crypto/hmac.pdf, id=83, 505.89pt x 505.89pt>
 File: graphics/crypto/hmac.pdf Graphic file (type pdf)
 <use graphics/crypto/hmac.pdf>
-Package pdftex.def Info: graphics/crypto/hmac.pdf  used on input line 446.
+Package pdftex.def Info: graphics/crypto/hmac.pdf  used on input line 488.
 (pdftex.def)             Requested size: 332.895pt x 332.90036pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[19] [20 <./graphics/crypto/aes.pdf>] [21 <./graphics/crypto/hmac.pdf>]
-<graphics/mininet.png, id=101, 369.2997pt x 305.16008pt>
+[19
+
+] [20 <./graphics/crypto/aes.pdf>] [21 <./graphics/crypto/hmac.pdf>]
+<graphics/mininet.png, id=104, 369.2997pt x 305.16008pt>
 File: graphics/mininet.png Graphic file (type png)
 <use graphics/mininet.png>
-Package pdftex.def Info: graphics/mininet.png  used on input line 494.
+Package pdftex.def Info: graphics/mininet.png  used on input line 536.
 (pdftex.def)             Requested size: 258.91896pt x 213.95981pt.
-<graphics/arch.png, id=103, 307.29204pt x 152.27289pt>
+<graphics/arch.png, id=105, 307.29204pt x 152.27289pt>
 File: graphics/arch.png Graphic file (type png)
 <use graphics/arch.png>
-Package pdftex.def Info: graphics/arch.png  used on input line 522.
+Package pdftex.def Info: graphics/arch.png  used on input line 564.
 (pdftex.def)             Requested size: 258.91896pt x 128.30566pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [22 <./graphics/mininet.png>]
-<graphics/testbed.png, id=108, 518.53725pt x 597.13087pt>
+<graphics/testbed.png, id=110, 518.53725pt x 597.13087pt>
 File: graphics/testbed.png Graphic file (type png)
 <use graphics/testbed.png>
-Package pdftex.def Info: graphics/testbed.png  used on input line 551.
+Package pdftex.def Info: graphics/testbed.png  used on input line 593.
 (pdftex.def)             Requested size: 332.895pt x 383.34694pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (11.08405pt too wide) in paragraph at lines 568--578
+Overfull \hbox (11.08405pt too wide) in paragraph at lines 610--620
  [][] 
  []
 
 
-LaTeX Warning: Citation `fig:l3vpn' on page 23 undefined on input line 606.
+LaTeX Warning: Citation `fig:l3vpn' on page 23 undefined on input line 648.
 
 [23 <./graphics/arch.png>]
 File: graphics/arch.png Graphic file (type png)
 <use graphics/arch.png>
-Package pdftex.def Info: graphics/arch.png  used on input line 618.
+Package pdftex.def Info: graphics/arch.png  used on input line 660.
 (pdftex.def)             Requested size: 332.895pt x 164.96342pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Citation `tab:analysis' on page 24 undefined on input line 626.
+LaTeX Warning: Citation `tab:analysis' on page 24 undefined on input line 668.
 
 
-Overfull \hbox (24.51083pt too wide) in paragraph at lines 632--643
+Overfull \hbox (24.51083pt too wide) in paragraph at lines 674--685
 [][]
  []
 
@@ -1098,10 +1104,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 18606 strings out of 478994
- 351891 string characters out of 5858184
+ 18613 strings out of 478994
+ 352059 string characters out of 5858184
  1169608 words of memory out of 5000000
- 35617 multiletter control sequences out of 15000+600000
+ 35623 multiletter control sequences out of 15000+600000
  469939 words of font info for 143 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  143i,10n,144p,432b,344s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1124,10 +1130,10 @@ nts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/typ
 e1/urw/ncntrsbk/uncb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/
 ncntrsbk/uncr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrsb
 k/uncri8a.pfb>
-Output written on book.pdf (29 pages, 8246344 bytes).
+Output written on book.pdf (29 pages, 8547006 bytes).
 PDF statistics:
- 193 PDF objects out of 1000 (max. 8388607)
+ 195 PDF objects out of 1000 (max. 8388607)
  132 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 

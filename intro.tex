@@ -388,7 +388,8 @@ protocol for forwarding local traffic through remote servers.
 
 Virtual Private LAN Services (or VPLS), L3-VPNs, L4 tunneling are pretty standard nowadays. 
 Companies build security solutions to provide Layer-2 and Layer-3 services for branch offices: 
-VPLS are typically built as overlays on top of Layer-3 (IP), whereas L3-VPNS are IP-in-IP. 
+VPLS are typically built as overlays on top of Layer-3 (IP) and are Ethenet over IP type 
+overlays, whereas L3-VPNS are IP-in-IP tunneling solutions.
 
 In VPLS, when a frame arrives at VPLS provider equipment (PE), it is encapsulated 
 into an IP packet and is sent out to all other VPLS network elements comprising emulated LAN. 
@@ -401,11 +402,52 @@ overlays.
 
 \subsubsection{QinQ tunneling}
 
+When the path from one network to the other, such as branch office to head office,
+traverses only layer-2 switches, the VPLS can be oranized with the help of 
+802.1Q protocol. Broadly, speaking this is not a protocol as such, but rather 
+VLAN tag based switching which can be inserted in L2 header of an Ethernet frame. 
+
 \subsubsection{MPLS tunelling}
+
+Multi-protocol label switching is a standard protocol for forwarding any traffic type.
+It has lable distribution protocol and lable switching components. It is an ideal way 
+of forwarding the traffic even if path contains L3 routers.
 
 \subsection{Virtual Private LAN (L3-VPN) security solutions}
 
+The major draback of QinQ and MPLS and QinQ is that they do not offer encryption and 
+authentication of traffic. Therefore, additional steps needs to be taken to protect end-to-end
+traffic. In this section we will review PPTP, SSL-based VPNs, L2TP and IPsec tunnels.
+
 \subsubsection{Multipoint to single point VPN}
+
+Multipoint to single head VPN is a standard way of organizing VPN network
+for an organization that has single head office and multiple branch offices.
+In this setpu multiple branch offices are connected to a head end. 
+We show such setup in Figure~\ref{fig:head-vpn}.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{graphics/vpn-central.png}
+    \caption{Typical arrangement of the VPN}
+    \label{fig:head-vpn}
+\end{figure}
+
+There is a number of protocols available for such an arrangement. Examples are:
+(i) Point-to-Point Tunneling Protocol (PPTP); (ii) SSL-based 
+Secure Socket Tunneling Protocol (SSTP); (iii) Layer 2 Tunneling Protocol (L2TP), 
+which is an older protocol that can be combined with IPSec for encryption; 
+(iv) Internet Protocol Security (IPSec). 
+
+We have, ourselves, created one particular implementation that is based on SSL~\cite{}.
+The idea is to tunnel all traffic from VPN agnostic hosts through a off-the-path 
+black box that encrypts all the traffic and sends encapsulated in TCP and SSL
+to the L3-VPN head server. The solution that we have created is a simple script 
+that allows to setup such an arrangement with no hussle. One drawback is that it 
+uses TCP for transport: sending over reliable TCP channel and over well known HTTPS port
+is good for bypassing the traffic filters, but reduces the performance especially if
+the channel has large lattency and error rate. 
+
 
 \subsubsection{SSH tunneling}
 
