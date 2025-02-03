@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  3 FEB 2025 17:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  3 FEB 2025 17:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1049,34 +1049,34 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <graphics/testbed.png, id=108, 518.53725pt x 597.13087pt>
 File: graphics/testbed.png Graphic file (type png)
 <use graphics/testbed.png>
-Package pdftex.def Info: graphics/testbed.png  used on input line 555.
+Package pdftex.def Info: graphics/testbed.png  used on input line 551.
 (pdftex.def)             Requested size: 332.895pt x 383.34694pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (11.08405pt too wide) in paragraph at lines 563--573
+Overfull \hbox (11.08405pt too wide) in paragraph at lines 568--578
  [][] 
  []
 
 
-LaTeX Warning: Citation `fig:l3vpn' on page 23 undefined on input line 601.
+LaTeX Warning: Citation `fig:l3vpn' on page 23 undefined on input line 606.
 
 [23 <./graphics/arch.png>]
 File: graphics/arch.png Graphic file (type png)
 <use graphics/arch.png>
-Package pdftex.def Info: graphics/arch.png  used on input line 613.
+Package pdftex.def Info: graphics/arch.png  used on input line 618.
 (pdftex.def)             Requested size: 332.895pt x 164.96342pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Citation `tab:analysis' on page 24 undefined on input line 621.
+LaTeX Warning: Citation `tab:analysis' on page 24 undefined on input line 626.
 
 
-Overfull \hbox (24.51083pt too wide) in paragraph at lines 627--638
+Overfull \hbox (24.51083pt too wide) in paragraph at lines 632--643
 [][]
  []
 
@@ -1099,7 +1099,7 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  18606 strings out of 478994
- 351881 string characters out of 5858184
+ 351891 string characters out of 5858184
  1169608 words of memory out of 5000000
  35617 multiletter control sequences out of 15000+600000
  469939 words of font info for 143 fonts, out of 8000000 for 9000
@@ -1124,7 +1124,7 @@ nts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/typ
 e1/urw/ncntrsbk/uncb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/
 ncntrsbk/uncr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrsb
 k/uncri8a.pfb>
-Output written on book.pdf (29 pages, 8246000 bytes).
+Output written on book.pdf (29 pages, 8246344 bytes).
 PDF statistics:
  193 PDF objects out of 1000 (max. 8388607)
  132 compressed objects within 2 object streams

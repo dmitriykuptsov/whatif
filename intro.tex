@@ -534,13 +534,9 @@ configuration, HIT resolver information, firewall rules, and
 MAC-based ACL). The architecture of HIP-VPLS switches is such
 that extra functionality can be easily implemented. For example,
 such thing as traffic shaper can be incorporated into the design
-quite easily.
-
-Although we did not implement a traffic shaper feature in our 
-HIP switches and HIP  controller, it is still valuable for future 
-work. For example, different hosts can be served differently 
-(with more bandwidth) than others by using traffic shaping. If 
-some hosts in the HIP-VPLS network send delay-sensitive traffic, 
+quite easily. For example, HIP-switch, when configured centrally, 
+can be serve different traffic flows differently (with more bandwidth) than other 
+flows by using traffic shaping. If some hosts in the HIP-VPLS network send delay-sensitive traffic, 
 for example, curtain rules can be configured on the HIP controller 
 to give a needed advantage over other hosts in the network. We 
 leave this for future discussions and work.
@@ -557,6 +553,15 @@ several legacy microcomputers, IP camera, and DHCP/DNS server.
     \label{fig:testbed}
 \end{figure}
 
+To conclude we have performed series of real-life experiments to measure the 
+performace of HIP-VPLS network. In Figure~\ref{tab:vpls-performance} we show
+sample statistics for upload and download throughput. In addition we have also
+measured lattency. To perform the measurements we have used {\bf speedtest}
+Python library. Thus, on one side, we have connected MacBook to HIP-switch via regular
+switch. On the other side, we have connected the other HIP switch to a network 
+that had connectivity to the Internet. We then performed $100$ rounds of measurements
+and collected throughput and lattency data and processed the cleaned data using Python
+{\it statistics} library.
 
 \begin{table}
     \centering
@@ -571,7 +576,7 @@ several legacy microcomputers, IP camera, and DHCP/DNS server.
     \hline
     \end{tabular}
     \caption{Performance of HIP-VPLS on Intel N95 CPU}  
-    \label{tab:binary}
+    \label{tab:vpls-performance}
 \end{table}
 
 %\begin{figure}[h!]
