@@ -9,20 +9,20 @@ Reallocated glb_str_ptr (elt_size=8) to 10 items from 0.
 Reallocated global_strs (elt_size=200001) to 10 items from 0.
 Reallocated glb_str_end (elt_size=8) to 10 items from 0.
 Database file #1: mybib.bib
- Illegal end of database file---line 24 of file mybib.bib
- : year = {2008},
- :               
-I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "fig:l3vpn"
 Warning--I didn't find a database entry for "tab:analysis"
 Warning--to sort, need author or key in ssl
+Warning--to sort, need author or key in snr
+Warning--to sort, need author or key in ssl:vpn
+Warning--to sort, need author or key in ssh:tunneling
+Warning--to sort, need author or key in pyhip
 Warning--empty publisher in gurtov:hip
 
 Here's how much of BibTeX's memory you used:
- Cites:                 3 out of 750
+ Cites:                 8 out of 750
  Fields:               12 out of 5000
- Hash table:       199839 out of 200000
- Strings:             540 out of 200000
- Free string pool:   4185 out of 65000
+ Hash table:       199833 out of 200000
+ Strings:             556 out of 200000
+ Free string pool:   4914 out of 65000
  Wizard functions:   2253 out of 3000
-(There was 1 error message)
+(There were 8 warnings)

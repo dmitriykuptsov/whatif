@@ -329,7 +329,7 @@ security of LWE depends on two parameters $n$ and $q$. By choosing $n=512$ and $
 for a message of $k=256$ bits long (for example, this is the size of the key for AES-256 symmetric algorithm), 
 the size of the ciphertext will be $O(k \cdot n \cdot \log q) \approx 256 \cdot 16 \cdot 512$ bits or roughly whooping 
 $256$ KB. All in all the security does not come for free. Of course, there are way much practical implementations
-if LWE-based encryption algorithms, for example, the reader can take a look at Kyber~\cite{} which has practical 
+if LWE-based encryption algorithms, for example, the reader can take a look at Kyber~\cite{nist:kyber} which has practical 
 implementation in TLS library.
 
 \section{Security protocols}
@@ -394,18 +394,33 @@ overlays, whereas L3-VPNS are IP-in-IP tunneling solutions.
 In VPLS, when a frame arrives at VPLS provider equipment (PE), it is encapsulated 
 into an IP packet and is sent out to all other VPLS network elements comprising emulated LAN. 
 Security of such overlays is important for obvious reasons: customers do not want their corporate 
-traffic to be sniffed and analyzed. In this work, we build such a secure overlay with Host Identity 
-Protocol. In this section we will briefly review some of widely existing solutions to build L2, L3 and L4
-overlays.
+traffic to be sniffed and analyzed. In L3-VPN networks, on the otherhand, the networks form different 
+broadcast domains, and so when IPv4 or IPv6 packet arrives at VPN box, it is encapsulated into another 
+IP packet and sent out using the backbone network. In this work, we built such secure overlays with 
+Host Identity Protocol. 
+
+In this section, however, we will briefly review some of widely existing solutions 
+for building L2, L3 and L4 overlays.
 
 \subsection{Virtual Private LAN Services (VPLS) L2VPN solutions}
+
+Virtual Private LAN Services (VPLS) are pretty common nowdays. In this section we will cover 
+to standard ways to build VPLS networks (802.1 QinQ tunneling and MPLS).
 
 \subsubsection{QinQ tunneling}
 
 When the path from one network to the other, such as branch office to head office,
-traverses only layer-2 switches (IP routing is involved), the VPLS can be oranized 
-with the help of 802.1Q protocol. Broadly, speaking this is not a protocol as such, but rather 
-VLAN tag based switching which can be inserted in L2 header of an Ethernet frame. 
+traverses only layer-2 switches (\ie no IP routing is involved), the VPLS can be oranized 
+with the help of 802.1Q protocol~\cite{snr}. Broadly, speaking this is not a protocol as such, but rather 
+VLAN tag based switching. Thus, on ingress point an additional 802.1q service provider SP-VLAN tag 
+is inserted in L2 header of an Ethernet frame. Later, the forwarding decisions are 
+made using this SP-VLAN tag. On egress point the SP-VLAN tag is removed and original 
+Ethernet frame is forwarded to the recipient based on destination MAC address 
+and, if exists, on inner C-VLAN tag. 
+
+It should be noted that the configuration of forwarding is a manual configuration step.
+Alos, QinQ does not provide additional mechanisms to secure the customer's traffic,
+thus limiting the application domain of this solution.
 
 \subsubsection{MPLS tunelling}
 
@@ -439,7 +454,7 @@ Secure Socket Tunneling Protocol (SSTP); (iii) Layer 2 Tunneling Protocol (L2TP)
 which is an older protocol that can be combined with IPSec for encryption; 
 (iv) Internet Protocol Security (IPSec). 
 
-We have, ourselves, created one particular implementation that is based on SSL~\cite{}.
+We have, ourselves, created one particular implementation that is based on SSL~\cite{ssl:vpn}.
 The idea is to tunnel all traffic from VPN agnostic hosts through a off-the-path 
 black box that encrypts all the traffic and sends encapsulated in TCP and SSL
 to the L3-VPN head server. The solution that we have created is a simple script 
@@ -450,6 +465,29 @@ the channel has large lattency and error rate.
 
 
 \subsubsection{SSH tunneling}
+
+SSH, despite that it was invented for remote access to Linux-like boxes, can be used 
+to tunnel local to remote and remote to local traffic~\cite{ssh:tunneling}. Thus it can be used to create
+layer-4 tunnels. For example, the following command will tunnel all local traffic from
+port 4443 to remote web-server {\it youtube.com} on port 443:
+
+\begin{verbatim}
+ssh -L 192.168.1.1:4443:youtube.com:443 user@strangebit.io
+\end{verbatim}
+
+In this example, when the client types \url{https://192.168.1.1:4443/} in the browser window,
+the traffic will be forwarded to the remove youtube server through the SSH server \url{strangebit.io}.
+
+There is also a possibility to perform the reverse tunneling, \ie one can expose the local service to the world.
+For example, suppose you have a precious MySQL resource in your local network running on host \url{192.168.1.45} 
+on port $3306$, then you can expose the service to the world using the following command:
+
+\begin{verbatim}
+ssh -R 0.0.0.0:3306:192.168.1.45:3306 user@strangebit.io
+\end{verbatim}
+
+This way various tunneling setups can be organized making SSH an attractive secure tunneling 
+solution.
 
 \chapter{Results}
 
@@ -515,8 +553,9 @@ Our initial goal was not to build a production-grade implementation of HIP-switc
 at first we were only interested in demonstrating proof of a concept solution that uses 
 Mininet – a framework for emulating L2 and L3 networks. It is worth mentioning that the code 
 we have produced can be also deployed (under certain conditions; for example, our HIP implementation 
-does not feature the NAT traversal mechanisms) on the real hardware. An we are going to demonstrate 
-working prototype in the later part of this document.
+does not feature the NAT traversal mechanisms) on the real hardware. And we are going to demonstrate 
+working prototype in the later part of this document. Our prototype uses Python-based HIP~\cite{pyhip} 
+as the bases for prototype.
 
 While building HIP-switches (the switches that are deployed at the border of a network) 
 we came across several challenges. First, to avoid loops the undelying network needs to support 
@@ -551,13 +590,14 @@ LAN network, the other one is facing the WAN network. The microcomputers for
 HIP switches had the following characteristics: they had $1$GB of RAM memory, 
 dual core Intel N95 CPU (with support for AES and SHA2 NI instructions), 256 of 
 solid state hard drive. To wire the routers we have used SNR switches 
-(each switch had $8$ $1$GB/s ports, and two Small Form Factor (SFP) slots). 
+(each switch had $8$ $1$ Gbit/s ports, and two Small Form Factor (SFP) slots). 
 The testbed configuration is shown on the Figure~\ref{fig:testbed}
 
 %In our architecture, HIP switch controller is a central server instance that collects information from the HIP-switches
 %and allows one to perform configuration of such parameters as firewall rules, HIP hosts file, MAC-based access
 %controll lists (ACL) and configure traffic shaper. We are going to discuss each feature seperately 
 %in the proceeding paragraphs.  
+
 
 According to the protocol, on the one hand, every HIP-VPLS 
 switch reports to the central controller (and is authenticated 

@@ -4,11 +4,36 @@
 {The Secure Sockets Layer (SSL) Protocol Version 3.0}.
 \newblock https://datatracker.ietf.org/doc/html/rfc6101.
 
+\bibitem{ssl:vpn}
+{Bypassing Deep Packet Inspection: Tunneling Traffic Over TLS VPN
+  \url{https://www.linuxjournal.com/content/bypassing-deep-packet-inspection-tunneling-traffic-over-tls-vpn}}.
+\newblock Online, 2021.
+
+\bibitem{pyhip}
+{Python-based Host Identity Protocol,
+  \url{https://github.com/dmitriykuptsov/cutehip}}.
+\newblock Online, 2025.
+
+\bibitem{snr}
+{SNR S2980G-8T Switch Configuration Guide,
+  \url{https://snr.systems/site/data-files/SNR%20Switches/Configuration%20Guide/SNR-S2980G-8T%20Configuration%20Guide%20v1.0.pdf}}.
+\newblock Online, 2025.
+
+\bibitem{ssh:tunneling}
+{SSH Tunneling, \url{https://www.ssh.com/academy/ssh/tunneling}}.
+\newblock Online, 2025.
+
 \bibitem{gurtov:hip}
 {\sc Gurtov, A.}
 \newblock {\em Host Identity Protocol (HIP): Towards the Secure Mobile
   Internet}.
 \newblock 2008.
+
+\bibitem{nist:kyber}
+{\sc {National Institute of Standards and Technology}}.
+\newblock {FIPS 203: Module-Lattice-Based Key-Encapsulation Mechanism
+  Standard}, 2024.
+\newblock \url{https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.203.pdf}.
 
 \bibitem{Stinson:Cryptography}
 {\sc Stinson, D.}
