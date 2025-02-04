@@ -255,7 +255,7 @@ problems (such as, factoring of large numbers and discrete logarithm problem)
 feasible in polynomial time. This shutters the security of the Internet, and 
 so rigorous research was initiated to fill the gap. In what follows we discuss
 certain hard mathematical problem on lattices and show the workings of the 
-Learning With Errors (LWE) public key encryption scheme. In fact majority of 
+Learning With Errors (LWE) public key encryption scheme~\cite{regev}. In fact majority of 
 NIST's candidates for post-quantum public key encryption algorithms are based 
 on LWE.
 
@@ -514,14 +514,14 @@ which was using Intel NI instructions. The results for AES-256 and HMAC operatio
 for varying block sizes is shown in Figure~\ref{}. The plots show the average 
 running time in microseconds with the $95\%$ confidence intervals. 
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.9\textwidth]{graphics/crypto/aes.pdf}
     \caption{AES-256 encryption (microseconds)}
     \label{fig:aes}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.9\textwidth]{graphics/crypto/hmac.pdf}
     \caption{HMAC calculation (microseconds)}
@@ -621,7 +621,7 @@ the public network so that HIP switches will be able to connect to
 the controller in the Internet, and one IP in the private range), 
 several legacy microcomputers, IP camera, and DHCP/DNS server.
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.9\textwidth]{graphics/testbed.png}
     \caption{Testbed}
@@ -688,7 +688,7 @@ the authentication and encryption keys, whereas, the actual packet authenticatio
 and encryption is performed on hop-by-hop bases using HMAC-SHA256
 algorithm. 
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.9\textwidth]{graphics/l3-vpn.png}
     \caption{HIP-based L3-VPN in Mininet}
@@ -698,7 +698,7 @@ algorithm.
 \section{Comparison of various solutions}
 
 In what follows, we compare now different approaches, identify there
-characteristics and limitation. In Table~\cite{tab:analysis} we 
+characteristics and limitation. In Table~\ref{tab:analysis} we 
 compare three different approaches for building overlays with Host 
 Identity Protocol. 
 

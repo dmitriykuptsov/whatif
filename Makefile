@@ -1,26 +1,25 @@
 PREFIX=/usr/local/teTeX/bin/
 
-LATEX=pdflatex
-BIBTEX=bibtexu
+LATEX=latex
+BIBTEX=bibtex
 PDFLATEX=pdflatex
 DOC=book
-SRC=book.tex 
+SRC=book.tex
 
 all: $(DOC).pdf
 
-$(DOC).dvi: $(DOC).tex $(SRC) Makefile 
+$(DOC).dvi: $(DOC).tex $(SRC) Makefile
 	-$(LATEX) $(DOC)
-	-$(BIBTEX) $(DOC)
+	-$(BIBTEX)  -min-crossrefs=100 $(DOC)
 	-$(LATEX) $(DOC)
 	-$(LATEX) $(DOC)
 
-$(DOC).pdf: $(DOC).tex $(SRC) Makefile 
+$(DOC).pdf: $(DOC).tex $(SRC) Makefile
 	-$(PDFLATEX) $(DOC)
-	-$(BIBTEX) $(DOC)
+	-$(BIBTEX)  -min-crossrefs=100 $(DOC)
 	-$(PDFLATEX) $(DOC)
 	-$(PDFLATEX) $(DOC)
 
 clean:
 	rm -f *.aux *.dvi *.idx *.ilg *.ind *.log *.toc *.out *.bak *~ \
 	$(DOC).bbl $(DOC).blg $(DOC).ps $(DOC).spl $(DOC).pdf
-

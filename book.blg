@@ -1,28 +1,54 @@
-This is BibTeXu: a UTF-8 Big BibTeX version 0.99d
-Implementation:  C for Unix
-Release version: 3.71 (04 mar 2019)
-Compiled with:   ICU version 68.2
-
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: book.aux
 The style file: acm.bst
-Reallocated glb_str_ptr (elt_size=8) to 10 items from 0.
-Reallocated global_strs (elt_size=200001) to 10 items from 0.
-Reallocated glb_str_end (elt_size=8) to 10 items from 0.
 Database file #1: mybib.bib
 Warning--I didn't find a database entry for "fig:l3vpn"
-Warning--I didn't find a database entry for "tab:analysis"
 Warning--to sort, need author or key in ssl
 Warning--to sort, need author or key in snr
 Warning--to sort, need author or key in ssl:vpn
 Warning--to sort, need author or key in ssh:tunneling
 Warning--to sort, need author or key in pyhip
 Warning--empty publisher in gurtov:hip
-
-Here's how much of BibTeX's memory you used:
- Cites:                 8 out of 750
- Fields:               12 out of 5000
- Hash table:       199833 out of 200000
- Strings:             556 out of 200000
- Free string pool:   4914 out of 65000
- Wizard functions:   2253 out of 3000
-(There were 8 warnings)
+You've used 9 entries,
+            2253 wiz_defined-function locations,
+            563 strings with 5064 characters,
+and the built_in function-call counts, 1898 in all, are:
+= -- 177
+> -- 33
+< -- 0
++ -- 18
+- -- 8
+* -- 85
+:= -- 260
+add.period$ -- 22
+call.type$ -- 9
+change.case$ -- 30
+chr.to.int$ -- 0
+cite$ -- 15
+duplicate$ -- 93
+empty$ -- 227
+format.name$ -- 8
+if$ -- 444
+int.to.chr$ -- 0
+int.to.str$ -- 9
+missing$ -- 5
+newline$ -- 43
+num.names$ -- 8
+pop$ -- 73
+preamble$ -- 1
+purify$ -- 22
+quote$ -- 0
+skip$ -- 74
+stack$ -- 0
+substring$ -- 74
+swap$ -- 21
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 32
+warning$ -- 6
+while$ -- 10
+width$ -- 10
+write$ -- 81
+(There were 7 warnings)

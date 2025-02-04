@@ -35,6 +35,12 @@
   Standard}, 2024.
 \newblock \url{https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.203.pdf}.
 
+\bibitem{regev}
+{\sc Regev, O.}
+\newblock The learning with errors problem (invited survey).
+\newblock In {\em Proceedings of the Annual IEEE Conference on Computational
+  Complexity\/} (2010), pp.~191--204.
+
 \bibitem{Stinson:Cryptography}
 {\sc Stinson, D.}
 \newblock {\em Cryptography: Theory and Practice, Second Edition}, 2nd~ed.
