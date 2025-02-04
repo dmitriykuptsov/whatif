@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  4 FEB 2025 20:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  4 FEB 2025 23:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -782,11 +782,7 @@ LaTeX Font Info:    Trying to load font information for T1+pnc on input line 60
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/t1pnc.fd
 File: t1pnc.fd 2001/06/04 font definitions for T1/pnc.
-) (./book.aux
-
-LaTeX Warning: Label `fig:aes' multiply defined.
-
-)
+) (./book.aux)
 \openout1 = `book.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
@@ -803,7 +799,8 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
 LaTeX Font Info:    ... okay on input line 60.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
 LaTeX Font Info:    ... okay on input line 60.
- (/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+(/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count334
 \scratchdimen=\dimen295
@@ -978,32 +975,26 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
  [6] [7] [8
 
 ]
-Overfull \hbox (4.22108pt too wide) in paragraph at lines 108--111
+Overfull \hbox (4.22108pt too wide) in paragraph at lines 110--113
 \T1/pnc/m/n/10.95 overview of var-i-ous L2, L3 and L4 tun-nel-ing so-lu-tions, 
 in-clud-ing L2 802.1Q
  []
 
 [9]
-Overfull \hbox (0.45036pt too wide) in paragraph at lines 115--126
+Overfull \hbox (0.45036pt too wide) in paragraph at lines 116--127
 \T1/pnc/m/n/10.95 Cryptography comes in many fla-vors: sym-met-ric key cryp-tog
 -ra-phy (3DES,
  []
 
 [10] [11]
 
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 213.
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 215.
 
 
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 214.
-
-
-Overfull \hbox (6.10172pt too wide) in paragraph at lines 223--231
-\T1/pnc/m/n/10.95 showed suc-cess-ful at-tacks. Briefly speak-ing, re-searchers
- suc-cess-fully found
- []
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 216.
 
 [12] [13] [14] [15] [16]
-Overfull \hbox (2.60837pt too wide) in paragraph at lines 392--396
+Overfull \hbox (2.60837pt too wide) in paragraph at lines 391--395
 \T1/pnc/m/n/10.95 Virtual Pri-vate LAN Ser-vices (or VPLS), L3-VPNs, L4 tun-nel
 -ing are pretty
  []
@@ -1012,45 +1003,48 @@ Overfull \hbox (2.60837pt too wide) in paragraph at lines 392--396
 <graphics/vpn-central.png, id=76, 369.2997pt x 305.16008pt>
 File: graphics/vpn-central.png Graphic file (type png)
 <use graphics/vpn-central.png>
-Package pdftex.def Info: graphics/vpn-central.png  used on input line 449.
+Package pdftex.def Info: graphics/vpn-central.png  used on input line 448.
 (pdftex.def)             Requested size: 332.895pt x 275.08853pt.
  [18] [19 <./graphics/vpn-central.png>]
 LaTeX Font Info:    Trying to load font information for T1+txtt on input line 4
-88.
+87.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
 ) [20]
-
-LaTeX Warning: Reference `' on page 21 undefined on input line 528.
-
 <graphics/crypto/aes.pdf, id=90, 505.89pt x 505.89pt>
 File: graphics/crypto/aes.pdf Graphic file (type pdf)
 <use graphics/crypto/aes.pdf>
-Package pdftex.def Info: graphics/crypto/aes.pdf  used on input line 533.
+Package pdftex.def Info: graphics/crypto/aes.pdf  used on input line 532.
 (pdftex.def)             Requested size: 332.895pt x 332.90036pt.
 <graphics/crypto/hmac.pdf, id=91, 505.89pt x 505.89pt>
 File: graphics/crypto/hmac.pdf Graphic file (type pdf)
 <use graphics/crypto/hmac.pdf>
-Package pdftex.def Info: graphics/crypto/hmac.pdf  used on input line 540.
+Package pdftex.def Info: graphics/crypto/hmac.pdf  used on input line 539.
 (pdftex.def)             Requested size: 332.895pt x 332.90036pt.
+
+Overfull \hbox (1.35948pt too wide) in paragraph at lines 545--556
+\OT1/cmr/m/n/10.95 1500$ \T1/pnc/m/n/10.95 bytes we have com-pared the per-for-
+mance (com-bined HMAC and AES-
+ []
+
 [21
 
 ] [22 <./graphics/crypto/aes.pdf>] [23 <./graphics/crypto/hmac.pdf>]
 <graphics/mininet.png, id=111, 369.2997pt x 305.16008pt>
 File: graphics/mininet.png Graphic file (type png)
 <use graphics/mininet.png>
-Package pdftex.def Info: graphics/mininet.png  used on input line 589.
+Package pdftex.def Info: graphics/mininet.png  used on input line 588.
 (pdftex.def)             Requested size: 258.91896pt x 213.95981pt.
 
 [24 <./graphics/mininet.png>]
 <graphics/testbed.png, id=116, 518.53725pt x 597.13087pt>
 File: graphics/testbed.png Graphic file (type png)
 <use graphics/testbed.png>
-Package pdftex.def Info: graphics/testbed.png  used on input line 636.
+Package pdftex.def Info: graphics/testbed.png  used on input line 635.
 (pdftex.def)             Requested size: 332.895pt x 383.34694pt.
 
-Overfull \hbox (6.82462pt too wide) in paragraph at lines 653--663
+Overfull \hbox (6.82462pt too wide) in paragraph at lines 652--662
  [][] 
  []
 
@@ -1060,12 +1054,11 @@ File: graphics/l3-vpn.png Graphic file (type png)
 <use graphics/l3-vpn.png>
 Package pdftex.def Info: graphics/l3-vpn.png  used on input line 706.
 (pdftex.def)             Requested size: 332.895pt x 278.43066pt.
-
+ [27 <./graphics/l3-vpn.png>]
 Overfull \hbox (24.51083pt too wide) in paragraph at lines 720--731
 [][]
  []
 
-[27 <./graphics/l3-vpn.png>]
 
 Package caption Warning: \label without proper reference on input line 730.
 See the caption package documentation for explanation.
@@ -1122,15 +1115,12 @@ Underfull \hbox (badness 2635) in paragraph at lines 50--54
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 18659 strings out of 478994
- 352734 string characters out of 5858184
+ 18660 strings out of 478994
+ 352748 string characters out of 5858184
  1169608 words of memory out of 5000000
- 35664 multiletter control sequences out of 15000+600000
+ 35665 multiletter control sequences out of 15000+600000
  470583 words of font info for 145 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  143i,10n,144p,432b,367s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1154,7 +1144,7 @@ pe1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw
 /ncntrsbk/uncb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrs
 bk/uncr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrsbk/uncr
 i8a.pfb>
-Output written on book.pdf (32 pages, 8527661 bytes).
+Output written on book.pdf (32 pages, 8528214 bytes).
 PDF statistics:
  209 PDF objects out of 1000 (max. 8388607)
  142 compressed objects within 2 object streams

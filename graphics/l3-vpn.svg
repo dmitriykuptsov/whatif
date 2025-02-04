@@ -24,8 +24,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.80445092"
-     inkscape:cx="269.12767"
-     inkscape:cy="344.95579"
+     inkscape:cx="234.32132"
+     inkscape:cy="272.85692"
      inkscape:window-width="1440"
      inkscape:window-height="750"
      inkscape:window-x="0"
@@ -826,9 +826,6 @@
     <path
        style="fill:none;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker55)"
        d="M 87.816108,65.122059 C 117.08815,65.450957 132.54642,50.32159 132.54642,50.32159 v 0.328899 0"
-       id="path43"
-       inkscape:export-filename="l3-vpn.png"
-       inkscape:export-xdpi="400"
-       inkscape:export-ydpi="400" />
+       id="path43" />
   </g>
 </svg>

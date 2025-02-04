@@ -27,7 +27,7 @@ L2 and L3 overlay networks. We present the limitations of each solution
 and identify how they can be avoided using various VPLS and L3-VPN.
 We start with a background material on cryptography. 
 Here we discuss various symmetric and asymmetric encryption algorithms, 
-present the definition of hash functions, which considered secure nowadays, 
+present the definition of hash functions, which are considered secure nowadays, 
 and discuss several key agreement algorithms. To make the discussion 
 complete we present the threat that quantum computers pose for such 
 algorithms as RSA and DH, and discuss how post-quantum algorithms such 
@@ -67,14 +67,14 @@ it perform in emulated environments such as Mininet.} Here we seek the answer to
 the question whether the HIP-VPLS is usable in environments close to real-life setups.
 
 Third, {\it what is the performance of Python based HIP-VPLS on real hardware}. By 
-doing so we want to find the application niche of our security solution. In addition, 
-we discuss the practical configuration of HIP-VPLS using central controller.
+asking such question we want to find the application niche of our security solution. In addition, 
+we elaborate on the practical configuration of HIP-VPLS using central controller.
 
-The next question {\it we want to answer relates to the deployment of scalable L3-VPN 
+The final question relates to {\it to the deployment of scalable L3-VPN 
 based on Host Identity Protocol}. Here we focus on rather different approach of building 
-secure networks: We consider L3-VPN where nodes in different branches offices form separate 
-broadcast domains, but still can communicate with each other (with assistance of IPv4 
-routing protocol). Here, we want to answer how to tackle the scalability issues of 
+secure networks: we consider L3-VPN where nodes in different branch offices form separate 
+broadcast and multicast domains, but still can communicate with each other (with assistance of IPv4 or IPv6 
+routing protocols). Here, we want to answer how to tackle the scalability issues of 
 VPN network by adding hierarchy into the architecture.
 
 
@@ -83,32 +83,33 @@ VPN network by adding hierarchy into the architecture.
 Since we are going to discuss the security protocols in this work, we begin 
 this section with the shallow dive into cryptography basics. Here, we discuss 
 symmetric and asymmetric cryptography algorithms, to make the description a 
-little bit complete we show how RSA algorithm works, discuss the math behind 
+little bit complete we show how RSA algorithm works, discuss  
 Diffie-Hellman (DH) and its Elliptic Curve counterpart. We should mention that current 
-understanding is such that Shor’s algorithm and its quantum computer implementation theoretically 
-can efficiently factorize big number and solve discite logarithm problem. 
+understanding inside the cryptographic community is such that Shor’s algorithm and 
+its quantum computer implementation theoretically 
+can efficiently factorize big number and solve discrite logarithm problem without trouble. 
 This algorithm, if powerful enough quantum computers will exist in the near future, 
-puts the RSA and DH algorithms - the major building block of modern security 
+puts the RSA and DH algorithms - the major building blocks of modern security 
 solutions - at risk of being cracked (once the modulus of RSA algorithm factorized 
 into prime components, the private key of RSA 
 algorithm can be easily recovered). We will conclude this part of the background 
-material with the discussion of post-quantum computer public key encryption 
+material with the discussion of {\bf post-quantum} computer public key encryption 
 solution based on lattice (more specifically we will discuss Learning With Errors 
-(LWE) algorithm). We believe that, eventually, this type of cryptography will be 
+(LWE) problem, which is at heart of modern public key cryptography). 
+We believe that, eventually, this type of cryptography will be 
 the replacement for traditional RSA and DH algorithms, which rely on the hardness 
-of factorization of the big numbers and discrete logarithms. In the epilogue of this 
+of factorization of the big numbers and discrete logarithm problem. In the epilogue of this 
 section, we will put few words on how lattice public key cryptography can be used, 
 for example, together with Host Identity Protocol.
 
 In the second part of the background material, we will review the basics of the Host 
 Identity Protocol, Transport Layer Security Protocol and Secure Shell Protocol, since 
-these protocols are the main building blocks of secure tunneling protocols that we
+these protocols are essential for understanding of the secure tunneling protocols that we
 discuss in this work.
 
 We will finalize the discussion of the background material with a short overview of 
 various L2, L3 and L4 tunneling solutions, including L2 802.1Q QinQ tunneling, 
-L3 Multi-Protocol Label Switching (MPLS) VPLS, L4 TLS and SSH tunneling.
-
+L3 Multi-Protocol Label Switching (MPLS), L4 tunneling using TLS and SSH protocol.
 
 \section{Cryptography basics}
 
@@ -133,8 +134,8 @@ of cryptography is efficient because of the usage efficient operations,
 it comes with a limitation though. In symmetric key cryptography, 
 both sender and receiver need to share the same key, which complicates 
 such important aspects as key distribution and revocation and so alone 
-this encryption solutions a very hard to use alone in modern cryptosystems. 
-Typically, asymmetric key cryptography such as RSA used to derive session 
+this encryption solutions a very hard to use in modern cryptosystems. 
+Typically, asymmetric key cryptography such as RSA or DH are used to derive session 
 keys – TLS, HIP and many other protocols follow this design idea.
 
 Symmetric key cryptography comes in two different flavors: block and stream. 
@@ -177,7 +178,8 @@ the sender computes $n=pq$ and evaluates Euler’s phi function: $\phi(n)=(p-1)(
 This is the same as the number of numbers co-prime to $n$. The sender then selects at 
 random encryption exponent $e$ such that $1<e<\phi(n)$ and also $e$ should be co-prime to $\phi(n)$.
 Finally, the sender or the dealer computes the decryption exponent $d$, such that 
-$ed \equiv 1\ mod\ \phi(n)$ using modular multiplicative inverse.
+$ed \equiv 1\ mod\ \phi(n)$ using modular multiplicative inverse (for that purpose extended Euclidian 
+algorithm can be used).
 
 The public key is then $(n, e)$ and the private key is $(n, d)$. To encrypt the message $m$ 
 the sender computes $c= m^e\ mod\ n$. The decryption is similar $m = c^d\ mod\ n$. The beauty is 
@@ -196,65 +198,66 @@ process. Digital Signature Algorithm (DSA) is another example of asymmetric sign
 was specifically design for that purpose. In turn, Elliptic Curves improve the performance of regulard DSA 
 algorithm.
 
-Frankly speaking, symmetric signature schemes can be also used. For example, one can use 
-one-time hash-based signatures to produce the secure digital signatures. Nevertheless, 
+Frankly speaking, one way functions can be also used to construct signature schemes. 
+For example, one can use one-time hash-based signatures to produce the secure digital signatures. Nevertheless, 
 the application of these type of signature algorithms is rather impractical and finds 
 little application in real-life settings.
 
 \subsection{Cryptographic hash functions}
 
-Mathematically, speaking hash function is special function that given a 
-pre-image of an arbitrary size produces an image or hash of a fixed size, 
-which is universally unique. Secure hash functions guarantee, to a certain 
-degree, that the result of a hash function is irreversible. That it is, it 
-should be extremely hard to find a pre-image, or original message, given a 
-hash or fingerprint. Secure hash functions should be also collision resistant. 
+Mathematically, speaking hash function is special function: For a given given 
+pre-image of an arbitrary size it produces an image or hash value of a fixed size, 
+which is universally unique. Ideally, secure hash functions should guarantee 
+that the result it produces is irreversible. That it is, it 
+should be extremely hard to find a pre-image, or original message, given the 
+hash or the fingerprint. Secure hash functions should be also collision resistant. 
 In other words, it should be extremely hard, if not impossible at all, to 
 find two different messages $m$ and $m’$ that will hash to the same value, i.e., 
 $hash(m)=hash(m’)$.
 
 Secure hash functions are important in modern cryptography. 
-For example, they serve as authentication tokens for transmitted message over the 
+For example, they can serve as authentication tokens for message transmitted over the 
 wire (useful, for example, in detecting message manipulation during transmission), 
-they allow compressing the message before signing it with the digital signature 
-algorithm, and they can be used to find the differences between the messages 
-efficiently. The application area is of course broader than just these few examples. 
+they also allow compressing the message before signing it with the digital signature 
+algorithm, and, finally, they can be used to find the differences between the messages 
+efficiently (useful in large file transfer operations). The application area is of 
+course broader than just these few examples. 
 
 Hash functions come in different flavors, but good ones should be computationally 
 efficient and resistant to collisions. Today, hash functions such as MD2, MD4 and MD5 
 considered broken, as there are works that showed successful attacks. Briefly speaking, 
-researchers successfully found collisions for this hash functions. Therefore, it is 
+researchers found collisions for these hash functions. Therefore, it is 
 not recommended to use these hash functions in security applications. A more modern 
-family of SHA hash functions also exists. For example, engineers recommend using SHA-256, 
-SHA-512 and SHA-3 in modern applications, as no successful attacks were registered for 
+family of SHA hash functions also exists. For example, engineers recommend to use SHA-256, 
+SHA-512 and recent SHA-3 in modern applications, as no successful attacks were registered for 
 these types of hash functions.
 
 Hash functions pave a road for such a notion as authentication tokens when combined with a 
 secret key in a special way. Examples are Hash-based MAC (HMAC)~\cite{Stinson:Cryptography}, 
 Parallelizable MAC (PMAC)~\cite{pmac}, Cipher-based MAC (CMAC) which is based on AES cipher. 
 For instance, by sending an HMAC together with the original message one can make sure that 
-the message will not be tampered during the transmission. In addition, if the message will 
-be altered on the path to recipient, this fact will be flagged immediately during the 
+the message will not be tampered during the transmission. If, however, the message will 
+be altered on the route to a recipient, this fact will be detected immediately during the 
 verification process.
 
 Hash functions are also useful in signatures. For example, one-time signatures are using 
 hash functions to construct an digital signature of a message. They are, however, impractical
-as they reqruire considerable storage and can be used only one-time as the name implies. 
+as they reqruire considerable amount of storage and can be used only one time as the name implies. 
 An interested reader can find more information about hash functions here~\cite{Stinson:Cryptography}.
 
 \subsection{Key exchange protocols}
 
-Key exchange are important in modern systems as they allow negotiation of common 
-key over insecure channel. Of course, RSA can be used to deliver a session key
+Finally, key exchange algorithms are also important in modern systems as they allow 
+negotiation of common key over insecure channel. Of course, RSA can be used to deliver a session key
 by encrypting it with the recipients public key, but specially crafted key negotiation
 algorithms exist in practice. Two bright examples are Diffie-Hellman (DH) and Eliptic Curve 
-DH. 
+DH. Both DH and ECDH need to be authenticated in order to guarantee security.
 
 
 \subsection{Post-quantum Lattice-based cryptography}
 
-Shor's algorithm, implemented on quantum computer makes certain computational 
-problems (such as, factoring of large numbers and discrete logarithm problem) 
+Shor's algorithm~\cite{shor}, implemented on quantum computer, makes certain computational 
+problems (such as, factorization of large numbers and discrete logarithm problem) 
 feasible in polynomial time. This shutters the security of the Internet, and 
 so rigorous research was initiated to fill the gap. In what follows we discuss
 certain hard mathematical problem on lattices and show the workings of the 
@@ -265,7 +268,7 @@ on LWE.
 A lattice is a mathematical structure which consists of integers in $n$-dimensions 
 arranged in a structured lattice-like way. Mathematically, the lattice is defined as follows:
 $$\Lambda({\bf B}) = \{{\bf Bx}, {\bf x} \in \mathbb{Z}^n \}$$ where ${\bf B}$ is a matrix of basis vectors
-that generate the lattice. We should note that there exist large number of basis vectors, some are {\it good}
+that generates the lattice. We should note that there exist large number of basis vectors, some are {\it good}
 some are {\it bad}.
 
 A { \bf closest vector problem (CVP) } on lattices, which is considered NP-hard, and believed unsolvable even on 
@@ -282,14 +285,10 @@ Gaussian elimination. However, if a random noise is added to the equation $$\bf{
 problem is considered as hard as CVP on lattice. Solving the above problem directly relates to 
 solving the CVP problem on lattice if the parameters are selected carefully.
 
-Given a matrix $\bf{A} \sim U(\mathbb{Z}^{nxm}_q)$, $\bf{s} \sim U(\mathbb{Z}^{n}_q)$ and $\bf{e} \sim D_{\mathbb{Z}^{m}, \sigma}$ 
-sampled from discrete (clipped) Gaussian distribution with parameter $\sigma$. We require that, the probability
+So, given a matrix $\bf{A} \sim U(\mathbb{Z}^{nxm}_q)$, vector $\bf{s} \sim U(\mathbb{Z}^{n}_q)$ and 
+vector $\bf{e} \sim D_{\mathbb{Z}^{m}, \sigma}$ sampled from discrete (clipped) Gaussian distribution with parameter $\sigma$. We require that, the probability
 $P[e < q/4]$ is high (\ie $99.99\%$) to ensure correct decryption of the message and to achieve required 
-level of security. This can be achieved by setting the parameter for discrete normal distribution carefully, \ie $4\sigma < q/(4m)$.
-
-To ensure that $\bf{re}$ is always less than $q/4$ the values are drawn with resampling
-or clipping. We require, further, that the parameter $\sigma = q/(16m)$. We now defined 
-matrix ${\bf A}$, secret key ${\bf s}$ and noise vector ${\bf e}$ as follows:
+level of security. We can define matrix ${\bf A}$, secret key ${\bf s}$ and noise vector ${\bf e}$ as follows:
 
 \begin{equation}
     {\bf A}=\begin{bmatrix}
@@ -322,10 +321,10 @@ Once the parameters are generated, we can compute ${\bf As}+{\bf e} = {\bf b}$. 
 key is $({\bf A, b})$ and the private key is ${\bf s}$. Deriving ${\bf s}$ from ${\bf b}$ is a hard 
 task at hand.
 
-To encrypt the message $\mu \in \{0, 1\}$ choose ${\bf r} \sim U(\{0, 1\}^m)$. Then we compute ${\bf u}={\bf rA}$ and 
+To encrypt the message $\mu \in \{0, 1\}$, we choose ${\bf r} \sim U(\{0, 1\}^m)$. Then we compute ${\bf u}={\bf rA}$ and 
 $v={\bf rb}+\lfloor q/2 \rceil \mu$. The ciphertext is $({\bf u}, v)$. To decrypt the message we can 
 compute $v - \bf{u s}$: if the result is less than $q/4$ output $0$, otherwise, if the result
-is larger than $q/4$ output $1$. 
+is larger than $q/4$ output $1$. For decription to work correctly, we require that the parameter $\sigma = q/(16m)$. 
 
 The major disadvantage of lattice-based cryptography is the size of the keys and actual ciphertext. For example,
 security of LWE depends on two parameters $n$ and $q$. By choosing $n=512$ and $q=2^{16}$, the size of ciphertext
@@ -402,7 +401,7 @@ broadcast domains, and so when IPv4 or IPv6 packet arrives at VPN box, it is enc
 IP packet and sent out using the backbone network. In this work, we built such secure overlays with 
 Host Identity Protocol. 
 
-In this section, however, we will briefly review some of widely existing solutions 
+In this section, however, we will briefly review some of widely used solutions 
 for building L2, L3 and L4 overlays.
 
 \subsection{Virtual Private LAN Services (VPLS) L2VPN solutions}
@@ -463,11 +462,11 @@ GRE and PPP protocols under single ambrella. It is the PPP protocol~\cite{tcpip}
 that provides such services as authentication and link configuariont (\ie using Link Control Protocol (LCP)).
 
 SSTP protocol is built on top of existing SSL. It allows to tunnel user traffic over protected 
-channel, and yet look like normal HTTPS traffic to service providers.
+channel, and yet it looks like normal HTTPS traffic to service providers.
 We have, ourselves, created similar in spirit L3-VPN solution that is based on SSL~\cite{ssl:vpn}
 and operates on standard HTTPS port. However, our idea is to tunnel all traffic from VPN 
-agnostic hosts through a off-the-path black box that encrypts all the traffic and sends encapsulated in TCP and SSL
-to the L3-VPN head server. The solution that we have created is a simple script 
+agnostic hosts through off-the-path black box that encrypts all traffic and sends encapsulated in TCP and in SSL
+packets to the L3-VPN head server. The solution that we have created is a simple script 
 that allows to setup such an arrangement with no hassle. One drawback is that it 
 uses TCP for transport: sending over reliable TCP channel and over well known HTTPS port
 is good for bypassing the traffic filters, but reduces the performance especially if
@@ -490,7 +489,7 @@ ssh -L 192.168.1.1:4443:youtube.com:443 user@strangebit.io
 \end{verbatim}
 
 In this example, when the client types \url{https://192.168.1.1:4443/} in the browser window,
-the traffic will be forwarded to the remove youtube server through the SSH server \url{strangebit.io}.
+the traffic will be forwarded to the remote {\bf youtube} server through the SSH server \url{strangebit.io}.
 
 There is also a possibility to perform the reverse tunneling, \ie one can expose the local service to the world.
 For example, suppose you have a precious MySQL resource in your local network running on host \url{192.168.1.45} 
@@ -525,7 +524,7 @@ Python based. For that purpose we have used PyCryptodome library. The second imp
 was a Python wrapper to C library that was using special Intel CPU instructions to boost 
 the AES and SHA-based HMAC operations. The third implementation was pure C library 
 which was using Intel NI instructions. The results for AES-256 and HMAC operations 
-for varying block sizes is shown in Figure~\ref{}. The plots show the average 
+for varying block sizes is shown in Figure~\ref{fig:aes} and in Figure~\ref{fig:hmac}. The plots show the average 
 running time in microseconds with the $95\%$ confidence intervals. 
 
 \begin{figure}[!ht]
@@ -539,11 +538,11 @@ running time in microseconds with the $95\%$ confidence intervals.
     \centering
     \includegraphics[width=0.9\textwidth]{graphics/crypto/hmac.pdf}
     \caption{HMAC calculation (microseconds)}
-    \label{fig:aes}
+    \label{fig:hmac}
 \end{figure}
 
 
-What related to cryptographical operations. For standard packet of size $1500$ 
+What relates to cryptographical operations. For standard packet of size $1500$ 
 bytes we have compared the performance (combined HMAC and AES-256) and it turned 
 out, on one hand, that implementation of cryptography in pure C with CPU instructions is 
 $12.1$ faster than pure Python implementation. On the other hand, Python implementation with bindings
@@ -553,7 +552,7 @@ cumulatively. However, in practice, given other operations with packets we did n
 in our experiments (more about performance of HIP-VPLS on real hardware can be found in proceeding 
 chapter). For the plain C implementation with AES and SHA instructions the performance would be 
 better and constitute astonishing $2.5$ Gbits/s. Would someone need to run the code in production
-the entire code needs to be rewritten in plain C programming language.
+the entire code needs to be rewritten in plain C programming language for adequate performance.
 
 \section{Host Identity Protocol based VPLS}
 
@@ -666,19 +665,21 @@ and collected throughput and latency data and processed the cleaned data using P
 
 \section{Scalable multipoint to multipoint VPN using HIP protocol}
 
-The major problem with the HIP-VPLS. Imagine that there are 
+The major problem with the HIP-VPLS is the number of HIP-switches and
+full-mesh connectivity between these switches. Imagine that there are 
 not 10's, but 1000's of sites and that all sites need to be 
 combined into single network. First, of all there will be 
-$O(n^2)$ pseudo-wires, which is for $1000$ PEs is somewhere 
-around $1$M of routing entries. Second, HIP-VPLS provides 
+$O(n^2)$ pseudo-wires: for $1000$ PEs there will be  
+around $1$M of routing table entries. Second, HIP-VPLS provides 
 signle broadcast domain. And so there is going to be 
 chaos in the network which will be overwhelemed with broadcast
-and multicast Ethernet frames. All this makes this type of
+and multicast Ethernet frames. All these aspects make this type of
 arrangement of network unacceptable in aformention scenarios.
 Instead, what if we will let each site live in its own broadcast
 domain, \ie have separate network address, and combined through 
 a series of overlay routers, which will be responsible for 
-forwarding the packets between the networks (sites). 
+forwarding the packets between the networks (sites) based on 
+inner IPv4 addresses. 
 
 To make the network scalable and reduce the number of pseudowires
 we let some nodes play the hub role, that is they will be the backbone 
@@ -696,10 +697,9 @@ multiple spoke PE elements are attached to the hubs.
 The security of the network is achieved by using Host Identity Protocol (on hop-by-hop bases) to negotiated
 the authentication and encryption keys, whereas, the actual packet authentication
 and encryption is performed on hop-by-hop bases using HMAC-SHA256
-AES (with 256 bits key) algorithms. In our prototype implementation we 
-have populated the routing tables manually, however, in practice the 
-entries in practice this process should be automated using for example 
-central controller. 
+and AES (with 256 bits key) algorithms. In our prototype implementation we 
+have populated the routing tables manually, however, in practice this 
+process should be automated using for example central controller. 
 
 \begin{figure}[!ht]
     \centering
