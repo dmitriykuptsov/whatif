@@ -4,6 +4,11 @@
 {The Secure Sockets Layer (SSL) Protocol Version 3.0}.
 \newblock https://datatracker.ietf.org/doc/html/rfc6101.
 
+\bibitem{rfc4306}
+{RFC4306 Internet Key Exchange (IKEv2) Protocol,
+  \url{https://datatracker.ietf.org/doc/html/rfc4306}}.
+\newblock Online, 2005.
+
 \bibitem{ssl:vpn}
 {Bypassing Deep Packet Inspection: Tunneling Traffic Over TLS VPN
   \url{https://www.linuxjournal.com/content/bypassing-deep-packet-inspection-tunneling-traffic-over-tls-vpn}}.
@@ -22,6 +27,14 @@
 \bibitem{ssh:tunneling}
 {SSH Tunneling, \url{https://www.ssh.com/academy/ssh/tunneling}}.
 \newblock Online, 2025.
+
+\bibitem{pmac}
+{\sc Black, J., and Rogaway, P.}
+\newblock A block-cipher mode of operation for parallelizable message
+  authentication.
+\newblock In {\em Proceedings of the International Conference on the Theory and
+  Applications of Cryptographic Techniques: Advances in Cryptology\/} (Berlin,
+  Heidelberg, 2002), EUROCRYPT '02, Springer-Verlag, p.~384–397.
 
 \bibitem{gurtov:hip}
 {\sc Gurtov, A.}

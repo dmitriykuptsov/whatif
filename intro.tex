@@ -229,15 +229,17 @@ SHA-512 and SHA-3 in modern applications, as no successful attacks were register
 these types of hash functions.
 
 Hash functions pave a road for such a notion as authentication tokens when combined with a 
-secret key in a special way. Examples are HMAC [], PMAC, CMAC which is based on AES cipher. 
+secret key in a special way. Examples are Hash-based MAC (HMAC)~\cite{Stinson:Cryptography}, 
+Parallelizable MAC (PMAC)~\cite{pmac}, Cipher-based MAC (CMAC) which is based on AES cipher. 
 For instance, by sending an HMAC together with the original message one can make sure that 
 the message will not be tampered during the transmission. In addition, if the message will 
 be altered on the path to recipient, this fact will be flagged immediately during the 
 verification process.
 
-Hash functions are also useful in signatures. For example, one-time signature are using 
-hash functions to construct an digital signature of a message. An interested reader can 
-find more information about hash functions here [].
+Hash functions are also useful in signatures. For example, one-time signatures are using 
+hash functions to construct an digital signature of a message. They are, however, impractical
+as they reqruire considerable storage and can be used only one-time as the name implies. 
+An interested reader can find more information about hash functions here~\cite{Stinson:Cryptography}.
 
 \subsection{Key exchange protocols}
 
@@ -470,10 +472,10 @@ uses TCP for transport: sending over reliable TCP channel and over well known HT
 is good for bypassing the traffic filters, but reduces the performance especially if
 the channel has large latency and error rate. 
 
-IPSec~\cite{tcpip} comes in two variations: Authentication Header and Encapsulating Security Payload (ESP).
+IPSec~\cite{tcpip} comes in two variations: Authentication Header (AH) and Encapsulating Security Payload (ESP).
 The first does not encrypt the data-plane traffic, but rather adds HMAC to the packet. The second one, in
 addition to authentication adds encryption of the payload. IPSec, when combined with the key exchange 
-protocols, such as Internet Key Exchange, can be used to create secure tunnels between the sites.
+protocols, such as Internet Key Exchange (IKE)~\cite{rfc4306}, can be used to create secure tunnels between the sites.
 
 \subsubsection{SSH tunneling}
 
@@ -688,16 +690,40 @@ and collected throughput and latency data and processed the cleaned data using P
 
 \section{Scalable multipoint to multipoint VPN using HIP protocol}
 
-The overall architecture which we have implemented in
-Mininet framework is shown in Figure~\cite{fig:l3vpn}. The architecture
-of the distributed L3-VPN network is of hub-and-spoke type.
-Hub nodes comprise the backbone of the network, whereas,
-multiple spoke PE elements are attached to the hubs. This
-allows to achieve scalability property. The security of the 
-network is achieved by using Host Identity Protocol to negotiated
+The major problem with the HIP-VPLS. Imagine that there are 
+not 10's, but 1000's of sites and that all sites need to be 
+combined into single network. First, of all there will be 
+$O(n^2)$ pseudo-wires, which is for $1000$ PEs is somewhere 
+around $1$M of routing entries. Second, HIP-VPLS provides 
+signle broadcast domain. And so there is going to be 
+chaos in the network which will be overwhelemed with broadcast
+and multicast Ethernet frames. All this makes this type of
+arrangement of network inacceptable in aformention scenarios.
+Instead, what if we will let each site live in its own broadcast
+domain, \ie have separate network address, and combined through 
+a series of overlay routers, which will be responsible for 
+forwarding the packets between the networks (sites). 
+
+To make the network scalable and reduce the number of pseudowires
+we let some nodes play the hub role, that is they will be the backbone 
+of the overlay network. While some nodes will be the spoke nodes
+and will be connected directly to the sites. It is the hierarchy 
+that makes the network scalable. 
+
+We will compare the two networks in proceeding section. And now it is worth
+to look at the overall architecture which we have implemented in
+Mininet framework. The logical diagram is shown in Figure~\cite{fig:l3vpn}. 
+As we have already mentioned, the architectureof the distributed 
+L3-VPN network is of hub-and-spoke type. Hub nodes comprise the backbone of the network, whereas,
+multiple spoke PE elements are attached to the hubs. 
+
+The security of the network is achieved by using Host Identity Protocol (on hop-by-hop bases) to negotiated
 the authentication and encryption keys, whereas, the actual packet authentication
 and encryption is performed on hop-by-hop bases using HMAC-SHA256
-algorithm. 
+AES (with 256 bits key) algorithms. In our prototype implementation we 
+have populated the routing tables manually, however, in practice the 
+entries in practice this process should be automated using for example 
+central controller. 
 
 \begin{figure}[!ht]
     \centering
@@ -705,6 +731,11 @@ algorithm.
     \caption{HIP-based L3-VPN in Mininet}
     \label{fig:l3vpn}
 \end{figure}
+
+To get the taste of the performance of this setup we have performed 
+several rounds of experiments with the IPerf utility and measured
+the throughput with encryption/authentication and without. The results 
+are as follows:
 
 \section{Comparison of various solutions}
 
@@ -731,8 +762,11 @@ Identity Protocol.
 
 \chapter{Conclusions}
 
-
-
-
+We started this work with the background material on cryptography. Here we covered
+established approaches (building blocks) of modern security protocols. However, we 
+have introduced to the reader more recent developments, such as LWE encryption scheme.
+We see that integration of LWE encryption and signature algorithm into HIP protocol 
+can be future work. We then discussed how to build various secure tunnels, \eg with 
+SSL, IPSec and SSH protocols. 
 
 

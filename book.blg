@@ -7,48 +7,49 @@ Warning--I didn't find a database entry for "fig:l3vpn"
 Warning--to sort, need author or key in ssl
 Warning--to sort, need author or key in snr
 Warning--to sort, need author or key in ssl:vpn
+Warning--to sort, need author or key in rfc4306
 Warning--to sort, need author or key in ssh:tunneling
 Warning--to sort, need author or key in pyhip
 Warning--empty publisher in gurtov:hip
-You've used 10 entries,
+You've used 12 entries,
             2253 wiz_defined-function locations,
-            569 strings with 5182 characters,
-and the built_in function-call counts, 2125 in all, are:
-= -- 197
-> -- 40
+            580 strings with 5585 characters,
+and the built_in function-call counts, 2765 in all, are:
+= -- 265
+> -- 53
 < -- 0
-+ -- 21
-- -- 10
-* -- 96
-:= -- 301
-add.period$ -- 25
-call.type$ -- 10
-change.case$ -- 33
++ -- 28
+- -- 14
+* -- 125
+:= -- 376
+add.period$ -- 30
+call.type$ -- 12
+change.case$ -- 41
 chr.to.int$ -- 0
-cite$ -- 16
-duplicate$ -- 106
-empty$ -- 250
-format.name$ -- 10
-if$ -- 492
+cite$ -- 19
+duplicate$ -- 147
+empty$ -- 312
+format.name$ -- 14
+if$ -- 652
 int.to.chr$ -- 0
-int.to.str$ -- 10
-missing$ -- 7
-newline$ -- 48
-num.names$ -- 10
-pop$ -- 80
+int.to.str$ -- 12
+missing$ -- 8
+newline$ -- 57
+num.names$ -- 12
+pop$ -- 95
 preamble$ -- 1
-purify$ -- 25
+purify$ -- 31
 quote$ -- 0
-skip$ -- 79
+skip$ -- 119
 stack$ -- 0
-substring$ -- 79
-swap$ -- 23
+substring$ -- 108
+swap$ -- 44
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 34
-warning$ -- 6
-while$ -- 12
-width$ -- 12
-write$ -- 92
-(There were 7 warnings)
+type$ -- 42
+warning$ -- 7
+while$ -- 15
+width$ -- 14
+write$ -- 112
+(There were 8 warnings)
