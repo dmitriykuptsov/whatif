@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{ssl}
 {The Secure Sockets Layer (SSL) Protocol Version 3.0}.
@@ -40,6 +40,11 @@
 \newblock The learning with errors problem (invited survey).
 \newblock In {\em Proceedings of the Annual IEEE Conference on Computational
   Complexity\/} (2010), pp.~191--204.
+
+\bibitem{tcpip}
+{\sc Stevens, W.~R.}
+\newblock {\em {TCP/IP illustrated (vol. 1): The Protocols}}.
+\newblock Addison-Wesley Longman Publishing Co., Inc., USA, 1993.
 
 \bibitem{Stinson:Cryptography}
 {\sc Stinson, D.}

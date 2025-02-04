@@ -449,20 +449,31 @@ We show such setup in Figure~\ref{fig:head-vpn}.
 \end{figure}
 
 There is a number of protocols available for such an arrangement. Examples are:
-(i) Point-to-Point Tunneling Protocol (PPTP); (ii) SSL-based 
-Secure Socket Tunneling Protocol (SSTP); (iii) Layer 2 Tunneling Protocol (L2TP), 
-which is an older protocol that can be combined with IPSec for encryption; 
-(iv) Internet Protocol Security (IPSec). 
+(i) Point-to-Point Tunneling Protocol (PPTP)~\cite{tcpip}; (ii) Generic Routing Encapsulation (GRE~\cite{tcpip}; 
+(iii) SSL-based Secure Socket Tunneling Protocol (SSTP); (iv) Layer 2 Tunneling Protocol (L2TP)~\cite{tcpip}, 
+which is an older protocol that can be combined with IPSec for encryption;
+(v) Internet Protocol Security (IPSec).
 
-We have, ourselves, created one particular implementation that is based on SSL~\cite{ssl:vpn}.
-The idea is to tunnel all traffic from VPN agnostic hosts through a off-the-path 
-black box that encrypts all the traffic and sends encapsulated in TCP and SSL
+GRE on its own does not provide security and can be used together with IPSec to secure 
+the traffic. PPTP, in turn, provides strong security out of the box. Moreover, PPTP combines 
+GRE and PPP protocols under single ambrella. It is the PPP protocol~\cite{tcpip}
+that provides such services as authentication and link configuariont (\ie using Link Control Protocol (LCP)).
+
+SSTP protocol is built on top of existing SSL. It allows to tunnel user traffic over protected 
+channel, and yet look like normal HTTPS traffic to service providers.
+We have, ourselves, created similar in spirit L3-VPN solution that is based on SSL~\cite{ssl:vpn}
+and operates on standard HTTPS port. However, our idea is to tunnel all traffic from VPN 
+agnostic hosts through a off-the-path black box that encrypts all the traffic and sends encapsulated in TCP and SSL
 to the L3-VPN head server. The solution that we have created is a simple script 
 that allows to setup such an arrangement with no hassle. One drawback is that it 
 uses TCP for transport: sending over reliable TCP channel and over well known HTTPS port
 is good for bypassing the traffic filters, but reduces the performance especially if
 the channel has large latency and error rate. 
 
+IPSec~\cite{tcpip} comes in two variations: Authentication Header and Encapsulating Security Payload (ESP).
+The first does not encrypt the data-plane traffic, but rather adds HMAC to the packet. The second one, in
+addition to authentication adds encryption of the payload. IPSec, when combined with the key exchange 
+protocols, such as Internet Key Exchange, can be used to create secure tunnels between the sites.
 
 \subsubsection{SSH tunneling}
 
