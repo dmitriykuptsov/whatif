@@ -1,5 +1,9 @@
 \begin{thebibliography}{10}
 
+\bibitem{rfc7401}
+{RFC 7401 Host Identity Protocol Version 2 (HIPv2)}.
+\newblock https://www.rfc-editor.org/rfc/rfc7401.html.
+
 \bibitem{ssl}
 {The Secure Sockets Layer (SSL) Protocol Version 3.0}.
 \newblock https://datatracker.ietf.org/doc/html/rfc6101.

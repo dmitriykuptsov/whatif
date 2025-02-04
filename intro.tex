@@ -45,8 +45,7 @@ with scalable Host Identity Protocol based L3-VPN and VPLS network which was
 built using the same protocol. We devote a separate section on 
 hardware-accelerated versions of AES and SHA-256 algorithms. We conclude 
 the results section with the analysis of the limitations of each solution 
-and present the results for the various micro-benchmarking settings. 
-
+and present the results for the various micro-benchmarking settings.
 
 \section{Questions}
 
@@ -85,12 +84,13 @@ Since we are going to discuss the security protocols in this work, we begin
 this section with the shallow dive into cryptography basics. Here, we discuss 
 symmetric and asymmetric cryptography algorithms, to make the description a 
 little bit complete we show how RSA algorithm works, discuss the math behind 
-Diffie-Hellman (DH) and its Elliptic Curve counterpart. We will also discuss 
-the Shor’s algorithm and its quantum computer implementation that theoretically 
-can efficiently factorize big number. This algorithm, if powerful enough quantum 
-computers will exist in the near future, puts the RSA algorithm - the major 
-building block of modern security solutions - at risk of being cracked (once the 
-modulus of RSA algorithm factorized into prime components, the private key of RSA 
+Diffie-Hellman (DH) and its Elliptic Curve counterpart. We should mention that current 
+understanding is such that Shor’s algorithm and its quantum computer implementation theoretically 
+can efficiently factorize big number and solve discite logarithm problem. 
+This algorithm, if powerful enough quantum computers will exist in the near future, 
+puts the RSA and DH algorithms - the major building block of modern security 
+solutions - at risk of being cracked (once the modulus of RSA algorithm factorized 
+into prime components, the private key of RSA 
 algorithm can be easily recovered). We will conclude this part of the background 
 material with the discussion of post-quantum computer public key encryption 
 solution based on lattice (more specifically we will discuss Learning With Errors 
@@ -368,7 +368,7 @@ same time, HIP uses regular IP addresses (both IPv4 and IPv6 are supported) for 
 Thus, when the attachment of a host changes (and so does the IP address used for routing purposes), 
 the identifier, which is exposed to the applications, stays the same. HIP uses a particular 
 signaling routine to notify the corresponding peer about the locator change. More information 
-about HIP can be found in RFC 7401. 
+about HIP can be found in RFC 7401~\cite{rfc7401}. 
 
 \subsection{Secure socket layer (SSL)}
 Secure socket layer (SSL)~\cite{ssl} and Transport Layer Security (TLS) are an application 
@@ -719,7 +719,7 @@ are as follows:
     \small
     \begin{tabular}{|l|c|c|c|}
     \hline
-    Characteristic $\downarrow$ \ Overlay type $\rightarrow$ & L2-VPN & L3-VPN & HIP-VPLS \\\hline
+    Characteristic $\downarrow$ \ Overlay type $\rightarrow$ & L2-VPLS & L3-VPN & HIP-VPLS \\\hline
     Size of forwarding/routing table & $O(n)$ & $O(m)$ & $O(n)$\\\hline
     Number of links in mesh & $O(k^2)$ & $O(k^2)$ & $O(l^2)$ \\\hline
     Privacy (exposure of information) & MACs & IPs & No \\\hline
@@ -734,7 +734,7 @@ are as follows:
 In what follows, we compare now different approaches, identify there
 characteristics and limitation. In Table~\ref{tab:analysis} we 
 compare three different approaches for building overlays with Host 
-Identity Protocol.
+Identity Protocol. 
 
 \chapter{Conclusions}
 

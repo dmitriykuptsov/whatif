@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  4 FEB 2025 18:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  4 FEB 2025 20:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -974,7 +974,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] [5]
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 11.39996pt on input line 51.
+(Font)              scaled to size 11.39996pt on input line 50.
  [6] [7] [8
 
 ]
@@ -983,27 +983,27 @@ Overfull \hbox (4.22108pt too wide) in paragraph at lines 108--111
 in-clud-ing L2 802.1Q
  []
 
-
+[9]
 Overfull \hbox (0.45036pt too wide) in paragraph at lines 115--126
 \T1/pnc/m/n/10.95 Cryptography comes in many fla-vors: sym-met-ric key cryp-tog
 -ra-phy (3DES,
  []
 
-[9] [10] [11]
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 212.
-
+[10] [11]
 
 LaTeX Warning: Command \textquoteright invalid in math mode on input line 213.
 
 
-Overfull \hbox (6.10172pt too wide) in paragraph at lines 222--230
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 214.
+
+
+Overfull \hbox (6.10172pt too wide) in paragraph at lines 223--231
 \T1/pnc/m/n/10.95 showed suc-cess-ful at-tacks. Briefly speak-ing, re-searchers
  suc-cess-fully found
  []
 
 [12] [13] [14] [15] [16]
-Overfull \hbox (2.60837pt too wide) in paragraph at lines 391--395
+Overfull \hbox (2.60837pt too wide) in paragraph at lines 392--396
 \T1/pnc/m/n/10.95 Virtual Pri-vate LAN Ser-vices (or VPLS), L3-VPNs, L4 tun-nel
 -ing are pretty
  []
@@ -1012,27 +1012,27 @@ Overfull \hbox (2.60837pt too wide) in paragraph at lines 391--395
 <graphics/vpn-central.png, id=76, 369.2997pt x 305.16008pt>
 File: graphics/vpn-central.png Graphic file (type png)
 <use graphics/vpn-central.png>
-Package pdftex.def Info: graphics/vpn-central.png  used on input line 448.
+Package pdftex.def Info: graphics/vpn-central.png  used on input line 449.
 (pdftex.def)             Requested size: 332.895pt x 275.08853pt.
- [18 <./graphics/vpn-central.png>]
+ [18] [19 <./graphics/vpn-central.png>]
 LaTeX Font Info:    Trying to load font information for T1+txtt on input line 4
-87.
+88.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
-) [19] [20]
+) [20]
 
-LaTeX Warning: Reference `' on page 21 undefined on input line 527.
+LaTeX Warning: Reference `' on page 21 undefined on input line 528.
 
 <graphics/crypto/aes.pdf, id=90, 505.89pt x 505.89pt>
 File: graphics/crypto/aes.pdf Graphic file (type pdf)
 <use graphics/crypto/aes.pdf>
-Package pdftex.def Info: graphics/crypto/aes.pdf  used on input line 532.
+Package pdftex.def Info: graphics/crypto/aes.pdf  used on input line 533.
 (pdftex.def)             Requested size: 332.895pt x 332.90036pt.
 <graphics/crypto/hmac.pdf, id=91, 505.89pt x 505.89pt>
 File: graphics/crypto/hmac.pdf Graphic file (type pdf)
 <use graphics/crypto/hmac.pdf>
-Package pdftex.def Info: graphics/crypto/hmac.pdf  used on input line 539.
+Package pdftex.def Info: graphics/crypto/hmac.pdf  used on input line 540.
 (pdftex.def)             Requested size: 332.895pt x 332.90036pt.
 [21
 
@@ -1040,17 +1040,17 @@ Package pdftex.def Info: graphics/crypto/hmac.pdf  used on input line 539.
 <graphics/mininet.png, id=111, 369.2997pt x 305.16008pt>
 File: graphics/mininet.png Graphic file (type png)
 <use graphics/mininet.png>
-Package pdftex.def Info: graphics/mininet.png  used on input line 588.
+Package pdftex.def Info: graphics/mininet.png  used on input line 589.
 (pdftex.def)             Requested size: 258.91896pt x 213.95981pt.
 
 [24 <./graphics/mininet.png>]
 <graphics/testbed.png, id=116, 518.53725pt x 597.13087pt>
 File: graphics/testbed.png Graphic file (type png)
 <use graphics/testbed.png>
-Package pdftex.def Info: graphics/testbed.png  used on input line 635.
+Package pdftex.def Info: graphics/testbed.png  used on input line 636.
 (pdftex.def)             Requested size: 332.895pt x 383.34694pt.
 
-Overfull \hbox (6.82462pt too wide) in paragraph at lines 652--662
+Overfull \hbox (6.82462pt too wide) in paragraph at lines 653--663
  [][] 
  []
 
@@ -1058,20 +1058,20 @@ Overfull \hbox (6.82462pt too wide) in paragraph at lines 652--662
 <graphics/l3-vpn.png, id=125, 443.91847pt x 371.28712pt>
 File: graphics/l3-vpn.png Graphic file (type png)
 <use graphics/l3-vpn.png>
-Package pdftex.def Info: graphics/l3-vpn.png  used on input line 705.
+Package pdftex.def Info: graphics/l3-vpn.png  used on input line 706.
 (pdftex.def)             Requested size: 332.895pt x 278.43066pt.
 
-Overfull \hbox (24.51083pt too wide) in paragraph at lines 719--730
+Overfull \hbox (24.51083pt too wide) in paragraph at lines 720--731
 [][]
  []
 
 [27 <./graphics/l3-vpn.png>]
 
-Package caption Warning: \label without proper reference on input line 729.
+Package caption Warning: \label without proper reference on input line 730.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tab:analysis' on page 28 undefined on input line 734.
+LaTeX Warning: Reference `tab:analysis' on page 28 undefined on input line 735.
 
 
 [28]) (./book.bbl [29
@@ -1079,46 +1079,46 @@ LaTeX Warning: Reference `tab:analysis' on page 28 undefined on input line 734.
 ] [30
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 4--6
+Underfull \hbox (badness 10000) in paragraph at lines 8--10
 []\T1/pnc/m/n/10 The Se-cure Sock-ets Layer (SSL) Pro-to-col Ver-sion 3.0.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--16
+Underfull \hbox (badness 10000) in paragraph at lines 17--20
 []\T1/pnc/m/n/10 Bypassing Deep Packet In-spec-tion: Tun-nel-ing Traf-fic
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--16
+Underfull \hbox (badness 10000) in paragraph at lines 17--20
 \T1/pnc/m/n/10 Over TLS VPN $\T1/txtt/m/n/10 https : / / www . linuxjournal . c
 om / content /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--16
+Underfull \hbox (badness 10000) in paragraph at lines 17--20
 \T1/txtt/m/n/10 bypassing-[]deep-[]packet-[]inspection-[]tunneling-[]traffic-[]
 over-[]tls-[]vpn$\T1/pnc/m/n/10 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--21
+Underfull \hbox (badness 10000) in paragraph at lines 22--25
 []\T1/pnc/m/n/10 Python-based Host Iden-tity Pro-to-col, $\T1/txtt/m/n/10 https
  : / / github . com /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--26
+Underfull \hbox (badness 10000) in paragraph at lines 27--30
 \T1/txtt/m/n/10 data-[]files / SNR % 20Switches / Configuration % 20Guide / SNR
 -[]S2980G-[]8T %
  []
 
 
-Underfull \hbox (badness 2635) in paragraph at lines 46--50
+Underfull \hbox (badness 2635) in paragraph at lines 50--54
 \T1/pnc/m/n/10 Module-Lattice-Based Key-Encapsulation Mech-a-nism Stan-dard, 20
 24.
  []
 
-) [31] (./book.aux)
+[31]) [32] (./book.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1127,10 +1127,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 18658 strings out of 478994
- 352725 string characters out of 5858184
+ 18659 strings out of 478994
+ 352734 string characters out of 5858184
  1169608 words of memory out of 5000000
- 35663 multiletter control sequences out of 15000+600000
+ 35664 multiletter control sequences out of 15000+600000
  470583 words of font info for 145 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  143i,10n,144p,432b,367s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1154,10 +1154,10 @@ pe1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw
 /ncntrsbk/uncb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrs
 bk/uncr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrsbk/uncr
 i8a.pfb>
-Output written on book.pdf (31 pages, 8527154 bytes).
+Output written on book.pdf (32 pages, 8527661 bytes).
 PDF statistics:
- 206 PDF objects out of 1000 (max. 8388607)
- 140 compressed objects within 2 object streams
+ 209 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  43 words of extra memory for PDF output out of 10000 (max. 10000000)
 
