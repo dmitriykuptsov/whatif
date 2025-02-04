@@ -265,7 +265,7 @@ $$\Lambda({\bf B}) = \{{\bf Bx}, {\bf x} \in \mathbb{Z}^n \}$$ where ${\bf B}$ i
 that generate the lattice. We should note that there exist large number of basis vectors, some are {\it good}
 some are {\it bad}.
 
-A { \bf closest vector problem (CVP) } on latticies, which is considered NP-hard, is not solvable even on 
+A { \bf closest vector problem (CVP) } on lattices, which is considered NP-hard, is not solvable even on 
 quantum computers, can be defined as follows. Given a point $t \in \mathbb{R}^n$ and a lattice
 $\Lambda({\bf B})$, the task is to find a closes point ${\bf Bx}$ on lattice: 
 
@@ -388,13 +388,13 @@ protocol for forwarding local traffic through remote servers.
 
 Virtual Private LAN Services (or VPLS), L3-VPNs, L4 tunneling are pretty standard nowadays. 
 Companies build security solutions to provide Layer-2 and Layer-3 services for branch offices: 
-VPLS are typically built as overlays on top of Layer-3 (IP) and are Ethenet over IP type 
+VPLS are typically built as overlays on top of Layer-3 (IP) and are Ethernet over IP type 
 overlays, whereas L3-VPNS are IP-in-IP tunneling solutions.
 
 In VPLS, when a frame arrives at VPLS provider equipment (PE), it is encapsulated 
 into an IP packet and is sent out to all other VPLS network elements comprising emulated LAN. 
 Security of such overlays is important for obvious reasons: customers do not want their corporate 
-traffic to be sniffed and analyzed. In L3-VPN networks, on the otherhand, the networks form different 
+traffic to be sniffed and analyzed. In L3-VPN networks, on the other hand, the networks form different 
 broadcast domains, and so when IPv4 or IPv6 packet arrives at VPN box, it is encapsulated into another 
 IP packet and sent out using the backbone network. In this work, we built such secure overlays with 
 Host Identity Protocol. 
@@ -404,13 +404,13 @@ for building L2, L3 and L4 overlays.
 
 \subsection{Virtual Private LAN Services (VPLS) L2VPN solutions}
 
-Virtual Private LAN Services (VPLS) are pretty common nowdays. In this section we will cover 
+Virtual Private LAN Services (VPLS) are pretty common nowadays. In this section we will cover 
 to standard ways to build VPLS networks (802.1 QinQ tunneling and MPLS).
 
 \subsubsection{QinQ tunneling}
 
 When the path from one network to the other, such as branch office to head office,
-traverses only layer-2 switches (\ie no IP routing is involved), the VPLS can be oranized 
+traverses only layer-2 switches (\ie no IP routing is involved), the VPLS can be organized 
 with the help of 802.1Q protocol~\cite{snr}. Broadly, speaking this is not a protocol as such, but rather 
 VLAN tag based switching. Thus, on ingress point an additional 802.1q service provider SP-VLAN tag 
 is inserted in L2 header of an Ethernet frame. Later, the forwarding decisions are 
@@ -419,18 +419,18 @@ Ethernet frame is forwarded to the recipient based on destination MAC address
 and, if exists, on inner C-VLAN tag. 
 
 It should be noted that the configuration of forwarding is a manual configuration step.
-Alos, QinQ does not provide additional mechanisms to secure the customer's traffic,
+Also, QinQ does not provide additional mechanisms to secure the customer's traffic,
 thus limiting the application domain of this solution.
 
-\subsubsection{MPLS tunelling}
+\subsubsection{MPLS tunneling}
 
 Multi-protocol label switching is a standard protocol for forwarding any traffic type.
-It has lable distribution protocol and lable switching components. It is an ideal way 
+It has label distribution protocol and label switching components. It is an ideal way 
 of forwarding the traffic even if path contains L3 routers.
 
 \subsection{Virtual Private LAN (L3-VPN) security solutions}
 
-The major draback of QinQ and MPLS and QinQ is that they do not offer encryption and 
+The major drawback of QinQ and MPLS and QinQ is that they do not offer encryption and 
 authentication of traffic. Therefore, additional steps needs to be taken to protect end-to-end
 traffic. In this section we will review PPTP, SSL-based VPNs, L2TP and IPsec tunnels.
 
@@ -438,7 +438,7 @@ traffic. In this section we will review PPTP, SSL-based VPNs, L2TP and IPsec tun
 
 Multipoint to single head VPN is a standard way of organizing VPN network
 for an organization that has single head office and multiple branch offices.
-In this setpu multiple branch offices are connected to a head end. 
+In this setup multiple branch offices are connected to a head end. 
 We show such setup in Figure~\ref{fig:head-vpn}.
 
 \begin{figure}[ht!]
@@ -458,10 +458,10 @@ We have, ourselves, created one particular implementation that is based on SSL~\
 The idea is to tunnel all traffic from VPN agnostic hosts through a off-the-path 
 black box that encrypts all the traffic and sends encapsulated in TCP and SSL
 to the L3-VPN head server. The solution that we have created is a simple script 
-that allows to setup such an arrangement with no hussle. One drawback is that it 
+that allows to setup such an arrangement with no hassle. One drawback is that it 
 uses TCP for transport: sending over reliable TCP channel and over well known HTTPS port
 is good for bypassing the traffic filters, but reduces the performance especially if
-the channel has large lattency and error rate. 
+the channel has large latency and error rate. 
 
 
 \subsubsection{SSH tunneling}
@@ -496,7 +496,7 @@ throughout several years that we have spent building various systems. We start
 with the results for cryptographic library which we have implemented to 
 boost the performance of AES and HMAC algorithms on Intel CPUs. We then 
 present the results for complete HIP-VPLS architecture and present the 
-lookings of the web interface which was used to configure the HIP switches.
+looking of the web interface which was used to configure the HIP switches.
 Finally, we present the design and implementation of the hierarchical L3-VPN
 in Mininet emulator.  
 
@@ -558,7 +558,7 @@ working prototype in the later part of this document. Our prototype uses Python-
 as the bases for prototype.
 
 While building HIP-switches (the switches that are deployed at the border of a network) 
-we came across several challenges. First, to avoid loops the undelying network needs to support 
+we came across several challenges. First, to avoid loops the underlying network needs to support 
 the IEEE 802.1D protocol (or its modification - this really depends on the version of the protocol 
 supported by the switches). This problem was initially addressed in the relevant IETF draft. 
 Second, there were certain issues with MTU and the inability of the Linux kernel to deliver IP 
@@ -631,18 +631,18 @@ several legacy microcomputers, IP camera, and DHCP/DNS server.
 To conclude we have performed series of real-life experiments to measure the 
 performace of HIP-VPLS network. In Figure~\ref{tab:vpls-performance} we show
 sample statistics for upload and download throughput. In addition we have also
-measured lattency. To perform the measurements we have used {\bf speedtest}
+measured latency. To perform the measurements we have used {\bf speedtest}
 Python library. Thus, on one side, we have connected MacBook to HIP-switch via regular
 switch. On the other side, we have connected the other HIP switch to a network 
 that had connectivity to the Internet. We then performed $100$ rounds of measurements
-and collected throughput and lattency data and processed the cleaned data using Python
+and collected throughput and latency data and processed the cleaned data using Python
 {\it statistics} library.
 
 \begin{table}
     \centering
     \begin{tabular}{|c|c|c|c|}
     \hline
-    Statistics     & Upload (Mbits/s)        & Download (Mbits/s)     & Lattency (ms) \\\hline
+    Statistics     & Upload (Mbits/s)        & Download (Mbits/s)     & Latency (ms) \\\hline
     Sample mean    & $46.1$                  & $48.2$                 & $5.0$         \\
     Sample std     & $7.1$                   & $2.3$                  & $0.19$        \\
     Sample median  & $44.8$                  & $48.8$                 & $4.9$         \\

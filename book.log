@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  4 FEB 2025 14:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  4 FEB 2025 14:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1060,7 +1060,7 @@ File: graphics/testbed.png Graphic file (type png)
 Package pdftex.def Info: graphics/testbed.png  used on input line 626.
 (pdftex.def)             Requested size: 332.895pt x 383.34694pt.
  [25 <./graphics/testbed.png>]
-Overfull \hbox (11.08405pt too wide) in paragraph at lines 643--653
+Overfull \hbox (6.82462pt too wide) in paragraph at lines 643--653
  [][] 
  []
 
@@ -1163,7 +1163,7 @@ pe1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw
 /ncntrsbk/uncb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrs
 bk/uncr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrsbk/uncr
 i8a.pfb>
-Output written on book.pdf (31 pages, 8498440 bytes).
+Output written on book.pdf (31 pages, 8498422 bytes).
 PDF statistics:
  206 PDF objects out of 1000 (max. 8388607)
  140 compressed objects within 2 object streams
