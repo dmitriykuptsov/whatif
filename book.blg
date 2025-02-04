@@ -3,7 +3,6 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: book.aux
 The style file: acm.bst
 Database file #1: mybib.bib
-Warning--I didn't find a database entry for "fig:l3vpn"
 Warning--to sort, need author or key in ssl
 Warning--to sort, need author or key in snr
 Warning--to sort, need author or key in ssl:vpn
@@ -13,7 +12,7 @@ Warning--to sort, need author or key in pyhip
 Warning--empty publisher in gurtov:hip
 You've used 12 entries,
             2253 wiz_defined-function locations,
-            580 strings with 5585 characters,
+            579 strings with 5576 characters,
 and the built_in function-call counts, 2765 in all, are:
 = -- 265
 > -- 53
@@ -52,4 +51,4 @@ warning$ -- 7
 while$ -- 15
 width$ -- 14
 write$ -- 112
-(There were 8 warnings)
+(There were 7 warnings)

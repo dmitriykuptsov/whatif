@@ -36,13 +36,13 @@ algorithms for encryption and signature constructions. Although, not considered
 as part of the present work, future work can be include the performance 
 comparison of standardized RSA and DSA algorithms with the performance of 
 lattice-based algorithms incorporated into for example Host Identity Protocol 
-or event Transport Layer Security protocol. We than move on to discussion of 
+or even Transport Layer Security protocol. We than move on to discussion of 
 TLS, SSL, IPsec, HIP and SSH protocols and how those can be used to achieve 
 integrity and confidentiality of data transmitted over insecure channels. 
 Afterwards, we move on to the discussion of the results we have obtained 
 over the course of several years. Here, we discuss our practical experience 
-with scalable Host Identity Protocol based L3-VPN and VPLS network which is 
-build using the same protocol. We devote a separate section on 
+with scalable Host Identity Protocol based L3-VPN and VPLS network which was 
+built using the same protocol. We devote a separate section on 
 hardware-accelerated versions of AES and SHA-256 algorithms. We conclude 
 the results section with the analysis of the limitations of each solution 
 and present the results for the various micro-benchmarking settings. 
@@ -51,14 +51,14 @@ and present the results for the various micro-benchmarking settings.
 \section{Questions}
 
 In this work, we ask several questions. These are not research questions, 
-but rather practical questions we try to answer to ourselves in order to 
+but rather practical questions that we try to answer to ourselves in order to 
 understand the usability of Python based security solution. Since our work 
 focuses on the application of Host Identity Protocol (HIP) in VPN and VPLS 
 settings we ask the following questions:
 
 First, {\it what is the performance of the pure Python-based implementation of 
 symmetric key encryption and decryption routines as well as hash methods and 
-how do they compare to implementation, which uses special CPU AES and SHA-256 
+how do they compare to implementation, which uses special AES and SHA-256 CPU 
 instructions.} Here our focus is on the microbanchmarking of two implementations 
 of AES and SHA-256 hashing algorithm, identification of the bottlenecks and 
 further recommendations for our prototype implementation of Host Identity Based VPLS and L3-VPN.
@@ -148,10 +148,10 @@ process, and encryption of proceeding blocks depends on the output of the previo
 block. Modes of operations are important for security reasons. However, not all 
 modes of operations useful and secure. For example, Electronic Code Book (ECB), 
 while allow achieving fast processing and parallelization, is considered insecure in 
-many settings. In Figure[] we demonstrate AES encryption in CBC mode:
+many settings.
 
 The other type of symmetric key algorithms is stream cipher. Here the encryption 
-and decryption performed on separate bits, one bit at a time. CR4 is an example 
+and decryption is performed on separate bits, one bit at a time. CR4 is an example 
 of stream cipher. Stream ciphers are extremely important in real-time processing, 
 for example, Wi-Fi uses stream ciphers to encrypt the data plane traffic.
 
@@ -159,7 +159,7 @@ for example, Wi-Fi uses stream ciphers to encrypt the data plane traffic.
 
 Asymmetric key cryptography, in its simplest form, is the brilliant in the age 
 of computing. Guessing from the name that this type of cryptography uses different 
-keys for encryption and decryption does not require deep though. This property makes 
+keys for encryption and decryption does not require deep thought. This property makes 
 this group of algorithms suitable for various key distribution, revocation and 
 signature ideas. 
 
@@ -175,9 +175,9 @@ In RSA cryptosystem, the sender generates a pair of keys as follows:
 First, the sender chooses large enough two prime numbers $p$ and $q$. Next, 
 the sender computes $n=pq$ and evaluates Euler’s phi function: $\phi(n)=(p-1)(q-1)$. 
 This is the same as the number of numbers co-prime to $n$. The sender then selects at 
-random encryption exponent $e$ such that $1<e<\phi(n)$ such that $e$ is co-prime to $\phi(n)$ 
-and computes the decryption exponent d such that $ed \equiv 1\ mod\ \phi(n)$ using modular 
-multiplicative inverse.
+random encryption exponent $e$ such that $1<e<\phi(n)$ and also $e$ should be co-prime to $\phi(n)$.
+Finally, the sender or the dealer computes the decryption exponent $d$, such that 
+$ed \equiv 1\ mod\ \phi(n)$ using modular multiplicative inverse.
 
 The public key is then $(n, e)$ and the private key is $(n, d)$. To encrypt the message $m$ 
 the sender computes $c= m^e\ mod\ n$. The decryption is similar $m = c^d\ mod\ n$. The beauty is 
@@ -188,12 +188,13 @@ $ed=k\phi(n)+1$, and so $m^{(ed)}\ mod\ n \equiv m^{(k\phi(n)+1)} mod\ n \equiv 
 In practice, RSA requires random padding to protect against such attacks as chosen ciphertext 
 attacks and making two identical plaintext produce various ciphertexts. Padding also ensures that the 
 message size is multiple of encryption block-size. In practice, Optimal Asymmetric Encryption Padding (OAEP) 
-scheme is used [].
+scheme is used.
 
 It is good to know that if the message hashed and encrypted with private key, the result is a 
 form of digital signature, since the sender cannot later deny that it was involved into encryption 
 process. Digital Signature Algorithm (DSA) is another example of asymmetric signature scheme and 
-was specifically design for that purpose. Elliptic Curves another version of DSA algorithm.
+was specifically design for that purpose. In turn, Elliptic Curves improve the performance of regulard DSA 
+algorithm.
 
 Frankly speaking, symmetric signature schemes can be also used. For example, one can use 
 one-time hash-based signatures to produce the secure digital signatures. Nevertheless, 
@@ -267,7 +268,7 @@ $$\Lambda({\bf B}) = \{{\bf Bx}, {\bf x} \in \mathbb{Z}^n \}$$ where ${\bf B}$ i
 that generate the lattice. We should note that there exist large number of basis vectors, some are {\it good}
 some are {\it bad}.
 
-A { \bf closest vector problem (CVP) } on lattices, which is considered NP-hard, is not solvable even on 
+A { \bf closest vector problem (CVP) } on lattices, which is considered NP-hard, and believed unsolvable even on 
 quantum computers, can be defined as follows. Given a point $t \in \mathbb{R}^n$ and a lattice
 $\Lambda({\bf B})$, the task is to find a closes point ${\bf Bx}$ on lattice: 
 
@@ -321,9 +322,9 @@ Once the parameters are generated, we can compute ${\bf As}+{\bf e} = {\bf b}$. 
 key is $({\bf A, b})$ and the private key is ${\bf s}$. Deriving ${\bf s}$ from ${\bf b}$ is a hard 
 task at hand.
 
-To encrypt the message $\mu \in \{0, 1\}$ choose ${\bf r} \sim U(\{0, 1\}^m)$. Then compute ${\bf u}={\bf rA}$ and 
-$v={\bf rb}+\lfloor q/2 \rceil \mu$. The ciphertext is $({\bf u}, v)$. To decrypt the message 
-compute $v - \bf{u s}$, if the result is less than $q/4$ output $0$, if the result
+To encrypt the message $\mu \in \{0, 1\}$ choose ${\bf r} \sim U(\{0, 1\}^m)$. Then we compute ${\bf u}={\bf rA}$ and 
+$v={\bf rb}+\lfloor q/2 \rceil \mu$. The ciphertext is $({\bf u}, v)$. To decrypt the message we can 
+compute $v - \bf{u s}$: if the result is less than $q/4$ output $0$, otherwise, if the result
 is larger than $q/4$ output $1$. 
 
 The major disadvantage of lattice-based cryptography is the size of the keys and actual ciphertext. For example,
@@ -407,7 +408,7 @@ for building L2, L3 and L4 overlays.
 \subsection{Virtual Private LAN Services (VPLS) L2VPN solutions}
 
 Virtual Private LAN Services (VPLS) are pretty common nowadays. In this section we will cover 
-to standard ways to build VPLS networks (802.1 QinQ tunneling and MPLS).
+to standard ways to build VPLS networks (using, for example, 802.1q QinQ tunneling and MPLS).
 
 \subsubsection{QinQ tunneling}
 
@@ -591,26 +592,22 @@ The working prototype logical network diagram is shown in the Figure~\ref{fig:mi
 \end{figure}
 
 We now turn our attention to our attention to real-life deployment 
-of HIP-VPLS. The system architecture is shown in Figure~\ref{fig:architecture}. 
+of HIP-VPLS. The system architecture is similar to our Minent protoype
+(except that there was lesser number of HIP switches) shown in Figure~\ref{fig:mininet}. 
 Apart from the HIP-VPLS switches, we have also implemented a unique 
-control-plane protocol on top of the SSL protocol. 
+control-plane protocol on top of the SSL protocol for communication 
+with the central controller in the Internet.
 
 In our deployment we have used the following setup. For HIP switches we 
 have used the dual-network Intel N95 computing platform. We have used $8$ 
-port SNR switches to connect 3 HIP switches, that way we have mimicked the 
+port SNR switches to connect $3$ HIP switches, that way we have mimicked the 
 IP overlay in the setup. HIP switches had two interfaces: one is facing 
 LAN network, the other one is facing the WAN network. The microcomputers for
-HIP switches had the following characteristics: they had $1$GB of RAM memory, 
-dual core Intel N95 CPU (with support for AES and SHA2 NI instructions), 256 of 
+HIP switches had the following characteristics: they had $8$GB of RAM memory, 
+dual core Intel N95 CPU (with support for AES and SHA2 NI instructions), $256$ of 
 solid state hard drive. To wire the routers we have used SNR switches 
 (each switch had $8$ $1$ Gbit/s ports, and two Small Form Factor (SFP) slots). 
-The testbed configuration is shown on the Figure~\ref{fig:testbed}
-
-%In our architecture, HIP switch controller is a central server instance that collects information from the HIP-switches
-%and allows one to perform configuration of such parameters as firewall rules, HIP hosts file, MAC-based access
-%controll lists (ACL) and configure traffic shaper. We are going to discuss each feature seperately 
-%in the proceeding paragraphs.  
-
+The testbed configuration is shown on the Figure~\ref{fig:testbed}.
 
 According to the protocol, on the one hand, every HIP-VPLS 
 switch reports to the central controller (and is authenticated 
@@ -667,27 +664,6 @@ and collected throughput and latency data and processed the cleaned data using P
     \label{tab:vpls-performance}
 \end{table}
 
-%\begin{figure}[h!]
-%    \centering
-%    \includegraphics[width=0.9\textwidth]{graphics/throughput/download.pdf}
-%    \caption{Download throughput, Mbit/s}
-%    \label{fig:download}
-%\end{figure}
-
-%\begin{figure}[h!]
-%    \centering
-%    \includegraphics[width=0.9\textwidth]{graphics/throughput/upload.pdf}
-%    \caption{Upload throughput, Mbit/s}
-%    \label{fig:upload}
-%\end{figure}
-
-%\begin{figure}[h!]
-%    \centering
-%    \includegraphics[width=0.9\textwidth]{graphics/throughput/ping.pdf}
-%    \caption{Ping latency, ms}
-%    \label{fig:ping}
-%\end{figure}
-
 \section{Scalable multipoint to multipoint VPN using HIP protocol}
 
 The major problem with the HIP-VPLS. Imagine that there are 
@@ -698,7 +674,7 @@ around $1$M of routing entries. Second, HIP-VPLS provides
 signle broadcast domain. And so there is going to be 
 chaos in the network which will be overwhelemed with broadcast
 and multicast Ethernet frames. All this makes this type of
-arrangement of network inacceptable in aformention scenarios.
+arrangement of network unacceptable in aformention scenarios.
 Instead, what if we will let each site live in its own broadcast
 domain, \ie have separate network address, and combined through 
 a series of overlay routers, which will be responsible for 
@@ -712,7 +688,7 @@ that makes the network scalable.
 
 We will compare the two networks in proceeding section. And now it is worth
 to look at the overall architecture which we have implemented in
-Mininet framework. The logical diagram is shown in Figure~\cite{fig:l3vpn}. 
+Mininet framework. The logical diagram is shown in Figure~\ref{fig:l3vpn}. 
 As we have already mentioned, the architectureof the distributed 
 L3-VPN network is of hub-and-spoke type. Hub nodes comprise the backbone of the network, whereas,
 multiple spoke PE elements are attached to the hubs. 
@@ -739,11 +715,6 @@ are as follows:
 
 \section{Comparison of various solutions}
 
-In what follows, we compare now different approaches, identify there
-characteristics and limitation. In Table~\ref{tab:analysis} we 
-compare three different approaches for building overlays with Host 
-Identity Protocol. 
-
 \begin{table*}
     \small
     \begin{tabular}{|l|c|c|c|}
@@ -759,6 +730,11 @@ Identity Protocol.
     \label{tab:analysis}
     \caption {Comparison study of different multipoint VPLS/VPN designs}
 \end{table*}
+
+In what follows, we compare now different approaches, identify there
+characteristics and limitation. In Table~\ref{tab:analysis} we 
+compare three different approaches for building overlays with Host 
+Identity Protocol.
 
 \chapter{Conclusions}
 

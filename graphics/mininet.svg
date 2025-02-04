@@ -419,5 +419,35 @@
          style="stroke-width:0.264583"
          x="106.07866"
          y="102.88647">Host</tspan></text>
+    <rect
+       style="fill:none;stroke:#00ade9;stroke-width:0.264999"
+       id="rect1"
+       width="29.711849"
+       height="5.893259"
+       x="57.950378"
+       y="13.259832"
+       ry="0.070188075" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="64.825844"
+       y="17.679775"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="stroke-width:0.264583"
+         x="64.825844"
+         y="17.679775">Controller</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:0.26458299,0.52916598;stroke-dashoffset:0"
+       d="M 44.936097,36.096209 73.174629,19.153091 102.14982,37.815078"
+       id="path2" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:0.26458299,0.26458299;stroke-dashoffset:0"
+       d="M 99.939847,76.857917 72.929077,18.907539 44.936099,74.156841"
+       id="path3"
+       inkscape:export-filename="mininet.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
   </g>
 </svg>
