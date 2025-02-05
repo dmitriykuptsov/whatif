@@ -87,7 +87,7 @@ little bit complete we show how RSA algorithm works, discuss
 Diffie-Hellman (DH) and its Elliptic Curve counterpart. We should mention that current 
 understanding inside the cryptographic community is such that Shor’s algorithm and 
 its quantum computer implementation theoretically 
-can efficiently factorize big number and solve discrite logarithm problem without trouble. 
+can efficiently factorize big number and solve discrete logarithm problem without trouble. 
 This algorithm, if powerful enough quantum computers will exist in the near future, 
 puts the RSA and DH algorithms - the major building blocks of modern security 
 solutions - at risk of being cracked (once the modulus of RSA algorithm factorized 
@@ -195,7 +195,7 @@ scheme is used.
 It is good to know that if the message hashed and encrypted with private key, the result is a 
 form of digital signature, since the sender cannot later deny that it was involved into encryption 
 process. Digital Signature Algorithm (DSA) is another example of asymmetric signature scheme and 
-was specifically design for that purpose. In turn, Elliptic Curves improve the performance of regulard DSA 
+was specifically design for that purpose. In turn, Elliptic Curves improve the performance of regular DSA 
 algorithm.
 
 Frankly speaking, one way functions can be also used to construct signature schemes. 
@@ -242,7 +242,7 @@ verification process.
 
 Hash functions are also useful in signatures. For example, one-time signatures are using 
 hash functions to construct an digital signature of a message. They are, however, impractical
-as they reqruire considerable amount of storage and can be used only one time as the name implies. 
+as they require considerable amount of storage and can be used only one time as the name implies. 
 An interested reader can find more information about hash functions here~\cite{Stinson:Cryptography}.
 
 \subsection{Key exchange protocols}
@@ -324,7 +324,7 @@ task at hand.
 To encrypt the message $\mu \in \{0, 1\}$, we choose ${\bf r} \sim U(\{0, 1\}^m)$. Then we compute ${\bf u}={\bf rA}$ and 
 $v={\bf rb}+\lfloor q/2 \rceil \mu$. The ciphertext is $({\bf u}, v)$. To decrypt the message we can 
 compute $v - \bf{u s}$: if the result is less than $q/4$ output $0$, otherwise, if the result
-is larger than $q/4$ output $1$. For decription to work correctly, we require that the parameter $\sigma = q/(16m)$. 
+is larger than $q/4$ output $1$. For decryption to work correctly, we require that the parameter $\sigma = q/(16m)$. 
 
 The major disadvantage of lattice-based cryptography is the size of the keys and actual ciphertext. For example,
 security of LWE depends on two parameters $n$ and $q$. By choosing $n=512$ and $q=2^{16}$, the size of ciphertext
@@ -456,10 +456,10 @@ There is a number of protocols available for such an arrangement. Examples are:
 which is an older protocol that can be combined with IPSec for encryption;
 (v) Internet Protocol Security (IPSec).
 
-GRE on its own does not provide security and can be used together with IPSec to secure 
-the traffic. PPTP, in turn, provides strong security out of the box. Moreover, PPTP combines 
+GRE on its own does not provide security and can be used together with IPsec to secure 
+the traffic. PPTP, in turn, provides strong security out of the box. Moreover, PET combines 
 GRE and PPP protocols under single ambrella. It is the PPP protocol~\cite{tcpip}
-that provides such services as authentication and link configuariont (\ie using Link Control Protocol (LCP)).
+that provides such services as authentication and link configuration (\ie using Link Control Protocol (LCP)).
 
 SSTP protocol is built on top of existing SSL. It allows to tunnel user traffic over protected 
 channel, and yet it looks like normal HTTPS traffic to service providers.
@@ -544,7 +544,7 @@ running time in microseconds with the $95\%$ confidence intervals.
 
 What relates to cryptographical operations. For standard packet of size $1500$ 
 bytes we have compared the performance (combined HMAC and AES-256) and it turned 
-out, on one hand, that implementation of cryptography in pure C with CPU instructions is 
+out, on one hand, that implementation of cryptography in pure C with special CPU instructions was 
 $12.1$ faster than pure Python implementation. On the other hand, Python implementation with bindings
 to C library demonstrated performance which was $2.3$ times faster. By making back of the envelop calculations
 we predict that Python implementation can achieve roughly $461$ Mbits/s in upload and download directions
@@ -552,21 +552,21 @@ cumulatively. However, in practice, given other operations with packets we did n
 in our experiments (more about performance of HIP-VPLS on real hardware can be found in proceeding 
 chapter). For the plain C implementation with AES and SHA instructions the performance would be 
 better and constitute astonishing $2.5$ Gbits/s. Would someone need to run the code in production
-the entire code needs to be rewritten in plain C programming language for adequate performance.
+the entire code needs to be rewritten in plain C or Rust programming language for adequate performance.
 
 \section{Host Identity Protocol based VPLS}
 
 Virtual Private LAN Services (VPLS) provide means for building Layer 2 communication 
 on top of existing IP networks. VPLS can be built using various approaches. However, 
 when building a production-grade VPLS solution one needs to have a clear picture of 
-how such aspects as security, mobility, and L2 issues will be solved.
+how such aspects as security and L2 issues will be solved.
 
 In what follows, we will demonstrate how to build the VPLS using Host Identity Protocol (HIP). 
 Our initial goal was not to build a production-grade implementation of HIP-switches. Instead, 
-at first we were only interested in demonstrating proof of a concept solution that uses 
-Mininet – a framework for emulating L2 and L3 networks. It is worth mentioning that the code 
+at first we were only interested in demonstrating proof of a concept solution in 
+Mininet~\cite{mininet} – a framework for emulating L2 and L3 networks. It is worth mentioning that the code 
 we have produced can be also deployed (under certain conditions; for example, our HIP implementation 
-does not feature the NAT traversal mechanisms) on the real hardware. And we are going to demonstrate 
+does not feature the NAT traversal mechanisms) on the real hardware. We are going to demonstrate 
 working prototype in the later part of this document. Our prototype uses Python-based HIP~\cite{pyhip} 
 as the bases for prototype.
 
@@ -586,7 +586,26 @@ The working prototype logical network diagram is shown in the Figure~\ref{fig:mi
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{graphics/mininet.png}
-    \caption{Mininet HIP-VPLS logical diagram}
+    \caption{HIP-VPLS logical diagram (Mininet deployment)}
+    \label{fig:mininet}
+\end{figure}
+
+Our HIP-VPLS implemnetation~\cite{hip-vpls:mininet} in Mininet was using static configuration, meaning that 
+HIP-VPLS mesh, resolver and firewall rules were configured prior to deployment 
+of the overlay network and were not change throughout the experiments. An interested reader
+can take a look at~\cite{hip-vpls:mininet} for precise steps which are required to 
+deploy the HIP-VPLS in Mininet environment.
+
+Overall, HIP-VPLS works as follows: (i) The daemon constantly listens for packets on private interface;
+(ii) if the frame is broadcast or multicast it chooses all peers in mesh to send the packet; (iii) if the 
+frame is unicast and HIP security assosiation exists for destination it sends the packet to the selected
+HIP-switch; (iv) if no security association exists HIP switch triggers HIP base exchange to negotiate 
+secret keys and to establishe security assosiation.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{graphics/hw-hipls.png}
+    \caption{HIP-VPLS logical diagram (real hardware deployment)}
     \label{fig:mininet}
 \end{figure}
 
@@ -596,6 +615,10 @@ of HIP-VPLS. The system architecture is similar to our Minent protoype
 Apart from the HIP-VPLS switches, we have also implemented a unique 
 control-plane protocol on top of the SSL protocol for communication 
 with the central controller in the Internet.
+
+To get the grasp on the performance of HIP-VPLS in Mininet environment we 
+have performed series of bandwidth tests using {\it iperf} tool. Thus, the 
+mean troughput was $x.x$ Mbits/s.
 
 In our deployment we have used the following setup. For HIP switches we 
 have used the dual-network Intel N95 computing platform. We have used $8$ 
@@ -674,7 +697,7 @@ around $1$M of routing table entries. Second, HIP-VPLS provides
 signle broadcast domain. And so there is going to be 
 chaos in the network which will be overwhelemed with broadcast
 and multicast Ethernet frames. All these aspects make this type of
-arrangement of network unacceptable in aformention scenarios.
+arrangement of network unacceptable in aforementioned scenarios.
 Instead, what if we will let each site live in its own broadcast
 domain, \ie have separate network address, and combined through 
 a series of overlay routers, which will be responsible for 
@@ -715,7 +738,7 @@ are as follows:
 
 \section{Comparison of various solutions}
 
-\begin{table*}
+\begin{table}
     \small
     \begin{tabular}{|l|c|c|c|}
     \hline
@@ -727,12 +750,12 @@ are as follows:
     Tunneling mode & Ethernet-in-IP & IP-in-IP & Ethernet-in-IP \\\hline
     Loop free-topology & 802.1d & Controller & Not required \\\hline
     \end{tabular}
-    \label{tab:analysis}
+    \label{analysis}
     \caption {Comparison study of different multipoint VPLS/VPN designs}
-\end{table*}
+\end{table}
 
 In what follows, we compare now different approaches, identify there
-characteristics and limitation. In Table~\ref{tab:analysis} we 
+characteristics and limitation. In Table~\ref{analysis} we 
 compare three different approaches for building overlays with Host 
 Identity Protocol. 
 

@@ -1,5 +1,9 @@
 \begin{thebibliography}{10}
 
+\bibitem{mininet}
+{Mininet: An Instant Virtual Network on your Laptop}.
+\newblock https://mininet.org/.
+
 \bibitem{rfc7401}
 {RFC 7401 Host Identity Protocol Version 2 (HIPv2)}.
 \newblock https://www.rfc-editor.org/rfc/rfc7401.html.
@@ -17,6 +21,13 @@
 {Bypassing Deep Packet Inspection: Tunneling Traffic Over TLS VPN
   \url{https://www.linuxjournal.com/content/bypassing-deep-packet-inspection-tunneling-traffic-over-tls-vpn}}.
 \newblock Online, 2021.
+
+\bibitem{hip-vpls:mininet}
+Simulating host identity protocol-based virtual private lan service using
+  mininet framework.
+\newblock
+  https://www.linuxjournal.com/content/simulating-host-identity-protocol-based-virtual-private-lan-service-using-mininet-framework,
+  2022.
 
 \bibitem{pyhip}
 {Python-based Host Identity Protocol,

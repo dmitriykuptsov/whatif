@@ -9,47 +9,49 @@ Warning--to sort, need author or key in snr
 Warning--to sort, need author or key in ssl:vpn
 Warning--to sort, need author or key in rfc4306
 Warning--to sort, need author or key in ssh:tunneling
+Warning--to sort, need author or key in mininet
 Warning--to sort, need author or key in pyhip
+Warning--to sort, need author or key in hip-vpls:mininet
 Warning--empty publisher in gurtov:hip
-You've used 14 entries,
+You've used 16 entries,
             2253 wiz_defined-function locations,
-            587 strings with 5832 characters,
-and the built_in function-call counts, 3163 in all, are:
-= -- 299
-> -- 61
+            594 strings with 6150 characters,
+and the built_in function-call counts, 3485 in all, are:
+= -- 330
+> -- 63
 < -- 0
-+ -- 32
++ -- 34
 - -- 16
-* -- 143
-:= -- 430
-add.period$ -- 35
-call.type$ -- 14
-change.case$ -- 48
+* -- 154
+:= -- 465
+add.period$ -- 39
+call.type$ -- 16
+change.case$ -- 54
 chr.to.int$ -- 0
-cite$ -- 22
-duplicate$ -- 170
-empty$ -- 364
+cite$ -- 26
+duplicate$ -- 184
+empty$ -- 410
 format.name$ -- 16
-if$ -- 744
+if$ -- 825
 int.to.chr$ -- 0
-int.to.str$ -- 14
+int.to.str$ -- 16
 missing$ -- 9
-newline$ -- 66
+newline$ -- 74
 num.names$ -- 14
-pop$ -- 112
+pop$ -- 128
 preamble$ -- 1
-purify$ -- 36
+purify$ -- 40
 quote$ -- 0
-skip$ -- 133
+skip$ -- 148
 stack$ -- 0
-substring$ -- 118
-swap$ -- 47
+substring$ -- 128
+swap$ -- 49
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 50
-warning$ -- 8
+type$ -- 58
+warning$ -- 10
 while$ -- 17
-width$ -- 16
-write$ -- 128
-(There were 8 warnings)
+width$ -- 18
+write$ -- 143
+(There were 10 warnings)
