@@ -13,9 +13,8 @@ many SCADA devices and a mission control center that is miles and
 miles away). Since these networks are geographically separated, connecting 
 them becomes a necessity, and so is the security of these networks. 
 This is when the layer-3 virtual private networks ({\it L3-VPN}) and layer-2 
-virtual private LAN services ({\it L2-VPLS}) solutions become handy. 
-There are, however, other requirements that need to be taken into 
-account. Scalability, and resilience to various attacks, from man-in-the-middle 
+virtual private LAN service ({\it L2-VPLS}) solutions become handy. 
+Scalability, and resilience to various attacks, from man-in-the-middle 
 to integrity violation attacks, to rather fundamental attacks on 
 asymmetric algorithms (such as RSA, DSA, and their elliptic curve 
 counterparts, Diffie-Hellman and Elliptic Curve DH, for example) 
@@ -24,7 +23,8 @@ large numbers, and massive brute force attacks on hash algorithms
 should be considered thoroughly. With this in mind, in this work, we 
 present different security solutions, which can be used to build secure 
 L2 and L3 overlay networks. We present the limitations of each solution 
-and identify how they can be avoided using various VPLS and L3-VPN.
+and identify how they can be avoided.
+
 We start with background material on cryptography. 
 Here we discuss various symmetric and asymmetric encryption algorithms, 
 present the definition of hash functions, which are considered secure nowadays, 
@@ -60,7 +60,8 @@ symmetric key encryption and decryption routines as well as hash methods and
 how do they compare to implementation, which uses special AES and SHA-256 CPU 
 instructions.} Here our focus is on the micro benchmarking of two implementations 
 of AES and SHA-256 hashing algorithms, identification of the bottlenecks and 
-further recommendations for our prototype implementation of Host Identity Based VPLS and L3-VPN.
+further recommendations for our prototype implementation of Host Identity Protocol 
+based VPLS and L3-VPN.
 
 Second, {\it what is the scalability of Host Identity Protocol based VPLS and how does 
 it perform in emulated environments such as Mininet.} Here we seek the answer to 
@@ -117,7 +118,7 @@ Cryptography comes in many flavors: symmetric key cryptography
 (3DES, AES, Twofish, RC4) which, in turn, can be categorized into 
 block cipher and stream cipher and asymmetric key cryptography 
 (such as RSA, DSA, ECDSA). There are also key exchange protocols 
-such as Diffie-Hellamn and Elyptic Cryptography DH for negotiation 
+such as Diffie-Hellamn and Elliptic Cryptography DH for negotiation 
 of common keys over insecure channels. Different algorithms applicable 
 in different settings depending on requirements. Typically, as we will 
 discuss later, symmetric key cryptography is used to protect 
@@ -205,7 +206,7 @@ little application in real-life settings.
 
 \subsection{Cryptographic hash functions}
 
-Mathematically, speaking hash function is a special function: For a given  
+Mathematically, speaking hash function is a special one-way function: For a given  
 pre-image of an arbitrary size it produces an image or hash value of a fixed size, 
 which is universally unique. Ideally, secure hash functions should guarantee 
 that the result it produces is irreversible. That it is, it 
@@ -236,7 +237,7 @@ Hash functions pave the road for such a notion as authentication tokens when com
 secret key in a special way. Examples are Hash-based MAC (HMAC)~\cite{Stinson:Cryptography}, 
 Parallelizable MAC (PMAC)~\cite{pmac}, Cipher-based MAC (CMAC) which is based on AES cipher. 
 For instance, by sending an HMAC together with the original message one can make sure that 
-the message will not be tampered with during the transmission. If, however, the message will 
+the message will not be modified during the transmission. If, however, the message will 
 be altered on the route to a recipient, this fact will be detected immediately during the 
 verification process.
 
@@ -331,7 +332,7 @@ the security of LWE depends on two parameters $n$ and $q$. By choosing $n=512$ a
 for a message of $k=256$ bits long (for example, this is the size of the key for AES-256 symmetric algorithm), 
 the size of the ciphertext will be $O(k \cdot n \cdot \log q) \approx 256 \cdot 16 \cdot 512$ bits or roughly whooping 
 $256$ KB. All in all the security does not come for free. Of course, there are way much practical implementations
-if LWE-based encryption algorithms, for example, the reader can take a look at Kyber~\cite{nist:kyber} which has a practical 
+of LWE-based encryption algorithms, for example, the reader can take a look at Kyber~\cite{nist:kyber} which has a practical 
 implementation in the TLS library.
 
 \section{Security protocols}
@@ -391,7 +392,7 @@ protocol for forwarding local traffic through remote servers.
 Virtual Private LAN Services (or VPLS), L3-VPNs, and L4 tunneling are pretty standard nowadays. 
 Companies build security solutions to provide Layer-2 and Layer-3 services for branch offices: 
 VPLS are typically built as overlays on top of Layer-3 (IP) and are Ethernet over IP type 
-overlays, whereas L3-VPNS are IP-in-IP tunneling solutions.
+overlays, whereas L3-VPNs are IP-in-IP tunneling solutions.
 
 In VPLS, when a frame arrives at VPLS provider equipment (PE), it is encapsulated 
 into an IP packet and is sent out to all other VPLS network elements comprising emulated LAN. 
@@ -554,7 +555,7 @@ running time in microseconds with the $95\%$ confidence intervals.
 \end{figure}
 
 
-What relates to cryptographical operations? For a standard packet of size $1500$ 
+What does this mean to HIP-VPLS performance? For a standard packet of size $1500$ 
 bytes we have compared the performance (combined HMAC and AES-256) and it turned 
 out, on one hand, that the implementation of cryptography in pure C with special CPU instructions was 
 $12.1$ faster than pure Python implementation. On the other hand, Python implementation with bindings
@@ -578,20 +579,21 @@ Our initial goal was not to build a production-grade implementation of HIP switc
 at first, we were only interested in demonstrating proof of a concept solution in 
 Mininet~\cite{mininet} – a framework for emulating L2 and L3 networks. It is worth mentioning that the code 
 we have produced can be also deployed (under certain conditions; for example, our HIP implementation 
-does not feature the NAT traversal mechanisms) on the real hardware. We are going to demonstrate 
-a working prototype in the later part of this document. Our prototype uses Python-based HIP~\cite{pyhip} 
-as the bases.
+does not feature the NAT traversal mechanisms) on the real hardware in the Internet. We are going to demonstrate 
+a working prototype in the later part of this work (here we assume that the public IPs are not from private 
+range). All our prototypes use Python-based HIP~\cite{pyhip} as the bases.
 
-While building HIP switches (the switches that are deployed at the border of a network) 
-we came across several challenges. First, to avoid loops the underlying network needs to support 
+While building HIP switches (the switches that are deployed at the border of a network and are responsible 
+for setting up security associations and pseudowires) we came across several challenges. 
+First, to avoid loops the underlying network needs to support 
 the IEEE 802.1D protocol (or its modification - this really depends on the version of the protocol 
 supported by the switches). This problem was initially addressed in the relevant IETF draft. 
-Second, there were certain issues with MTU and the inability of the Linux kernel to deliver IP 
+For the sake of brevity, we note that if LAN implements 802.1D STP protocol there will be no loops in the 
+HIP-VPLS instance. Second, there were certain issues with MTU and the inability of the Linux kernel to deliver IP 
 packets when those are fragmented in user space and injected into the network stack using raw 
 sockets. And finally, it took us some time to repackage the existing implementation of HIP protocol 
 as a library, so that it would be agnostic about low-level networking (such as raw sockets, etc.). 
-In the proceeding paragraphs, we will demonstrate the usage of HIP-based VPLS using loop-free L2 topology,
-that is achieved by using 802.1d STP protocol.
+In the proceeding paragraphs, we will demonstrate the usage of HIP-based VPLS using loop-free L2 topology.
 
 The logical network diagram of our Mininet prototype is shown in the Figure~\ref{fig:mininet}.
 
@@ -604,7 +606,7 @@ The logical network diagram of our Mininet prototype is shown in the Figure~\ref
 
 Our HIP-VPLS implemnetation~\cite{hip-vpls:mininet} in Mininet was using static configuration, meaning that 
 HIP-VPLS mesh, resolver and firewall rules were configured prior to deployment 
-of the overlay network and were not changed throughout the experiments. An interested reader
+of the overlay network and remained unchanged throughout the experiments. An interested reader
 can take a look at~\cite{hip-vpls:mininet} for precise steps that are required to 
 deploy the HIP-VPLS in the Mininet environment.
 
@@ -616,7 +618,7 @@ sends the packet to the selected HIP switch; (iv) if no security association exi
 HIP base exchange to negotiate secret keys and to establish security association; (v) If the 
 IPSec packet arrives on the public interface, first HMAC is verified, and if it is valid the packet 
 is decrypted; the original Ethernet frame is then reinjected into the private interface and 
-regular destination and VLAN-based forwarding is performed to deliver the frame to the recipient. 
+regular destination MAC-based and VLAN-based forwarding is performed to deliver the frame to the recipient. 
 
 Our HIP switch also implements the MAC learning and aging functionality: whenever a frame arrives 
 on the public interface the HIP-switch notes the source MAC address 
@@ -648,20 +650,36 @@ with the central controller on the Internet.
 
 In our deployment, we have used the following setup. For HIP switches we 
 have used the dual-network Intel N95 computing platform. We have used $8$ 
-port SNR switches to connect $3$ HIP switches, that way we have mimicked the 
-IP overlay in the setup. HIP switches had two interfaces: one is facing 
-LAN network, the other one is facing the WAN network. The microcomputers for
-HIP switches had the following characteristics: they had $8$GB of RAM memory, 
-dual-core Intel N95 CPU (with support for AES and SHA2 NI instructions), $256$ of 
+port SNR switch to connect $3$ HIP switches, that way we have mimicked the 
+IP overlay in the setup. HIP switches had two interfaces: one was facing 
+LAN network, the other one was facing the WAN network. 
+
+The microcomputers for HIP switches had the following characteristics: they had $8$GB of RAM memory, 
+quad-core Intel N95 CPU (with support for AES and SHA2 NI instructions), $256$ of 
 solid state hard drive. To wire the routers we have used SNR switches 
 (each switch had $8$ $1$ Gbit/s ports and two Small Form Factor (SFP) slots). 
 The testbed configuration is shown on Figure~\ref{fig:testbed}.
+
+In the testbed, we had a multihomed server (with one IP facing 
+the public network so that HIP switches will be able to connect to 
+the controller in the Internet, and one IP in the private range; this server
+was playing the role of HIP controller), several legacy microcomputers, 
+IP camera, and DHCP and DNS servers.
 
 In our testbed the central controller was responsible 
 reporting the liveness of HIP switches as well as provisioning 
 the devices with the mesh configuration information, firewall rules 
 and MAC-based ACL. For that purpose, we developed a simple 
-secure protocol which was utilizing TLS.
+secure protocol which was utilizing TLS. For example, consider 
+the Figure~\ref{devices} which shows the HIP switch registration
+and status information.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{graphics/devices.png}
+    \caption{HIP-VPLS central controller UI}
+    \label{devices}
+\end{figure}
 
 According to the protocol, on the one hand, every HIP-VPLS 
 the switch was reporting to the central controller (all requests were authenticated 
@@ -671,23 +689,6 @@ their presence every $5$ seconds. On the other hand, every HIP-VPLS switch was o
 the configuration from the central controller (such as mesh 
 configuration, HIT resolver information, firewall rules, and 
 MAC-based ACL). 
-
-{\eat 
-The architecture of HIP-VPLS switches is such
-that extra functionality can be easily implemented. For example,
-such thing as traffic shaper can be incorporated into the design
-quite easily. For example, HIP-switch, when configured centrally, 
-can be serve different traffic flows differently (with more bandwidth) than other 
-flows by using traffic shaping. If some hosts in the HIP-VPLS network send delay-sensitive traffic, 
-for example, curtain rules can be configured on the HIP controller 
-to give a needed advantage over other hosts in the network. We 
-leave this for future discussions and work.
-}
-
-In the testbed, we had a multihomed server (with one IP facing 
-the public network so that HIP switches will be able to connect to 
-the controller in the Internet, and one IP in the private range), 
-several legacy microcomputers, IP camera, and DHCP and DNS servers.
 
 \begin{figure}[!ht]
     \centering
@@ -730,7 +731,7 @@ not 10s, but 1000s sites, and that all sites need to be
 combined into a single network. First of all, there will be 
 $O(n^2)$ pseudo-wires: for $1000$ PEs there will be  
 around $1$M of routing table entries. Second, HIP-VPLS provides 
-a signle broadcast domain. And so there is going to be 
+a single broadcast domain. And so there is going to be 
 chaos in the network which will be overwhelmed with broadcast
 and multicast Ethernet frames. All these aspects make this type of
 arrangement of network unacceptable in the aforementioned scenarios.
@@ -768,10 +769,11 @@ process should be automated using for example central controller.
 
 To get the taste of the performance of this setup we have performed 
 several rounds of experiments with the {\it iperf} utility and measured
-the throughput with encryption/authentication and without. The results 
-are as follows: $19.7 \pm 0.06$ Mbit/s. This was expected, since the packet
+the throughput with encryption/authentication enabled. The results 
+are the following: $19.7 \pm 0.06$ Mbit/s. This was expected, since the packet
 is decrypted and encrypted, as well as HMAC is recalcutated at every hop on 
-the path from source CE to destination CE.
+the path from source CE to destination CE. Perphas, hop-by-hop encryption and authenication can
+be done selectively with global secret key so that better performance can be achived.
 
 \section{Comparison of various solutions}
 
@@ -791,7 +793,7 @@ the path from source CE to destination CE.
     \label{analysis}
 \end{table}
 
-In what follows, we compare now different approaches and identify there
+In what follows, we compare now different approaches and identify their
 characteristics and limitations. In Table~\ref{analysis} we 
 compare three different approaches for building overlays with Host 
 Identity Protocol. The first one is scalable L2-VPLS with hub-and-spoke
@@ -802,38 +804,48 @@ The first characteristic is the size of the forwarding table on the PE elements.
 L2-VPLS and L3-VPN it is equal to $O(n)$, where $n$ is the number of regular hosts in the
 network. This is obvious, as the MAC address table at least on the edge needs to know
 the mapping for each and every host in the network (consider when all hosts talk to 
-all other hosts). For HIP-VPLS the size is considerably smaller since the routing table
+all other hosts). For L3-VPN the size is considerably smaller since the routing table
 contains only IP prefixes of the networks and so equals to $O(m)$, where $m$ is the number 
 of sites, hence, the size of the network address prefixes. The reader should understand
-that $n>>m$
+that $n \gg m$.
 
 The second important characteristic is the number of links in a mesh network. For L2-VPLS 
 and L3-VPN it is equal to $O(k^2)$, where $k$ is the number of hub PEs. For HIP-VPLS
 this metric is equal to $O(l^2)$, such that $l$ is the overall number of sites or PEs.
-Clearly, $l>>k$, and hence the L3-VPN achieves better scalability.
+Clearly, $l \gg k$, and hence the L3-VPN achieves better scalability.
 
 What about privacy? Well in scalable L2-VPLS and L3-VPN the MAC and IPs are exposed to intermediate hubs 
 (at the end these addresses are used for forwarding). And so if a hub gets compromised 
 this information will be leaked to the adversary. In turn, in HIP-VPLS there are no intermediate nodes
 in the network since the pseudowires are created end-to-end, and so there is no risk that the 
-customer will expose sensitive information to intermediate nodes. Also, in L2-VPN and L3-VPN 
+customer will expose sensitive information to intermediate nodes. Also, in scalable L2-VPLS and scalable L3-VPN 
 the encryption and authentication is done in a hop-by-hop manner; whereas, in HIP-VPLS the 
-encryption is PE-to-PE (or site-to-site).
+encryption is PE-to-PE (or site-to-site). 
 
 One last important point is the avoidance of loops in the network. For L2-VPLS loop-free topology
-is achieved with 802.1D protocol or an SDN central controller (such as Ryu SND controller). 
-In L3-VPN the loops are avoided with the help of the IP TTL field. Also, in L3-VPN the routing tables
-are constructed centrally and no routing loops will be present in the topology. HIP-VPLS
-archives loop-free topology by assuming that customer networks run an instance of STP protocol
-(802.1D protocol similar to scalable L2-VPLS solution). 
+is achieved with 802.1D protocol (PE should implement this functionality, because they perform forwarding
+tasks) or an SDN central controller. In L3-VPN the loops are avoided with the help of the IP TTL field. 
+Also, in L3-VPN the routing tables are constructed centrally and no routing loops will be avoided 
+in the topology. HIP-VPLS archives loop-free topology by assuming that customer networks run an 
+instance of STP protocol. There is no need to implement 802.1D STP protocol for HIP switches
+since they do not forward Ethernet frames (received from public interface) to all, 
+but private interface.
 
 \chapter{Conclusions}
 
 We started this work with the background material on cryptography. Here we covered
-established approaches (building blocks) of modern security protocols. However, we 
-have introduced to the reader more recent developments, such as LWE encryption scheme.
+established approaches (building blocks) of modern security protocols. In addition, we 
+have introduced to the reader more recent developments, such as the LWE encryption scheme.
 We see that integration of LWE encryption and signature algorithm into HIP protocol 
 can be future work. We then discussed how to build various secure tunnels, \eg with 
-SSL, IPSec and SSH protocols. 
+SSL, IPSec, and SSH protocols. We covered briefly QinQ tunneling and MPLS protocol.
+
+In the results section, we covered the results for various cryptographic libraries,
+including the library which uses Intel NI instructions designed to boost the AES and 
+HMAC. We concluded that the Python library with C-bindings is not enough for the 
+production setup, and suggested implementing the HIP-VPLS in Rust or C language.
+We then moved to the desciption of scalable L3-VPN and HIP-VPLS solutions. We concluded 
+the work with a comparison of various characteristics of scalable L2-VPLS, L3-VPN and 
+HIP-VPLS solution. 
 
 
