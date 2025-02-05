@@ -430,8 +430,15 @@ thus limiting the application domain of this solution.
 \subsubsection{MPLS tunneling}
 
 Multi-protocol label switching is a standard protocol for forwarding any traffic type.
-It has label distribution protocol and label switching components. It is an ideal way 
-of forwarding the traffic even if path contains L3 routers.
+It is a layer $2.5$ solution that sits between data link layer and network layer.
+
+In MPLS the packets are forwarded not using on MAC or IP addresses, but 
+rather using lables, which are distributed by control protocol. Thus, when frame 
+arrives at router the current lable is popped, new lable is added and the frame is
+forwarded to the next hop router. The process continues until the frame reaches the 
+destination network where it is routed based on the original identifiers (IP addresses or MAC addresses).
+Obviously, MPLS has label distribution protocol and label switching components.
+MPLS is an ideal solution to create overlays (\ie L2 and L3 VPNs).
 
 \subsection{Virtual Private LAN (L3-VPN) security solutions}
 
