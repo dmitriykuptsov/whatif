@@ -404,9 +404,12 @@ Host Identity Protocol.
 In this section, however, we will briefly review some of widely used solutions 
 for building L2, L3 and L4 overlays.
 
-\subsection{Virtual Private LAN Services (VPLS) L2VPN solutions}
+\subsection{Virtual Private LAN Services (VPLS) solutions}
 
-Virtual Private LAN Services (VPLS) are pretty common nowadays. In this section we will cover 
+\eat{
+Virtual Private LAN Services (VPLS) are pretty common nowadays. 
+}
+In this section we will cover 
 to standard ways to build VPLS networks (using, for example, 802.1q QinQ tunneling and MPLS).
 
 \subsubsection{QinQ tunneling}
@@ -432,7 +435,7 @@ of forwarding the traffic even if path contains L3 routers.
 
 \subsection{Virtual Private LAN (L3-VPN) security solutions}
 
-The major drawback of QinQ and MPLS and QinQ is that they do not offer encryption and 
+The major drawback of QinQ and MPLS is that they do not offer encryption and 
 authentication of traffic. Therefore, additional steps needs to be taken to protect end-to-end
 traffic. In this section we will review PPTP, SSL-based VPNs, L2TP and IPsec tunnels.
 
@@ -547,17 +550,17 @@ bytes we have compared the performance (combined HMAC and AES-256) and it turned
 out, on one hand, that implementation of cryptography in pure C with special CPU instructions was 
 $12.1$ faster than pure Python implementation. On the other hand, Python implementation with bindings
 to C library demonstrated performance which was $2.3$ times faster. By making back of the envelop calculations
-we predict that Python implementation can achieve roughly $461$ Mbits/s in upload and download directions
+we predict that Python implementation can achieve roughly $461$ Mbit/s in upload and download directions
 cumulatively. However, in practice, given other operations with packets we did not get this result 
 in our experiments (more about performance of HIP-VPLS on real hardware can be found in proceeding 
 chapter). For the plain C implementation with AES and SHA instructions the performance would be 
-better and constitute astonishing $2.5$ Gbits/s. Would someone need to run the code in production
+better and constitute astonishing $2.5$ Gbit/s. Would someone need to run the code in production
 the entire code needs to be rewritten in plain C or Rust programming language for adequate performance.
 
 \section{Host Identity Protocol based VPLS}
 
 Virtual Private LAN Services (VPLS) provide means for building Layer 2 communication 
-on top of existing IP networks. VPLS can be built using various approaches. However, 
+on top of existing IP networks. As we have mentioned already, VPLS can be built using various approaches. However, 
 when building a production-grade VPLS solution one needs to have a clear picture of 
 how such aspects as security and L2 issues will be solved.
 
@@ -568,7 +571,7 @@ Mininet~\cite{mininet} – a framework for emulating L2 and L3 networks. It is w
 we have produced can be also deployed (under certain conditions; for example, our HIP implementation 
 does not feature the NAT traversal mechanisms) on the real hardware. We are going to demonstrate 
 working prototype in the later part of this document. Our prototype uses Python-based HIP~\cite{pyhip} 
-as the bases for prototype.
+as the bases.
 
 While building HIP-switches (the switches that are deployed at the border of a network) 
 we came across several challenges. First, to avoid loops the underlying network needs to support 
@@ -596,11 +599,17 @@ of the overlay network and were not change throughout the experiments. An intere
 can take a look at~\cite{hip-vpls:mininet} for precise steps which are required to 
 deploy the HIP-VPLS in Mininet environment.
 
-Overall, HIP-VPLS works as follows: (i) The daemon constantly listens for packets on private interface;
-(ii) if the frame is broadcast or multicast it chooses all peers in mesh to send the packet; (iii) if the 
-frame is unicast and HIP security assosiation exists for destination it sends the packet to the selected
+Overall, HIP-VPLS works as follows: (i) The daemon constantly listens for packets on private interface 
+and public interface; (ii) if the frame which arrives on private interface is broadcast or multicast it chooses all 
+HIP-VPLS peers in mesh to send the packet; 
+(iii) if the frame is unicast and HIP security assosiation exists for destination it sends the packet to the selected
 HIP-switch; (iv) if no security association exists HIP switch triggers HIP base exchange to negotiate 
-secret keys and to establishe security assosiation.
+secret keys and to establishe security assosiation. The HIP-switch also implements the MAC learning and aging 
+functionality: whenever, a frame arrives on public interface the HIP-switch notes the source MAC address 
+and adds it to the local database. Later, when a unicast frame arrives on the private interface, 
+it looks up the destination MAC address and chooses corresponding HIP association and pseudowire to send
+the frame encapsulated into IPSec packet to the recipient. 
+
 
 \begin{figure}[h!]
     \centering
@@ -609,16 +618,19 @@ secret keys and to establishe security assosiation.
     \label{fig:mininet}
 \end{figure}
 
+To get the grasp on the performance of HIP-VPLS in Mininet environment we 
+have performed series of bandwidth tests using {\it iperf} tool. To run
+the exeperiments we have used UTM emulator (installed on MacBook M1) 
+with Ubuntu 22.04 installed. All in all the results were the following: 
+the $95\%$ confidence interval for sample mean troughput was 
+$58.9 \pm 0.52$ Mbit/s.
+
 We now turn our attention to our attention to real-life deployment 
-of HIP-VPLS. The system architecture is similar to our Minent protoype
+of HIP-VPLS~\cite{hipvpls-hw, hipvpls-controller}. The system architecture is similar to our Minent protoype
 (except that there was lesser number of HIP switches) shown in Figure~\ref{fig:mininet}. 
 Apart from the HIP-VPLS switches, we have also implemented a unique 
 control-plane protocol on top of the SSL protocol for communication 
 with the central controller in the Internet.
-
-To get the grasp on the performance of HIP-VPLS in Mininet environment we 
-have performed series of bandwidth tests using {\it iperf} tool. Thus, the 
-mean troughput was $x.x$ Mbits/s.
 
 In our deployment we have used the following setup. For HIP switches we 
 have used the dual-network Intel N95 computing platform. We have used $8$ 
@@ -631,14 +643,23 @@ solid state hard drive. To wire the routers we have used SNR switches
 (each switch had $8$ $1$ Gbit/s ports, and two Small Form Factor (SFP) slots). 
 The testbed configuration is shown on the Figure~\ref{fig:testbed}.
 
+In our testbed the central controller was responsible 
+reporting liveness of HIP-switches as well as was provisioning 
+the devices with the mesh configuration information, firewall rules 
+and MAC based ACL. For that purpose we developed a simple 
+secure protocol which was utilizing TLS.
+
 According to the protocol, on the one hand, every HIP-VPLS 
-switch reports to the central controller (and is authenticated 
+switch was reporting to the central controller (all requests were authenticated 
 using the HMAC algorithm together with the shared symmetric 
-master secret). In the implementation switches report their presence every $5$ 
-seconds. On the other hand, every HIP-VPLS switch obtains 
+master secret). In the implementation switches were reporting 
+their presence every $5$ seconds. On the other hand, every HIP-VPLS switch was obtaining 
 the configuration from the central controller (such as mesh 
 configuration, HIT resolver information, firewall rules, and 
-MAC-based ACL). The architecture of HIP-VPLS switches is such
+MAC-based ACL). 
+
+{\eat 
+The architecture of HIP-VPLS switches is such
 that extra functionality can be easily implemented. For example,
 such thing as traffic shaper can be incorporated into the design
 quite easily. For example, HIP-switch, when configured centrally, 
@@ -647,6 +668,7 @@ flows by using traffic shaping. If some hosts in the HIP-VPLS network send delay
 for example, curtain rules can be configured on the HIP controller 
 to give a needed advantage over other hosts in the network. We 
 leave this for future discussions and work.
+}
 
 In the testbed, we had a multihomed server (with one IP facing 
 the public network so that HIP switches will be able to connect to 
@@ -674,7 +696,7 @@ and collected throughput and latency data and processed the cleaned data using P
     \centering
     \begin{tabular}{|c|c|c|c|}
     \hline
-    Statistics     & Upload (Mbits/s)        & Download (Mbits/s)     & Latency (ms) \\\hline
+    Statistics     & Upload (Mbit/s)        & Download (Mbit/s)     & Latency (ms) \\\hline
     Sample mean    & $46.1$                  & $48.2$                 & $5.0$         \\
     Sample std     & $7.1$                   & $2.3$                  & $0.19$        \\
     Sample median  & $44.8$                  & $48.8$                 & $4.9$         \\
@@ -710,10 +732,9 @@ of the overlay network. While some nodes will be the spoke nodes
 and will be connected directly to the sites. It is the hierarchy 
 that makes the network scalable. 
 
-We will compare the two networks in proceeding section. And now it is worth
-to look at the overall architecture which we have implemented in
+It is worth to look at the overall architecture which we have implemented in
 Mininet framework. The logical diagram is shown in Figure~\ref{fig:l3vpn}. 
-As we have already mentioned, the architectureof the distributed 
+As we have already mentioned, the architecture of the distributed 
 L3-VPN network is of hub-and-spoke type. Hub nodes comprise the backbone of the network, whereas,
 multiple spoke PE elements are attached to the hubs. 
 
@@ -732,7 +753,7 @@ process should be automated using for example central controller.
 \end{figure}
 
 To get the taste of the performance of this setup we have performed 
-several rounds of experiments with the IPerf utility and measured
+several rounds of experiments with the {\it iperf} utility and measured
 the throughput with encryption/authentication and without. The results 
 are as follows:
 

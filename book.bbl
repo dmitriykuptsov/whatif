@@ -29,6 +29,14 @@ Simulating host identity protocol-based virtual private lan service using
   https://www.linuxjournal.com/content/simulating-host-identity-protocol-based-virtual-private-lan-service-using-mininet-framework,
   2022.
 
+\bibitem{hipvpls-hw}
+Hip-vpls.
+\newblock https://github.com/strangebit-io/hip-vpls-hw-with-controller, 2023.
+
+\bibitem{hipvpls-controller}
+Hip-vpls controller.
+\newblock https://github.com/strangebit-io/hip-vpls-controller, 2023.
+
 \bibitem{pyhip}
 {Python-based Host Identity Protocol,
   \url{https://github.com/dmitriykuptsov/cutehip}}.
