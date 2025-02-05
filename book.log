@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  5 FEB 2025 15:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  5 FEB 2025 15:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -996,33 +996,15 @@ LaTeX Warning: Command \textquoteright invalid in math mode on input line 215.
 
 LaTeX Warning: Command \textquoteright invalid in math mode on input line 216.
 
-[12]
-Overfull \hbox (5.334pt too wide) in paragraph at lines 243--247
-\T1/pnc/m/n/10.95 in-ter-ested reader can find more in-for-ma-tion about hash f
-unc-tions here [[]]. 
- []
-
-[13] [14] [15] [16]
-Overfull \hbox (2.60837pt too wide) in paragraph at lines 391--395
-\T1/pnc/m/n/10.95 Virtual Pri-vate LAN Ser-vices (or VPLS), L3-VPNs, L4 tun-nel
--ing are pretty
- []
-
-[17]
+[12] [13] [14] [15] [16] [17]
 <graphics/vpn-central.png, id=76, 369.2997pt x 305.16008pt>
 File: graphics/vpn-central.png Graphic file (type png)
 <use graphics/vpn-central.png>
 Package pdftex.def Info: graphics/vpn-central.png  used on input line 458.
 (pdftex.def)             Requested size: 332.895pt x 275.08853pt.
- [18]
-Overfull \hbox (0.13055pt too wide) in paragraph at lines 474--484
-\T1/pnc/m/n/10.95 sends en-cap-su-lated in TCP and in SSL pack-ets to the L3-VP
-N head server.
- []
-
-[19 <./graphics/vpn-central.png>]
+ [18] [19 <./graphics/vpn-central.png>]
 LaTeX Font Info:    Trying to load font information for T1+txtt on input line 4
-97.
+98.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
@@ -1030,68 +1012,57 @@ File: t1txtt.fd 2000/12/15 v3.1
 <graphics/crypto/aes.pdf, id=90, 505.89pt x 505.89pt>
 File: graphics/crypto/aes.pdf Graphic file (type pdf)
 <use graphics/crypto/aes.pdf>
-Package pdftex.def Info: graphics/crypto/aes.pdf  used on input line 542.
+Package pdftex.def Info: graphics/crypto/aes.pdf  used on input line 544.
 (pdftex.def)             Requested size: 332.895pt x 332.90036pt.
 <graphics/crypto/hmac.pdf, id=91, 505.89pt x 505.89pt>
 File: graphics/crypto/hmac.pdf Graphic file (type pdf)
 <use graphics/crypto/hmac.pdf>
-Package pdftex.def Info: graphics/crypto/hmac.pdf  used on input line 549.
+Package pdftex.def Info: graphics/crypto/hmac.pdf  used on input line 551.
 (pdftex.def)             Requested size: 332.895pt x 332.90036pt.
+ [21
 
-Overfull \hbox (1.35948pt too wide) in paragraph at lines 555--566
-\OT1/cmr/m/n/10.95 1500$ \T1/pnc/m/n/10.95 bytes we have com-pared the per-for-
-mance (com-bined HMAC and AES-
- []
-
-[21
-
-] [22 <./graphics/crypto/aes.pdf>] [23 <./graphics/crypto/hmac.pdf>]
+]
+[22 <./graphics/crypto/aes.pdf>] [23 <./graphics/crypto/hmac.pdf>]
 <graphics/mininet.png, id=111, 369.2997pt x 305.16008pt>
 File: graphics/mininet.png Graphic file (type png)
 <use graphics/mininet.png>
-Package pdftex.def Info: graphics/mininet.png  used on input line 598.
+Package pdftex.def Info: graphics/mininet.png  used on input line 600.
 (pdftex.def)             Requested size: 258.91896pt x 213.95981pt.
 
-Overfull \hbox (1.98431pt too wide) in paragraph at lines 603--608
+Overfull \hbox (8.26959pt too wide) in paragraph at lines 605--610
 \T1/pnc/m/n/10.95 con-fig-ured prior to de-ploy-ment of the over-lay net-work a
-nd were not change
- []
-
-
-Overfull \hbox (8.99275pt too wide) in paragraph at lines 609--618
-\T1/pnc/m/n/10.95 which ar-rives on pri-vate in-ter-face, is broad-cast or mul-
-ti-cast dae-mon chooses
+nd were not changed
  []
 
 [24 <./graphics/mininet.png>]
 <graphics/hw-hipls.png, id=116, 369.2997pt x 305.16008pt>
 File: graphics/hw-hipls.png Graphic file (type png)
 <use graphics/hw-hipls.png>
-Package pdftex.def Info: graphics/hw-hipls.png  used on input line 628.
+Package pdftex.def Info: graphics/hw-hipls.png  used on input line 630.
 (pdftex.def)             Requested size: 258.91896pt x 213.95981pt.
  [25 <./graphics/hw-hipls.png>]
 <graphics/testbed.png, id=122, 518.53725pt x 597.13087pt>
 File: graphics/testbed.png Graphic file (type png)
 <use graphics/testbed.png>
-Package pdftex.def Info: graphics/testbed.png  used on input line 692.
+Package pdftex.def Info: graphics/testbed.png  used on input line 694.
 (pdftex.def)             Requested size: 332.895pt x 383.34694pt.
  [26] [27 <./graphics/testbed.png>]
 <graphics/l3-vpn.png, id=130, 443.91847pt x 371.28712pt>
 File: graphics/l3-vpn.png Graphic file (type png)
 <use graphics/l3-vpn.png>
-Package pdftex.def Info: graphics/l3-vpn.png  used on input line 762.
+Package pdftex.def Info: graphics/l3-vpn.png  used on input line 764.
 (pdftex.def)             Requested size: 332.895pt x 278.43066pt.
 
-Overfull \hbox (24.51083pt too wide) in paragraph at lines 776--787
+Overfull \hbox (24.51083pt too wide) in paragraph at lines 778--789
 [][]
  []
 
 
-Package caption Warning: \label without proper reference on input line 786.
+Package caption Warning: \label without proper reference on input line 788.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `analysis' on page 28 undefined on input line 791.
+LaTeX Warning: Reference `analysis' on page 28 undefined on input line 793.
 
 [28] [29 <./graphics/l3-vpn.png>] [30
 
@@ -1172,7 +1143,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  18670 strings out of 478994
  352939 string characters out of 5858184
- 1169608 words of memory out of 5000000
+ 1170608 words of memory out of 5000000
  35674 multiletter control sequences out of 15000+600000
  470583 words of font info for 145 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1197,7 +1168,7 @@ pe1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw
 /ncntrsbk/uncb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrs
 bk/uncr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrsbk/uncr
 i8a.pfb>
-Output written on book.pdf (34 pages, 8817787 bytes).
+Output written on book.pdf (34 pages, 8818226 bytes).
 PDF statistics:
  217 PDF objects out of 1000 (max. 8388607)
  146 compressed objects within 2 object streams

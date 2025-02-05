@@ -1,79 +1,79 @@
 \chapter{Introduction}
 
-Back in end of {\it 1960’s} when the Internet was a rather small 
+Back at the end of {\it 1960’s} when the Internet was a rather small 
 network, which was interconnecting major universities, governmental 
 and military organizations, very little attention was devoted to 
 security. Nowadays, when the Internet has become extremely 
 sophisticated in structure, connecting billions of devices ranging 
-from small IoT type devices to humongous data-centers, security has 
+from small IoT-type devices to humongous data centers, security has 
 gained number one priority. In present days, a typical Intranet of 
-an organization can include number of geographically separated 
+an organization can include a number of geographically separated 
 branch-office networks (for example, consider a factory that has 
 many SCADA devices and a mission control center that is miles and 
-miles away). Since these networks geographically separated, connecting 
+miles away). Since these networks are geographically separated, connecting 
 them becomes a necessity, and so is the security of these networks. 
 This is when the layer-3 virtual private networks ({\it L3-VPN}) and layer-2 
 virtual private LAN services ({\it L2-VPLS}) solutions become handy. 
 There are, however, other requirements that need to be taken into 
-account. Scalability, resilience to various attacks, from man-in-the-middle 
+account. Scalability, and resilience to various attacks, from man-in-the-middle 
 to integrity violation attacks, to rather fundamental attacks on 
-asymmetric algorithms (such as RSA, DSA and their elliptic curve 
-counterparts, Diffie-Hellman and Eliptic Curve DH, for example) 
+asymmetric algorithms (such as RSA, DSA, and their elliptic curve 
+counterparts, Diffie-Hellman and Elliptic Curve DH, for example) 
 using, for example, {\it Shor’s quantum computer algorithm} to factorize 
 large numbers, and massive brute force attacks on hash algorithms 
-should be considered thoroughly. With this in mind, in this work we 
+should be considered thoroughly. With this in mind, in this work, we 
 present different security solutions, which can be used to build secure 
 L2 and L3 overlay networks. We present the limitations of each solution 
 and identify how they can be avoided using various VPLS and L3-VPN.
-We start with a background material on cryptography. 
+We start with background material on cryptography. 
 Here we discuss various symmetric and asymmetric encryption algorithms, 
 present the definition of hash functions, which are considered secure nowadays, 
 and discuss several key agreement algorithms. To make the discussion 
 complete we present the threat that quantum computers pose for such 
 algorithms as RSA and DH, and discuss how post-quantum algorithms such 
-as those that are based on lattice can be used as alternative to classical 
-algorithms for encryption and signature constructions. Although, not considered 
-as part of the present work, future work can be include the performance 
+as those that are based on the lattice can be used as an alternative to classical 
+algorithms for encryption and signature constructions. Although not considered 
+as part of the present work, future work can include the performance 
 comparison of standardized RSA and DSA algorithms with the performance of 
 lattice-based algorithms incorporated into for example Host Identity Protocol 
-or even Transport Layer Security protocol. We than move on to discussion of 
-TLS, SSL, IPsec, HIP and SSH protocols and how those can be used to achieve 
+or even Transport Layer Security protocol. We then move on to a discussion of 
+TLS, SSL, IPsec, HIP, and SSH protocols and how those can be used to achieve 
 integrity and confidentiality of data transmitted over insecure channels. 
-Afterwards, we move on to the discussion of the results we have obtained 
-over the course of several years. Here, we discuss our practical experience 
-with scalable Host Identity Protocol based L3-VPN and VPLS network which was 
+Afterward, we discuss the results we have obtained 
+over several years. Here, we discuss our practical experience 
+with scalable Host Identity Protocol-based L3-VPN and VPLS network which was 
 built using the same protocol. We devote a separate section on 
 hardware-accelerated versions of AES and SHA-256 algorithms. We conclude 
-the results section with the analysis of the limitations of each solution 
+the results section with an analysis of the limitations of each solution 
 and present the results for the various micro-benchmarking settings.
 
 \section{Questions}
 
 In this work, we ask several questions. These are not research questions, 
 but rather practical questions that we try to answer to ourselves in order to 
-understand the usability of Python based security solution. Since our work 
+understand the usability of Python-based security solution. Since our work 
 focuses on the application of Host Identity Protocol (HIP) in VPN and VPLS 
 settings we ask the following questions:
 
 First, {\it what is the performance of the pure Python-based implementation of 
 symmetric key encryption and decryption routines as well as hash methods and 
 how do they compare to implementation, which uses special AES and SHA-256 CPU 
-instructions.} Here our focus is on the microbanchmarking of two implementations 
-of AES and SHA-256 hashing algorithm, identification of the bottlenecks and 
+instructions.} Here our focus is on the micro benchmarking of two implementations 
+of AES and SHA-256 hashing algorithms, identification of the bottlenecks and 
 further recommendations for our prototype implementation of Host Identity Based VPLS and L3-VPN.
 
 Second, {\it what is the scalability of Host Identity Protocol based VPLS and how does 
 it perform in emulated environments such as Mininet.} Here we seek the answer to 
-the question whether the HIP-VPLS is usable in environments close to real-life setups.
+the question of whether the HIP-VPLS is usable in environments close to real-life setups.
 
-Third, {\it what is the performance of Python based HIP-VPLS on real hardware}. By 
-asking such question we want to find the application niche of our security solution. In addition, 
-we elaborate on the practical configuration of HIP-VPLS using central controller.
+Third, {\it what is the performance of Python-based HIP-VPLS on real hardware}. By 
+asking such questions we want to find the application niche of our security solution. In addition, 
+we elaborate on the practical configuration of HIP-VPLS using a central controller.
 
 The final question relates to {\it to the deployment of scalable L3-VPN 
-based on Host Identity Protocol}. Here we focus on rather different approach of building 
+based on Host Identity Protocol}. Here we focus on rather a different approach to building 
 secure networks: we consider L3-VPN where nodes in different branch offices form separate 
-broadcast and multicast domains, but still can communicate with each other (with assistance of IPv4 or IPv6 
+broadcast and multicast domains, but still can communicate with each other (with the assistance of IPv4 or IPv6 
 routing protocols). Here, we want to answer how to tackle the scalability issues of 
 VPN network by adding hierarchy into the architecture.
 
@@ -81,30 +81,30 @@ VPN network by adding hierarchy into the architecture.
 \chapter{Background}
 
 Since we are going to discuss the security protocols in this work, we begin 
-this section with the shallow dive into cryptography basics. Here, we discuss 
+this section with a shallow dive into cryptography basics. Here, we discuss 
 symmetric and asymmetric cryptography algorithms, to make the description a 
-little bit complete we show how RSA algorithm works, discuss  
-Diffie-Hellman (DH) and its Elliptic Curve counterpart. We should mention that current 
+little bit complete we show how the RSA algorithm works, discuss  
+Diffie-Hellman (DH) and its Elliptic Curve counterpart. We should mention that the current 
 understanding inside the cryptographic community is such that Shor’s algorithm and 
 its quantum computer implementation theoretically 
-can efficiently factorize big number and solve discrete logarithm problem without trouble. 
-This algorithm, if powerful enough quantum computers will exist in the near future, 
+can efficiently factorize big numbers and solve discrete logarithm problems without trouble. 
+This algorithm, if powerful enough quantum computers will exist shortly, 
 puts the RSA and DH algorithms - the major building blocks of modern security 
-solutions - at risk of being cracked (once the modulus of RSA algorithm factorized 
-into prime components, the private key of RSA 
-algorithm can be easily recovered). We will conclude this part of the background 
+solutions - at risk of being cracked (once the modulus of the RSA algorithm factorized 
+into prime components, the private key of the RSA 
+the algorithm can be easily recovered). We will conclude this part of the background 
 material with the discussion of {\bf post-quantum} computer public key encryption 
 solution based on lattice (more specifically we will discuss Learning With Errors 
-(LWE) problem, which is at heart of modern public key cryptography). 
+(LWE) the problem, which is at the heart of modern public key cryptography). 
 We believe that, eventually, this type of cryptography will be 
 the replacement for traditional RSA and DH algorithms, which rely on the hardness 
-of factorization of the big numbers and discrete logarithm problem. In the epilogue of this 
-section, we will put few words on how lattice public key cryptography can be used, 
+of factorization of the big numbers and discrete logarithm problems. In the epilogue of this 
+section, we will put a few words on how lattice public key cryptography can be used, 
 for example, together with Host Identity Protocol.
 
 In the second part of the background material, we will review the basics of the Host 
-Identity Protocol, Transport Layer Security Protocol and Secure Shell Protocol, since 
-these protocols are essential for understanding of the secure tunneling protocols that we
+Identity Protocol, Transport Layer Security Protocol, and Secure Shell Protocol, since 
+these protocols are essential for understanding the secure tunneling protocols that we
 discuss in this work.
 
 We will finalize the discussion of the background material with a short overview of 
@@ -129,50 +129,50 @@ identification purposes~\cite{Stinson:Cryptography}.
 
 We start with the symmetric key cryptography. Common key and rather 
 trivial operations such as permutations and substitutions are at the 
-heart of any symmetric key cryptography algorithm. Although, this type 
-of cryptography is efficient because of the usage efficient operations, 
+heart of any symmetric key cryptography algorithm. Although this type 
+of cryptography is efficient because of the usage of efficient operations, 
 it comes with a limitation though. In symmetric key cryptography, 
 both sender and receiver need to share the same key, which complicates 
 such important aspects as key distribution and revocation and so alone 
-this encryption solutions a very hard to use in modern cryptosystems. 
-Typically, asymmetric key cryptography such as RSA or DH are used to derive session 
-keys – TLS, HIP and many other protocols follow this design idea.
+this encryption solution a very hard to use in modern cryptosystems. 
+Typically, asymmetric key cryptography such as RSA or DH is used to derive session 
+keys – TLS, HIP, and many other protocols follow this design idea.
 
 Symmetric key cryptography comes in two different flavors: block and stream. 
 For example, block cipher (such as AES, 3DES, Twofish~\cite{Stinson:Cryptography}) 
 use blocks of data (typically, the size of the block is 128, 160, 256 
 bits~\cite{Stinson:Cryptography}), and encrypts or 
 decrypts one block at a time. There are different modes of operation, though, 
-for block ciphers, examples are counter mode and cipher block chaining. The latter 
-one uses so-called initialization vector to add extra randomness into encryption 
+for block ciphers, examples are counter mode and cipher block chaining. 
+The latter uses a so-called initialization vector to add extra randomness into the encryption 
 process, and encryption of proceeding blocks depends on the output of the previous 
 block. Modes of operations are important for security reasons. However, not all 
-modes of operations useful and secure. For example, Electronic Code Book (ECB), 
-while allow achieving fast processing and parallelization, is considered insecure in 
+modes of operation are useful and secure. For example, Electronic Code Book (ECB), 
+while achieving fast processing and parallelization, is considered insecure in 
 many settings.
 
-The other type of symmetric key algorithms is stream cipher. Here the encryption 
-and decryption is performed on separate bits, one bit at a time. CR4 is an example 
-of stream cipher. Stream ciphers are extremely important in real-time processing, 
+The other type of symmetric key algorithm is stream cipher. Here the encryption 
+and decryption are performed on separate bits, one bit at a time. CR4 is an example 
+of a stream cipher. Stream ciphers are extremely important in real-time processing, 
 for example, Wi-Fi uses stream ciphers to encrypt the data plane traffic.
 
 \subsection{Asymmetric cryptography}
 
-Asymmetric key cryptography, in its simplest form, is the brilliant in the age 
+Asymmetric key cryptography, in its simplest form, is brilliant in the age 
 of computing. Guessing from the name that this type of cryptography uses different 
 keys for encryption and decryption does not require deep thought. This property makes 
-this group of algorithms suitable for various key distribution, revocation and 
+this group of algorithms suitable for various key distribution, revocation, and 
 signature ideas. 
 
 There is a magnitude of different asymmetric key security algorithms. 
-RSA, DSA and its Elliptic curve variant ECDSA are the pillars of modern 
-security solutions. But the flexibility of these schemes comes at an extra 
+RSA, DSA, and its Elliptic curve variant ECDSA are the pillars of modern 
+security solutions. However, the flexibility of these schemes comes at an extra 
 price of CPU cycles. All this makes these solutions inapplicable for securing 
 data plane traffic, but only rather to secure control plane. In what follows, 
 just to underpin the beauty of the math behind asymmetric key cryptography, 
-we provide a description of RSA algorithm.
+we provide a description of the RSA algorithm.
 
-In RSA cryptosystem, the sender generates a pair of keys as follows: 
+In the RSA cryptosystem, the sender generates a pair of keys as follows: 
 First, the sender chooses large enough two prime numbers $p$ and $q$. Next, 
 the sender computes $n=pq$ and evaluates Euler’s phi function: $\phi(n)=(p-1)(q-1)$. 
 This is the same as the number of numbers co-prime to $n$. The sender then selects at 
@@ -181,42 +181,42 @@ Finally, the sender or the dealer computes the decryption exponent $d$, such tha
 $ed \equiv 1\ mod\ \phi(n)$ using modular multiplicative inverse (for that purpose extended Euclidian 
 algorithm can be used).
 
-The public key is then $(n, e)$ and the private key is $(n, d)$. To encrypt the message $m$ 
+The public key is then $(n, e)$, and the private key is $(n, d)$. To encrypt the message $m$ 
 the sender computes $c= m^e\ mod\ n$. The decryption is similar $m = c^d\ mod\ n$. The beauty is 
 in Fermat’s little theorem, which states that $m^{\phi(n)}\ mod\ n \equiv 1\ mod\ n$. 
 Now, $ed\ \equiv\ 1\ mod\ \phi(n)$, which means that 
 $ed=k\phi(n)+1$, and so $m^{(ed)}\ mod\ n \equiv m^{(k\phi(n)+1)} mod\ n \equiv 1^k m\ mod\ n \equiv m\ mod\ n$. 
 
 In practice, RSA requires random padding to protect against such attacks as chosen ciphertext 
-attacks and making two identical plaintext produce various ciphertexts. Padding also ensures that the 
-message size is multiple of encryption block-size. In practice, Optimal Asymmetric Encryption Padding (OAEP) 
+attacks and making two identical plaintexts produce various ciphertexts. Padding also ensures that the 
+message size is multiple of the encryption block-size. In practice, Optimal Asymmetric Encryption Padding (OAEP) 
 scheme is used.
 
-It is good to know that if the message hashed and encrypted with private key, the result is a 
-form of digital signature, since the sender cannot later deny that it was involved into encryption 
-process. Digital Signature Algorithm (DSA) is another example of asymmetric signature scheme and 
-was specifically design for that purpose. In turn, Elliptic Curves improve the performance of regular DSA 
-algorithm.
+It is good to know that if the message is hashed and encrypted with the private key, the result is a 
+form of digital signature since the sender cannot later deny that it was involved in the encryption 
+process. A Digital Signature Algorithm (DSA) is another example of an asymmetric signature scheme and 
+was specifically designed for that purpose. In turn, Elliptic Curves improve the performance of regular DSA 
+algorithms.
 
-Frankly speaking, one way functions can be also used to construct signature schemes. 
-For example, one can use one-time hash-based signatures to produce the secure digital signatures. Nevertheless, 
-the application of these type of signature algorithms is rather impractical and finds 
+Frankly speaking, one-way functions can be also used to construct signature schemes. 
+For example, one can use one-time hash-based signatures to produce secure digital signatures. Nevertheless, 
+the application of these types of signature algorithms is rather impractical and finds 
 little application in real-life settings.
 
 \subsection{Cryptographic hash functions}
 
-Mathematically, speaking hash function is special function: For a given given 
+Mathematically, speaking hash function is a special function: For a given  
 pre-image of an arbitrary size it produces an image or hash value of a fixed size, 
 which is universally unique. Ideally, secure hash functions should guarantee 
 that the result it produces is irreversible. That it is, it 
-should be extremely hard to find a pre-image, or original message, given the 
-hash or the fingerprint. Secure hash functions should be also collision resistant. 
+should be extremely hard to find a pre-image or original message, given the 
+hash or the fingerprint. Secure hash functions should be also collision-resistant. 
 In other words, it should be extremely hard, if not impossible at all, to 
 find two different messages $m$ and $m’$ that will hash to the same value, i.e., 
 $hash(m)=hash(m’)$.
 
 Secure hash functions are important in modern cryptography. 
-For example, they can serve as authentication tokens for message transmitted over the 
+For example, they can serve as authentication tokens for messages transmitted over the 
 wire (useful, for example, in detecting message manipulation during transmission), 
 they also allow compressing the message before signing it with the digital signature 
 algorithm, and, finally, they can be used to find the differences between the messages 
@@ -232,43 +232,43 @@ family of SHA hash functions also exists. For example, engineers recommend to us
 SHA-512 and recent SHA-3 in modern applications, as no successful attacks were registered for 
 these types of hash functions.
 
-Hash functions pave a road for such a notion as authentication tokens when combined with a 
+Hash functions pave the road for such a notion as authentication tokens when combined with a 
 secret key in a special way. Examples are Hash-based MAC (HMAC)~\cite{Stinson:Cryptography}, 
 Parallelizable MAC (PMAC)~\cite{pmac}, Cipher-based MAC (CMAC) which is based on AES cipher. 
 For instance, by sending an HMAC together with the original message one can make sure that 
-the message will not be tampered during the transmission. If, however, the message will 
+the message will not be tampered with during the transmission. If, however, the message will 
 be altered on the route to a recipient, this fact will be detected immediately during the 
 verification process.
 
-Hash functions are also useful in signatures. For example, one-time signatures are using 
-hash functions to construct an digital signature of a message. They are, however, impractical
-as they require considerable amount of storage and can be used only one time as the name implies. 
+Hash functions are also useful in signatures. For example, one-time signatures use 
+hash functions to construct a digital signature of a message. They are, however, impractical
+as they require a considerable amount of storage and can be used only one time as the name implies. 
 An interested reader can find more information about hash functions here~\cite{Stinson:Cryptography}.
 
 \subsection{Key exchange protocols}
 
 Finally, key exchange algorithms are also important in modern systems as they allow 
-negotiation of common key over insecure channel. Of course, RSA can be used to deliver a session key
-by encrypting it with the recipients public key, but specially crafted key negotiation
-algorithms exist in practice. Two bright examples are Diffie-Hellman (DH) and Eliptic Curve 
+the negotiation of common keys over insecure channels. Of course, RSA can be used to deliver a session key
+by encrypting it with the recipient's public key, but specially crafted key negotiation
+algorithms exist in practice. Two bright examples are Diffie-Hellman (DH) and Elliptic Curve 
 DH. Both DH and ECDH need to be authenticated in order to guarantee security.
 
 
 \subsection{Post-quantum Lattice-based cryptography}
 
-Shor's algorithm~\cite{shor}, implemented on quantum computer, makes certain computational 
-problems (such as, factorization of large numbers and discrete logarithm problem) 
+Shor's algorithm~\cite{shor}, implemented on a quantum computer, makes certain computational 
+problems (such as factorization of large numbers and discrete logarithm problems) 
 feasible in polynomial time. This shutters the security of the Internet, and 
 so rigorous research was initiated to fill the gap. In what follows we discuss
-certain hard mathematical problem on lattices and show the workings of the 
+certain hard mathematical problems on lattices and show the workings of the 
 Learning With Errors (LWE) public key encryption scheme~\cite{regev}. In fact majority of 
 NIST's candidates for post-quantum public key encryption algorithms are based 
 on LWE.
 
-A lattice is a mathematical structure which consists of integers in $n$-dimensions 
+A lattice is a mathematical structure that consists of integers in $n$ dimensions 
 arranged in a structured lattice-like way. Mathematically, the lattice is defined as follows:
 $$\Lambda({\bf B}) = \{{\bf Bx}, {\bf x} \in \mathbb{Z}^n \}$$ where ${\bf B}$ is a matrix of basis vectors
-that generates the lattice. We should note that there exist large number of basis vectors, some are {\it good}
+that generates the lattice. We should note that there exist a large number of basis vectors, some are {\it good}
 some are {\it bad}.
 
 A { \bf closest vector problem (CVP) } on lattices, which is considered NP-hard, and believed unsolvable even on 
@@ -277,43 +277,43 @@ $\Lambda({\bf B})$, the task is to find a closes point ${\bf Bx}$ on lattice:
 
 $$\min_{\forall {\bf x} \in \mathbb{Z}^n} \|{\bf Bx} - {\bf t}\|$$ 
 
-In practice the above problem is extremely hard to solve which makes lattice-based cryptography 
+In practice, the above problem is extremely hard to solve which makes lattice-based cryptography 
 attractive to cryptographers.
 
 From linear algebra we know that solving equation $\bf{Ax}=\bf{b}$ is simple using
 Gaussian elimination. However, if a random noise is added to the equation $$\bf{Ax} + \bf{e} = \bf{b}$$ the 
-problem is considered as hard as CVP on lattice. Solving the above problem directly relates to 
+problem is considered as hard as CVP on the lattice. Solving the above problem directly relates to 
 solving the CVP problem on lattice if the parameters are selected carefully.
 
 So, given a matrix $\bf{A} \sim U(\mathbb{Z}^{nxm}_q)$, vector $\bf{s} \sim U(\mathbb{Z}^{n}_q)$ and 
 vector $\bf{e} \sim D_{\mathbb{Z}^{m}, \sigma}$ sampled from discrete (clipped) Gaussian distribution with parameter $\sigma$. We require that, the probability
-$P[e < q/4]$ is high (\ie $99.99\%$) to ensure correct decryption of the message and to achieve required 
+$P[e < q/4]$ is high (\ie $99.99\%$) to ensure correct decryption of the message and to achieve the required 
 level of security. We can define matrix ${\bf A}$, secret key ${\bf s}$ and noise vector ${\bf e}$ as follows:
 
 \begin{equation}
-    {\bf A}=\begin{bmatrix}
-        a_{11}       & a_{12} & a_{13} & \dots & a_{1n} \\
-        a_{21}       & a_{22} & a_{23} & \dots & a_{2n} \\
-        \hdotsfor{5} \\
-        a_{m1}       & a_{m2} & a_{m3} & \dots & a_{mn}
+ {\bf A}=\begin{bmatrix}
+ a_{11}       & a_{12} & a_{13} & \dots & a_{1n} \\
+ a_{21}       & a_{22} & a_{23} & \dots & a_{2n} \\
+ \hdotsfor{5} \\
+ a_{m1}       & a_{m2} & a_{m3} & \dots & a_{mn}
     \end{bmatrix}
 \end{equation}
 
 \begin{equation}
-    {\bf s}=\begin{bmatrix}
-        s_{1} \\
-        s_{2} \\
-        \dots \\
-        s_{n} 
+ {\bf s}=\begin{bmatrix}
+ s_{1} \\
+ s_{2} \\
+ \dots \\
+ s_{n} 
     \end{bmatrix}
 \end{equation}
 
 \begin{equation}
-    {\bf e}=\begin{bmatrix}
-        e_{1} \\
-        e_{2} \\
-        \dots \\
-        e_{m} 
+ {\bf e}=\begin{bmatrix}
+ e_{1} \\
+ e_{2} \\
+ \dots \\
+ e_{m} 
     \end{bmatrix}
 \end{equation}
 
@@ -327,18 +327,18 @@ compute $v - \bf{u s}$: if the result is less than $q/4$ output $0$, otherwise, 
 is larger than $q/4$ output $1$. For decryption to work correctly, we require that the parameter $\sigma = q/(16m)$. 
 
 The major disadvantage of lattice-based cryptography is the size of the keys and actual ciphertext. For example,
-security of LWE depends on two parameters $n$ and $q$. By choosing $n=512$ and $q=2^{16}$, the size of ciphertext
+the security of LWE depends on two parameters $n$ and $q$. By choosing $n=512$ and $q=2^{16}$, the size of ciphertext
 for a message of $k=256$ bits long (for example, this is the size of the key for AES-256 symmetric algorithm), 
 the size of the ciphertext will be $O(k \cdot n \cdot \log q) \approx 256 \cdot 16 \cdot 512$ bits or roughly whooping 
 $256$ KB. All in all the security does not come for free. Of course, there are way much practical implementations
-if LWE-based encryption algorithms, for example, the reader can take a look at Kyber~\cite{nist:kyber} which has practical 
-implementation in TLS library.
+if LWE-based encryption algorithms, for example, the reader can take a look at Kyber~\cite{nist:kyber} which has a practical 
+implementation in the TLS library.
 
 \section{Security protocols}
 
-Equipped with basic understanding of the cryptography we will now dive into discussion of some 
-of the well-known security protocols, including IPSec, HIP, TLS and SSH. All these protocols
-make a solid basis for the secure internetworking.
+Equipped with a basic understanding of cryptography we will now dive into a discussion of some 
+of the well-known security protocols, including IPSec, HIP, TLS, and SSH. All these protocols
+make a solid basis for secure internetworking.
 
 \subsection{Host Identity Protocol (HIP)}
 
@@ -372,23 +372,23 @@ about HIP can be found in RFC 7401~\cite{rfc7401}.
 \subsection{Secure socket layer (SSL)}
 Secure socket layer (SSL)~\cite{ssl} and Transport Layer Security (TLS) are an application 
 layer solutions to secure TCP connections. SSL was standardized in RFC 6101. 
-TLS was standardized in RFC 5246. And was designed to prevent eavesdropping, man 
-in-the-middle attacks, tampering and message forgery. In SSL the communicating 
-hosts can authenticate each other with help of longer term identities - public key certificates.
-SSL is great for building VPN tunnels and protecting upper layer protocols such as HTTP
+TLS was standardized in RFC 5246. And was designed to prevent eavesdropping, 
+man-in-the-middle attacks, tampering, and message forgery. In SSL communicating 
+hosts can authenticate each other with the help of longer-term identities - public key certificates.
+SSL is great for building VPN tunnels and protecting upper-layer protocols such as HTTP.
 
 
 \subsection{Secure Shell Protocol (SSH)}
 
-Secure Shell protocol (SSH) is the application layer protocol which provides an encrypted channel 
+Secure Shell protocol (SSH) is the application layer protocol that provides an encrypted channel 
 for insecure networks. SSH was originally designed to provide secure remote command-line, login, 
 and command execution. But in fact, any network service can be secured with SSH. Moreover, SSH 
-provides means for creating VPN tunnels between the spatially separated networks: SSH is a great 
+provides a means for creating VPN tunnels between spatially separated networks: SSH is a great 
 protocol for forwarding local traffic through remote servers. 
 
 \section{L2, L3 and L4 tunneling}
 
-Virtual Private LAN Services (or VPLS), L3-VPNs, L4 tunneling are pretty standard nowadays. 
+Virtual Private LAN Services (or VPLS), L3-VPNs, and L4 tunneling are pretty standard nowadays. 
 Companies build security solutions to provide Layer-2 and Layer-3 services for branch offices: 
 VPLS are typically built as overlays on top of Layer-3 (IP) and are Ethernet over IP type 
 overlays, whereas L3-VPNS are IP-in-IP tunneling solutions.
@@ -397,11 +397,11 @@ In VPLS, when a frame arrives at VPLS provider equipment (PE), it is encapsulate
 into an IP packet and is sent out to all other VPLS network elements comprising emulated LAN. 
 Security of such overlays is important for obvious reasons: customers do not want their corporate 
 traffic to be sniffed and analyzed. In L3-VPN networks, on the other hand, the networks form different 
-broadcast domains, and so when IPv4 or IPv6 packet arrives at VPN box, it is encapsulated into another 
+broadcast domains, and so when an IPv4 or IPv6 packet arrives at the VPN box, it is encapsulated in another 
 IP packet and sent out using the backbone network. In this work, we built such secure overlays with 
 Host Identity Protocol. 
 
-In this section, however, we will briefly review some of widely used solutions 
+In this section, however, we will briefly review some of the widely used solutions 
 for building L2, L3 and L4 overlays.
 
 \subsection{Virtual Private LAN Services (VPLS) solutions}
@@ -417,11 +417,11 @@ to standard ways to build VPLS networks (using, for example, 802.1q QinQ tunneli
 When the path from one network to the other, such as branch office to head office,
 traverses only layer-2 switches (\ie no IP routing is involved), the VPLS can be organized 
 with the help of 802.1Q protocol~\cite{snr}. Broadly, speaking this is not a protocol as such, but rather 
-VLAN tag based switching. Thus, on ingress point an additional 802.1q service provider SP-VLAN tag 
-is inserted in L2 header of an Ethernet frame. Later, the forwarding decisions are 
-made using this SP-VLAN tag. On egress point the SP-VLAN tag is removed and original 
-Ethernet frame is forwarded to the recipient based on destination MAC address 
-and, if exists, on inner C-VLAN tag. 
+VLAN tag-based switching. Thus, on the ingress point, an additional 802.1q service provider SP-VLAN tag 
+is inserted in the L2 header of an Ethernet frame. Later, the forwarding decisions are 
+made using this SP-VLAN tag. On the egress point, the SP-VLAN tag is removed and the original 
+Ethernet frame is forwarded to the recipient based on the destination MAC address 
+and, if exists, on the inner C-VLAN tag. 
 
 It should be noted that the configuration of forwarding is a manual configuration step.
 Also, QinQ does not provide additional mechanisms to secure the customer's traffic,
@@ -430,11 +430,11 @@ thus limiting the application domain of this solution.
 \subsubsection{MPLS tunneling}
 
 Multi-protocol label switching is a standard protocol for forwarding any traffic type.
-It is a layer $2.5$ solution that sits between data link layer and network layer.
+It is a layer $2.5$ solution that sits between the data link layer and the network layer.
 
-In MPLS the packets are forwarded not using on MAC or IP addresses, but 
-rather using lables, which are distributed by control protocol. Thus, when frame 
-arrives at router the current lable is popped, new lable is added and the frame is
+In MPLS the packets are forwarded not using MAC or IP addresses, but 
+rather using labels, which are distributed by control protocol. Thus, when a frame 
+arrives at the router the current label is popped, the new label is added and the frame is
 forwarded to the next hop router. The process continues until the frame reaches the 
 destination network where it is routed based on the original identifiers (IP addresses or MAC addresses).
 Obviously, MPLS has label distribution protocol and label switching components.
@@ -448,10 +448,10 @@ traffic. In this section we will review PPTP, SSL-based VPNs, L2TP and IPsec tun
 
 \subsubsection{Multipoint to single point VPN}
 
-Multipoint to single head VPN is a standard way of organizing VPN network
-for an organization that has single head office and multiple branch offices.
-In this setup multiple branch offices are connected to a head end. 
-We show such setup in Figure~\ref{fig:head-vpn}.
+Multipoint to single-head VPN is a standard way of organizing a VPN network
+for an organization that has a single head office and multiple branch offices.
+In this setup, multiple branch offices are connected to a head end. 
+We show such a setup in Figure~\ref{fig:head-vpn}.
 
 \begin{figure}[ht!]
     \centering
@@ -460,7 +460,7 @@ We show such setup in Figure~\ref{fig:head-vpn}.
     \label{fig:head-vpn}
 \end{figure}
 
-There is a number of protocols available for such an arrangement. Examples are:
+There are several protocols available for such an arrangement. Examples are:
 (i) Point-to-Point Tunneling Protocol (PPTP)~\cite{tcpip}; (ii) Generic Routing Encapsulation (GRE)~\cite{tcpip}; 
 (iii) SSL-based Secure Socket Tunneling Protocol (SSTP); (iv) Layer 2 Tunneling Protocol (L2TP)~\cite{tcpip}, 
 which is an older protocol that can be combined with IPSec for encryption;
@@ -468,23 +468,24 @@ which is an older protocol that can be combined with IPSec for encryption;
 
 GRE on its own does not provide security and can be used together with IPsec to secure 
 the traffic. PPTP, in turn, provides strong security out of the box. Moreover, PPTP combines 
-GRE and PPP protocols under single umbrella. It is the PPP protocol~\cite{tcpip}
+GRE and PPP protocols under a single umbrella. It is the PPP protocol~\cite{tcpip}
 that provides such services as authentication and link configuration (\ie using Link Control Protocol (LCP)).
 
-SSTP protocol is built on top of existing SSL. It allows to tunnel user traffic over protected 
+SSTP protocol is built on top of existing SSL. It allows tunneling user traffic over protected 
 channel, and yet the traffic looks like normal HTTPS traffic to service providers.
-We have, ourselves, created similar in spirit L3-VPN solution that is based on SSL~\cite{ssl:vpn}.
-The solution operates on standard HTTPS port. However, our idea is to tunnel all traffic from VPN 
-agnostic hosts through off-the-path black box that encrypts all traffic and sends encapsulated in TCP and in SSL
+We have, ourselves, created a similar in spirit L3-VPN solution that is based on SSL~\cite{ssl:vpn}.
+The solution operates on a standard HTTPS port. However, our idea is to tunnel 
+all traffic from VPN-agnostic hosts through the off-the-path black box that encrypts 
+all traffic and sends encapsulated in TCP and SSL
 packets to the L3-VPN head server. The solution that we have created is a simple script 
-that allows to setup such an arrangement with no hassle. One drawback is that it 
-uses TCP for transport: sending over reliable TCP channel and over well known HTTPS port
+that allows us to set up such an arrangement with no hassle. One drawback is that it 
+uses TCP for transport: sending over a reliable TCP channel and over well known HTTPS port
 is good for bypassing the traffic filters, but reduces the performance especially if
-the channel has large latency and error rate. 
+the channel has a large latency and error rate. 
 
 IPSec~\cite{tcpip} comes in two variations: Authentication Header (AH) and Encapsulating Security Payload (ESP).
-The first does not encrypt the data-plane traffic, but rather adds HMAC to the packet. The second one, in
-addition to authentication adds encryption of the payload. IPSec, when combined with the key exchange 
+The first does not encrypt the data-plane traffic but rather adds HMAC to the packet. The second one, in
+addition to authentication, adds encryption of the payload. IPSec, when combined with the key exchange 
 protocols, such as Internet Key Exchange (IKE)~\cite{rfc4306}, can be used to create secure tunnels between the sites.
 
 \subsubsection{SSH tunneling}
@@ -501,7 +502,7 @@ ssh -L 192.168.1.1:4443:youtube.com:443 user@strangebit.io
 In this example, when the client types \url{https://192.168.1.1:4443/} in the browser window,
 the traffic will be forwarded to the remote {\bf youtube} server through the SSH server \url{strangebit.io}.
 
-There is also a possibility to perform the reverse tunneling, \ie one can expose the local service to the world.
+There is also a possibility to perform reverse tunneling, \ie one can expose the local service to the world.
 For example, suppose you have a precious MySQL resource in your local network running on host \url{192.168.1.45} 
 on port $3306$, then you can expose the service to the world using the following command:
 
@@ -514,27 +515,28 @@ solution.
 
 \chapter{Results}
 
-In this chapter we are going to present the results that we have obtained 
-throughout several years that we have spent building various systems. We start 
-with the results for cryptographic library which we have implemented to 
+In this chapter, we are going to present the results that we have obtained 
+throughout the several years that we have spent building various systems. We start 
+with the results for the cryptographic library which we have implemented to 
 boost the performance of AES and HMAC algorithms on Intel CPUs. We then 
 present the results for complete HIP-VPLS architecture and present the 
 looking of the web interface which was used to configure the HIP switches.
 Finally, we present the design and implementation of the hierarchical L3-VPN
-in Mininet emulator.  
+in the Mininet emulator.  
 
 \section{Hardware-enabled symmetric cryptography}
 
 Part of the work that we have done was related to porting parts of the code to pure C 
-and special Intel CPU instructions. In this section we will describe our achievements 
+and special Intel CPU instructions. In this section, we will describe our achievements 
 in this direction. 
 
-For the benchmarkings we have selected three implementations. The first one was pure 
-Python based. For that purpose we have used PyCryptodome library. The second implementation
-was a Python wrapper to C library that was using special Intel CPU instructions to boost 
+For the benchmarking, we have selected three implementations. The first one was pure 
+Python based. For that purpose, we have used PyCryptodome library. The second implementation
+was a Python wrapper to the C library that used special Intel CPU instructions to boost 
 the AES and SHA-based HMAC operations. The third implementation was pure C library 
 which was using Intel NI instructions. The results for AES-256 and HMAC operations 
-for varying block sizes is shown in Figure~\ref{fig:aes} and in Figure~\ref{fig:hmac}. The plots show the average 
+for varying block sizes are shown in Figure~\ref{fig:aes} 
+and in Figure~\ref{fig:hmac}. The plots show the average 
 running time in microseconds with the $95\%$ confidence intervals. 
 
 \begin{figure}[!ht]
@@ -552,16 +554,16 @@ running time in microseconds with the $95\%$ confidence intervals.
 \end{figure}
 
 
-What relates to cryptographical operations. For standard packet of size $1500$ 
+What relates to cryptographical operations? For a standard packet of size $1500$ 
 bytes we have compared the performance (combined HMAC and AES-256) and it turned 
-out, on one hand, that implementation of cryptography in pure C with special CPU instructions was 
+out, on one hand, that the implementation of cryptography in pure C with special CPU instructions was 
 $12.1$ faster than pure Python implementation. On the other hand, Python implementation with bindings
 to C library demonstrated performance which was $2.3$ times faster. By making back of the envelop calculations
 we predict that Python implementation can achieve roughly $461$ Mbit/s in upload and download directions
-cumulatively. However, in practice, given other operations with packets we did not get this result 
-in our experiments (more about performance of HIP-VPLS on real hardware can be found in proceeding 
-chapter). For the plain C implementation with AES and SHA instructions the performance would be 
-better and constitute astonishing $2.5$ Gbit/s. Would someone need to run the code in production
+cumulatively. However, in practice, given other operations with packets, we did not get this result 
+in our experiments (more about the performance of HIP-VPLS on real hardware can be found in the proceeding 
+chapter). For the plain C implementation with AES and SHA instructions, the performance would be 
+better and constitute an astonishing $2.5$ Gbit/s. Would someone need to run the code in production
 the entire code needs to be rewritten in plain C or Rust programming language for adequate performance.
 
 \section{Host Identity Protocol based VPLS}
@@ -572,23 +574,23 @@ when building a production-grade VPLS solution one needs to have a clear picture
 how such aspects as security and L2 issues will be solved.
 
 In what follows, we will demonstrate how to build the VPLS using Host Identity Protocol (HIP). 
-Our initial goal was not to build a production-grade implementation of HIP-switches. Instead, 
-at first we were only interested in demonstrating proof of a concept solution in 
+Our initial goal was not to build a production-grade implementation of HIP switches. Instead, 
+at first, we were only interested in demonstrating proof of a concept solution in 
 Mininet~\cite{mininet} – a framework for emulating L2 and L3 networks. It is worth mentioning that the code 
 we have produced can be also deployed (under certain conditions; for example, our HIP implementation 
 does not feature the NAT traversal mechanisms) on the real hardware. We are going to demonstrate 
-working prototype in the later part of this document. Our prototype uses Python-based HIP~\cite{pyhip} 
+a working prototype in the later part of this document. Our prototype uses Python-based HIP~\cite{pyhip} 
 as the bases.
 
-While building HIP-switches (the switches that are deployed at the border of a network) 
+While building HIP switches (the switches that are deployed at the border of a network) 
 we came across several challenges. First, to avoid loops the underlying network needs to support 
 the IEEE 802.1D protocol (or its modification - this really depends on the version of the protocol 
 supported by the switches). This problem was initially addressed in the relevant IETF draft. 
 Second, there were certain issues with MTU and the inability of the Linux kernel to deliver IP 
 packets when those are fragmented in user space and injected into the network stack using raw 
 sockets. And finally, it took us some time to repackage the existing implementation of HIP protocol 
-as a library, so that it will be agnostic about low-level networking (such as raw sockets, etc.). 
-In proceeding paragraphs, we will demonstrate the usage of HIP-based VPLS using loop-free L2 topology,
+as a library, so that it would be agnostic about low-level networking (such as raw sockets, etc.). 
+In the proceeding paragraphs, we will demonstrate the usage of HIP-based VPLS using loop-free L2 topology,
 that is achieved by using 802.1d STP protocol.
 
 The logical network diagram of our Mininet prototype is shown in the Figure~\ref{fig:mininet}.
@@ -602,25 +604,25 @@ The logical network diagram of our Mininet prototype is shown in the Figure~\ref
 
 Our HIP-VPLS implemnetation~\cite{hip-vpls:mininet} in Mininet was using static configuration, meaning that 
 HIP-VPLS mesh, resolver and firewall rules were configured prior to deployment 
-of the overlay network and were not change throughout the experiments. An interested reader
-can take a look at~\cite{hip-vpls:mininet} for precise steps which are required to 
-deploy the HIP-VPLS in Mininet environment.
+of the overlay network and were not changed throughout the experiments. An interested reader
+can take a look at~\cite{hip-vpls:mininet} for precise steps that are required to 
+deploy the HIP-VPLS in the Mininet environment.
 
 Overall, HIP-VPLS works as follows: (i) The daemon constantly listens for packets on private interface 
-and public interface; (ii) if the frame, which arrives on private interface, is broadcast or multicast 
+and public interface; (ii) if the frame, which arrives on the private interface, is broadcast or multicast 
 daemon chooses all HIP-VPLS peers in mesh to send the packet; 
-(iii) if the frame is unicast and HIP security assosiation exists for the destination daemon 
-sends the packet to the selected HIP-switch; (iv) if no security association exists HIP switch triggers 
-HIP base exchange to negotiate secret keys and to establishe security assosiation; (v) If the 
-IPSec packet arrives on public interface, first HMAC is verified and if it is valid the packet 
-is decrypted; the original Ethernet frame is then reinjected into private interface and 
+(iii) if the frame is unicast and HIP security association exists for the destination daemon 
+sends the packet to the selected HIP switch; (iv) if no security association exists HIP switch triggers 
+HIP base exchange to negotiate secret keys and to establish security association; (v) If the 
+IPSec packet arrives on the public interface, first HMAC is verified, and if it is valid the packet 
+is decrypted; the original Ethernet frame is then reinjected into the private interface and 
 regular destination and VLAN-based forwarding is performed to deliver the frame to the recipient. 
 
-Our HIP-switch also implements the MAC learning and aging functionality: whenever, a frame arrives 
-on public interface the HIP-switch notes the source MAC address 
+Our HIP switch also implements the MAC learning and aging functionality: whenever a frame arrives 
+on the public interface the HIP-switch notes the source MAC address 
 and adds it to the local database. Later, when a unicast frame arrives on the private interface, 
-it looks up the destination MAC address and chooses corresponding HIP association and pseudowire to send
-the frame encapsulated into IPSec packet to the recipient. 
+it looks up the destination MAC address and chooses the corresponding HIP association and pseudowire to send
+the frame encapsulated into an IPSec packet to the recipient. 
 
 
 \begin{figure}[h!]
@@ -630,41 +632,41 @@ the frame encapsulated into IPSec packet to the recipient.
     \label{fig:mininet}
 \end{figure}
 
-To get the grasp on the performance of HIP-VPLS in Mininet environment we 
-have performed series of bandwidth tests using {\it iperf} tool. To run
-the exeperiments we have used UTM emulator (installed on MacBook M1) 
+To get a grasp on the performance of HIP-VPLS in the Mininet environment we 
+have performed a series of bandwidth tests using {\it iperf} tool. To run
+the experiments we have used the UTM emulator (installed on MacBook M1) 
 with Ubuntu 22.04 installed. All in all the results were the following: 
-the $95\%$ confidence interval for sample mean troughput was 
+the $95\%$ confidence interval for sample mean throughput was 
 $58.9 \pm 0.52$ Mbit/s.
 
-We now turn our attention to our attention to real-life deployment 
-of HIP-VPLS~\cite{hipvpls-hw, hipvpls-controller}. The system architecture is similar to our Minent protoype
-(except that there was lesser number of HIP switches) shown in Figure~\ref{fig:mininet}. 
+We now turn our attention to the real-life deployment 
+of HIP-VPLS~\cite{hipvpls-hw, hipvpls-controller}. The system architecture is similar to our Minent prototype
+(except that there was a lesser number of HIP switches) shown in Figure~\ref{fig:mininet}. 
 Apart from the HIP-VPLS switches, we have also implemented a unique 
 control-plane protocol on top of the SSL protocol for communication 
-with the central controller in the Internet.
+with the central controller on the Internet.
 
-In our deployment we have used the following setup. For HIP switches we 
+In our deployment, we have used the following setup. For HIP switches we 
 have used the dual-network Intel N95 computing platform. We have used $8$ 
 port SNR switches to connect $3$ HIP switches, that way we have mimicked the 
 IP overlay in the setup. HIP switches had two interfaces: one is facing 
 LAN network, the other one is facing the WAN network. The microcomputers for
 HIP switches had the following characteristics: they had $8$GB of RAM memory, 
-dual core Intel N95 CPU (with support for AES and SHA2 NI instructions), $256$ of 
+dual-core Intel N95 CPU (with support for AES and SHA2 NI instructions), $256$ of 
 solid state hard drive. To wire the routers we have used SNR switches 
-(each switch had $8$ $1$ Gbit/s ports, and two Small Form Factor (SFP) slots). 
-The testbed configuration is shown on the Figure~\ref{fig:testbed}.
+(each switch had $8$ $1$ Gbit/s ports and two Small Form Factor (SFP) slots). 
+The testbed configuration is shown on Figure~\ref{fig:testbed}.
 
 In our testbed the central controller was responsible 
-reporting liveness of HIP-switches as well as was provisioning 
+reporting the liveness of HIP switches as well as provisioning 
 the devices with the mesh configuration information, firewall rules 
-and MAC based ACL. For that purpose we developed a simple 
+and MAC-based ACL. For that purpose, we developed a simple 
 secure protocol which was utilizing TLS.
 
 According to the protocol, on the one hand, every HIP-VPLS 
-switch was reporting to the central controller (all requests were authenticated 
+the switch was reporting to the central controller (all requests were authenticated 
 using the HMAC algorithm together with the shared symmetric 
-master secret). In the implementation switches were reporting 
+master secret). In the implementation, switches were reporting 
 their presence every $5$ seconds. On the other hand, every HIP-VPLS switch was obtaining 
 the configuration from the central controller (such as mesh 
 configuration, HIT resolver information, firewall rules, and 
@@ -685,7 +687,7 @@ leave this for future discussions and work.
 In the testbed, we had a multihomed server (with one IP facing 
 the public network so that HIP switches will be able to connect to 
 the controller in the Internet, and one IP in the private range), 
-several legacy microcomputers, IP camera, and DHCP/DNS server.
+several legacy microcomputers, IP camera, and DHCP and DNS servers.
 
 \begin{figure}[!ht]
     \centering
@@ -694,14 +696,14 @@ several legacy microcomputers, IP camera, and DHCP/DNS server.
     \label{fig:testbed}
 \end{figure}
 
-To conclude we have performed series of real-life experiments to measure the 
-performace of HIP-VPLS network. In Figure~\ref{tab:vpls-performance} we show
-sample statistics for upload and download throughput. In addition we have also
+To conclude we have performed a series of real-life experiments to measure the 
+performance of the HIP-VPLS network. In Figure~\ref{tab:vpls-performance} we show
+sample statistics for upload and download throughput. In addition, we have also
 measured latency. To perform the measurements we have used {\bf speedtest}
-Python library. Thus, on one side, we have connected MacBook to HIP-switch via regular
+Python library. Thus, on one side, we have connected the MacBook to the HIP switch via a regular
 switch. On the other side, we have connected the other HIP switch to a network 
-that had connectivity to the Internet. We then performed $100$ rounds of measurements
-and collected throughput and latency data and processed the cleaned data using Python
+that had connectivity to the Internet. We then performed $100$ rounds of measurements,
+collected throughput and latency data and processed the cleaned data using Python
 {\it statistics} library.
 
 \begin{table}
@@ -722,18 +724,18 @@ and collected throughput and latency data and processed the cleaned data using P
 
 \section{Scalable multipoint to multipoint VPN using HIP protocol}
 
-The major problem with the HIP-VPLS is the number of HIP-switches and
+The major problem with the HIP-VPLS is the number of HIP switches and
 full-mesh connectivity between these switches. Imagine that there are 
-not 10's, but 1000's of sites and that all sites need to be 
-combined into single network. First, of all there will be 
+not 10s, but 1000s sites, and that all sites need to be 
+combined into a single network. First of all, there will be 
 $O(n^2)$ pseudo-wires: for $1000$ PEs there will be  
 around $1$M of routing table entries. Second, HIP-VPLS provides 
-signle broadcast domain. And so there is going to be 
-chaos in the network which will be overwhelemed with broadcast
+a signle broadcast domain. And so there is going to be 
+chaos in the network which will be overwhelmed with broadcast
 and multicast Ethernet frames. All these aspects make this type of
-arrangement of network unacceptable in aforementioned scenarios.
-Instead, what if we will let each site live in its own broadcast
-domain, \ie have separate network address, and combined through 
+arrangement of network unacceptable in the aforementioned scenarios.
+Instead, what if we let each site live in its own broadcast
+domain, \ie have a separate network address, and combine through 
 a series of overlay routers, which will be responsible for 
 forwarding the packets between the networks (sites) based on 
 inner IPv4 addresses. 
@@ -750,7 +752,7 @@ As we have already mentioned, the architecture of the distributed
 L3-VPN network is of hub-and-spoke type. Hub nodes comprise the backbone of the network, whereas,
 multiple spoke PE elements are attached to the hubs. 
 
-The security of the network is achieved by using Host Identity Protocol (on hop-by-hop bases) to negotiated
+The security of the network is achieved by using Host Identity Protocol (on a hop-by-hop basis) to negotiate
 the authentication and encryption keys, whereas, the actual packet authentication
 and encryption is performed on hop-by-hop bases using HMAC-SHA256
 and AES (with 256 bits key) algorithms. In our prototype implementation we 
