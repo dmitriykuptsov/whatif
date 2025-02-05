@@ -747,7 +747,7 @@ and will be connected directly to the sites. It is the hierarchy
 that makes the network scalable. 
 
 It is worth to look at the overall architecture which we have implemented in
-Mininet framework. The logical diagram is shown in Figure~\ref{fig:l3vpn}. 
+Mininet framework~\cite{hip-l3vpn}. The logical diagram is shown in Figure~\ref{fig:l3vpn}. 
 As we have already mentioned, the architecture of the distributed 
 L3-VPN network is of hub-and-spoke type. Hub nodes comprise the backbone of the network, whereas,
 multiple spoke PE elements are attached to the hubs. 
@@ -769,7 +769,9 @@ process should be automated using for example central controller.
 To get the taste of the performance of this setup we have performed 
 several rounds of experiments with the {\it iperf} utility and measured
 the throughput with encryption/authentication and without. The results 
-are as follows:
+are as follows: $19.7 \pm 0.06$ Mbit/s. This was expected, since the packet
+is decrypted and encrypted, as well as HMAC is recalcutated at every hop on 
+the path from source CE to destination CE.
 
 \section{Comparison of various solutions}
 
@@ -785,14 +787,45 @@ are as follows:
     Tunneling mode & Ethernet-in-IP & IP-in-IP & Ethernet-in-IP \\\hline
     Loop free-topology & 802.1d & Controller & Not required \\\hline
     \end{tabular}
-    \label{analysis}
     \caption {Comparison study of different multipoint VPLS/VPN designs}
+    \label{analysis}
 \end{table}
 
-In what follows, we compare now different approaches, identify there
-characteristics and limitation. In Table~\ref{analysis} we 
+In what follows, we compare now different approaches and identify there
+characteristics and limitations. In Table~\ref{analysis} we 
 compare three different approaches for building overlays with Host 
-Identity Protocol. 
+Identity Protocol. The first one is scalable L2-VPLS with hub-and-spoke
+architecture. The second one, L3-VPN, also with hub-and-spoke 
+design. And finally, HIP-VPLS with full mesh connectivity of provided equipment (PE).
+
+The first characteristic is the size of the forwarding table on the PE elements. For 
+L2-VPLS and L3-VPN it is equal to $O(n)$, where $n$ is the number of regular hosts in the
+network. This is obvious, as the MAC address table at least on the edge needs to know
+the mapping for each and every host in the network (consider when all hosts talk to 
+all other hosts). For HIP-VPLS the size is considerably smaller since the routing table
+contains only IP prefixes of the networks and so equals to $O(m)$, where $m$ is the number 
+of sites, hence, the size of the network address prefixes. The reader should understand
+that $n>>m$
+
+The second important characteristic is the number of links in a mesh network. For L2-VPLS 
+and L3-VPN it is equal to $O(k^2)$, where $k$ is the number of hub PEs. For HIP-VPLS
+this metric is equal to $O(l^2)$, such that $l$ is the overall number of sites or PEs.
+Clearly, $l>>k$, and hence the L3-VPN achieves better scalability.
+
+What about privacy? Well in scalable L2-VPLS and L3-VPN the MAC and IPs are exposed to intermediate hubs 
+(at the end these addresses are used for forwarding). And so if a hub gets compromised 
+this information will be leaked to the adversary. In turn, in HIP-VPLS there are no intermediate nodes
+in the network since the pseudowires are created end-to-end, and so there is no risk that the 
+customer will expose sensitive information to intermediate nodes. Also, in L2-VPN and L3-VPN 
+the encryption and authentication is done in a hop-by-hop manner; whereas, in HIP-VPLS the 
+encryption is PE-to-PE (or site-to-site).
+
+One last important point is the avoidance of loops in the network. For L2-VPLS loop-free topology
+is achieved with 802.1D protocol or an SDN central controller (such as Ryu SND controller). 
+In L3-VPN the loops are avoided with the help of the IP TTL field. Also, in L3-VPN the routing tables
+are constructed centrally and no routing loops will be present in the topology. HIP-VPLS
+archives loop-free topology by assuming that customer networks run an instance of STP protocol
+(802.1D protocol similar to scalable L2-VPLS solution). 
 
 \chapter{Conclusions}
 

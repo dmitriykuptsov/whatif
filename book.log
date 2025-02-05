@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  5 FEB 2025 15:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  5 FEB 2025 16:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1053,20 +1053,13 @@ File: graphics/l3-vpn.png Graphic file (type png)
 Package pdftex.def Info: graphics/l3-vpn.png  used on input line 764.
 (pdftex.def)             Requested size: 332.895pt x 278.43066pt.
 
-Overfull \hbox (24.51083pt too wide) in paragraph at lines 778--789
-[][]
+Overfull \hbox (24.51083pt too wide) in paragraph at lines 780--790
+[][] 
  []
 
+[28] [29 <./graphics/l3-vpn.png>] [30]) (./book.bbl [31
 
-Package caption Warning: \label without proper reference on input line 788.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `analysis' on page 28 undefined on input line 793.
-
-[28] [29 <./graphics/l3-vpn.png>] [30
-
-]) (./book.bbl [31] [32
+] [32
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 12--14
@@ -1115,36 +1108,39 @@ ls-controller,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--44
+Underfull \hbox (badness 4279) in paragraph at lines 41--43
+[]\T1/pnc/m/n/10 Hip-based l3-vpn.  https://github.com/dmitriykuptsov/hip-vpls-
+routing,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--48
 []\T1/pnc/m/n/10 Python-based Host Iden-tity Pro-to-col, $\T1/txtt/m/n/10 https
  : / / github . com /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 46--49
+Underfull \hbox (badness 10000) in paragraph at lines 50--53
 \T1/txtt/m/n/10 data-[]files / SNR % 20Switches / Configuration % 20Guide / SNR
 -[]S2980G-[]8T %
  []
 
-
-Underfull \hbox (badness 2635) in paragraph at lines 69--73
+[33]
+Underfull \hbox (badness 2635) in paragraph at lines 73--77
 \T1/pnc/m/n/10 Module-Lattice-Based Key-Encapsulation Mech-a-nism Stan-dard, 20
 24.
  []
 
-[33]) [34] (./book.aux)
-
-LaTeX Warning: There were undefined references.
-
+) [34] (./book.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 18670 strings out of 478994
- 352939 string characters out of 5858184
+ 18671 strings out of 478994
+ 352950 string characters out of 5858184
  1170608 words of memory out of 5000000
- 35674 multiletter control sequences out of 15000+600000
+ 35675 multiletter control sequences out of 15000+600000
  470583 words of font info for 145 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  143i,10n,144p,432b,367s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1168,7 +1164,7 @@ pe1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw
 /ncntrsbk/uncb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrs
 bk/uncr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrsbk/uncr
 i8a.pfb>
-Output written on book.pdf (34 pages, 8818226 bytes).
+Output written on book.pdf (34 pages, 8820095 bytes).
 PDF statistics:
  217 PDF objects out of 1000 (max. 8388607)
  146 compressed objects within 2 object streams

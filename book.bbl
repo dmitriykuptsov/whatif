@@ -37,6 +37,10 @@ Hip-vpls.
 Hip-vpls controller.
 \newblock https://github.com/strangebit-io/hip-vpls-controller, 2023.
 
+\bibitem{hip-l3vpn}
+Hip-based l3-vpn.
+\newblock https://github.com/dmitriykuptsov/hip-vpls-routing, 2024.
+
 \bibitem{pyhip}
 {Python-based Host Identity Protocol,
   \url{https://github.com/dmitriykuptsov/cutehip}}.
