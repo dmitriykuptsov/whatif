@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  5 FEB 2025 13:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  5 FEB 2025 14:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1014,7 +1014,13 @@ File: graphics/vpn-central.png Graphic file (type png)
 <use graphics/vpn-central.png>
 Package pdftex.def Info: graphics/vpn-central.png  used on input line 451.
 (pdftex.def)             Requested size: 332.895pt x 275.08853pt.
- [18] [19 <./graphics/vpn-central.png>]
+ [18]
+Overfull \hbox (0.13055pt too wide) in paragraph at lines 467--477
+\T1/pnc/m/n/10.95 sends en-cap-su-lated in TCP and in SSL pack-ets to the L3-VP
+N head server.
+ []
+
+[19 <./graphics/vpn-central.png>]
 LaTeX Font Info:    Trying to load font information for T1+txtt on input line 4
 90.
 
@@ -1051,37 +1057,43 @@ Overfull \hbox (1.98431pt too wide) in paragraph at lines 596--601
 nd were not change
  []
 
+
+Overfull \hbox (8.99275pt too wide) in paragraph at lines 602--611
+\T1/pnc/m/n/10.95 which ar-rives on pri-vate in-ter-face, is broad-cast or mul-
+ti-cast dae-mon chooses
+ []
+
 [24 <./graphics/mininet.png>]
 <graphics/hw-hipls.png, id=116, 369.2997pt x 305.16008pt>
 File: graphics/hw-hipls.png Graphic file (type png)
 <use graphics/hw-hipls.png>
-Package pdftex.def Info: graphics/hw-hipls.png  used on input line 616.
+Package pdftex.def Info: graphics/hw-hipls.png  used on input line 621.
 (pdftex.def)             Requested size: 258.91896pt x 213.95981pt.
  [25 <./graphics/hw-hipls.png>]
 <graphics/testbed.png, id=122, 518.53725pt x 597.13087pt>
 File: graphics/testbed.png Graphic file (type png)
 <use graphics/testbed.png>
-Package pdftex.def Info: graphics/testbed.png  used on input line 680.
+Package pdftex.def Info: graphics/testbed.png  used on input line 685.
 (pdftex.def)             Requested size: 332.895pt x 383.34694pt.
  [26] [27 <./graphics/testbed.png>]
 <graphics/l3-vpn.png, id=130, 443.91847pt x 371.28712pt>
 File: graphics/l3-vpn.png Graphic file (type png)
 <use graphics/l3-vpn.png>
-Package pdftex.def Info: graphics/l3-vpn.png  used on input line 750.
+Package pdftex.def Info: graphics/l3-vpn.png  used on input line 755.
 (pdftex.def)             Requested size: 332.895pt x 278.43066pt.
- [28 <./graphics/l3-vpn.png>]
-Overfull \hbox (24.51083pt too wide) in paragraph at lines 764--775
+
+Overfull \hbox (24.51083pt too wide) in paragraph at lines 769--780
 [][]
  []
 
 
-Package caption Warning: \label without proper reference on input line 774.
+Package caption Warning: \label without proper reference on input line 779.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `analysis' on page 29 undefined on input line 779.
+LaTeX Warning: Reference `analysis' on page 28 undefined on input line 784.
 
-[29] [30
+[28] [29 <./graphics/l3-vpn.png>] [30
 
 ]) (./book.bbl [31] [32
 
@@ -1160,7 +1172,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  18670 strings out of 478994
  352939 string characters out of 5858184
- 1168608 words of memory out of 5000000
+ 1169608 words of memory out of 5000000
  35674 multiletter control sequences out of 15000+600000
  470583 words of font info for 145 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1185,7 +1197,7 @@ pe1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw
 /ncntrsbk/uncb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrs
 bk/uncr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrsbk/uncr
 i8a.pfb>
-Output written on book.pdf (34 pages, 8817079 bytes).
+Output written on book.pdf (34 pages, 8817269 bytes).
 PDF statistics:
  217 PDF objects out of 1000 (max. 8388607)
  146 compressed objects within 2 object streams
