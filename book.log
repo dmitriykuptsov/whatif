@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  5 FEB 2025 19:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  13 FEB 2025 16:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1003,8 +1003,8 @@ File: graphics/vpn-central.png Graphic file (type png)
 Package pdftex.def Info: graphics/vpn-central.png  used on input line 459.
 (pdftex.def)             Requested size: 332.895pt x 275.08853pt.
  [18] [19 <./graphics/vpn-central.png>]
-LaTeX Font Info:    Trying to load font information for T1+txtt on input line 4
-99.
+LaTeX Font Info:    Trying to load font information for T1+txtt on input line 5
+02.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
@@ -1012,12 +1012,12 @@ File: t1txtt.fd 2000/12/15 v3.1
 <graphics/crypto/aes.pdf, id=90, 505.89pt x 505.89pt>
 File: graphics/crypto/aes.pdf Graphic file (type pdf)
 <use graphics/crypto/aes.pdf>
-Package pdftex.def Info: graphics/crypto/aes.pdf  used on input line 545.
+Package pdftex.def Info: graphics/crypto/aes.pdf  used on input line 548.
 (pdftex.def)             Requested size: 332.895pt x 332.90036pt.
 <graphics/crypto/hmac.pdf, id=91, 505.89pt x 505.89pt>
 File: graphics/crypto/hmac.pdf Graphic file (type pdf)
 <use graphics/crypto/hmac.pdf>
-Package pdftex.def Info: graphics/crypto/hmac.pdf  used on input line 552.
+Package pdftex.def Info: graphics/crypto/hmac.pdf  used on input line 555.
 (pdftex.def)             Requested size: 332.895pt x 332.90036pt.
  [21
 
@@ -1026,35 +1026,35 @@ Package pdftex.def Info: graphics/crypto/hmac.pdf  used on input line 552.
 <graphics/mininet.png, id=111, 369.2997pt x 305.16008pt>
 File: graphics/mininet.png Graphic file (type png)
 <use graphics/mininet.png>
-Package pdftex.def Info: graphics/mininet.png  used on input line 602.
+Package pdftex.def Info: graphics/mininet.png  used on input line 605.
 (pdftex.def)             Requested size: 258.91896pt x 213.95981pt.
  [24 <./graphics/mininet.png>]
 <graphics/hw-hipls.png, id=116, 369.2997pt x 305.16008pt>
 File: graphics/hw-hipls.png Graphic file (type png)
 <use graphics/hw-hipls.png>
-Package pdftex.def Info: graphics/hw-hipls.png  used on input line 632.
+Package pdftex.def Info: graphics/hw-hipls.png  used on input line 635.
 (pdftex.def)             Requested size: 258.91896pt x 213.95981pt.
  [25 <./graphics/hw-hipls.png>]
 <graphics/devices.png, id=122, 1445.4pt x 903.375pt>
 File: graphics/devices.png Graphic file (type png)
 <use graphics/devices.png>
-Package pdftex.def Info: graphics/devices.png  used on input line 679.
+Package pdftex.def Info: graphics/devices.png  used on input line 682.
 (pdftex.def)             Requested size: 369.88585pt x 231.17775pt.
  [26 <./graphics/devices.png>]
 <graphics/testbed.png, id=127, 518.53725pt x 597.13087pt>
 File: graphics/testbed.png Graphic file (type png)
 <use graphics/testbed.png>
-Package pdftex.def Info: graphics/testbed.png  used on input line 695.
+Package pdftex.def Info: graphics/testbed.png  used on input line 698.
 (pdftex.def)             Requested size: 332.895pt x 383.34694pt.
 
 [27 <./graphics/testbed.png>] [28]
 <graphics/l3-vpn.png, id=135, 443.91847pt x 371.28712pt>
 File: graphics/l3-vpn.png Graphic file (type png)
 <use graphics/l3-vpn.png>
-Package pdftex.def Info: graphics/l3-vpn.png  used on input line 765.
+Package pdftex.def Info: graphics/l3-vpn.png  used on input line 768.
 (pdftex.def)             Requested size: 332.895pt x 278.43066pt.
 
-Overfull \hbox (24.51083pt too wide) in paragraph at lines 782--792
+Overfull \hbox (39.17044pt too wide) in paragraph at lines 785--795
 [][] 
  []
 
@@ -1063,71 +1063,54 @@ Overfull \hbox (24.51083pt too wide) in paragraph at lines 782--792
 ]) (./book.bbl [33] [34
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 12--14
-[]\T1/pnc/m/n/10 The Se-cure Sock-ets Layer (SSL) Pro-to-col Ver-sion 3.0.
+Underfull \hbox (badness 2521) in paragraph at lines 8--10
+[]\T1/pnc/m/n/10 RFC 6101: The Se-cure Sock-ets Layer (SSL) Pro-to-col Ver-sion
+ 3.0.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--24
+Underfull \hbox (badness 10000) in paragraph at lines 25--28
 []\T1/pnc/m/n/10 Bypassing Deep Packet In-spec-tion: Tun-nel-ing Traf-fic
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--24
+Underfull \hbox (badness 10000) in paragraph at lines 25--28
 \T1/pnc/m/n/10 Over TLS VPN $\T1/txtt/m/n/10 https : / / www . linuxjournal . c
 om / content /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--24
+Underfull \hbox (badness 10000) in paragraph at lines 25--28
 \T1/txtt/m/n/10 bypassing-[]deep-[]packet-[]inspection-[]tunneling-[]traffic-[]
 over-[]tls-[]vpn$\T1/pnc/m/n/10 .
  []
 
 
-Underfull \hbox (badness 3364) in paragraph at lines 26--31
-\T1/pnc/m/n/10 mininet frame-work.  https://www.linuxjournal.com/content/simula
-ting-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 26--31
+Underfull \hbox (badness 10000) in paragraph at lines 30--35
 \T1/pnc/m/n/10 host-identity-protocol-based-virtual-private-lan-service-using-m
 ininet-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--35
-[]\T1/pnc/m/n/10 Hip-vpls.  https://github.com/strangebit-io/hip-vpls-hw-with-c
+Underfull \hbox (badness 2205) in paragraph at lines 37--39
+[]\T1/pnc/m/n/10 HIP-VPLS.  https://github.com/strangebit-io/hip-vpls-hw-with-c
 ontroller,
  []
 
 
-Underfull \hbox (badness 2293) in paragraph at lines 37--39
-[]\T1/pnc/m/n/10 Hip-vpls con-troller.  https://github.com/strangebit-io/hip-vp
-ls-controller,
- []
-
-
-Underfull \hbox (badness 4279) in paragraph at lines 41--43
-[]\T1/pnc/m/n/10 Hip-based l3-vpn.  https://github.com/dmitriykuptsov/hip-vpls-
-routing,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--48
+Underfull \hbox (badness 10000) in paragraph at lines 49--52
 []\T1/pnc/m/n/10 Python-based Host Iden-tity Pro-to-col, $\T1/txtt/m/n/10 https
  : / / github . com /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--53
+Underfull \hbox (badness 10000) in paragraph at lines 54--57
 \T1/txtt/m/n/10 data-[]files / SNR % 20Switches / Configuration % 20Guide / SNR
 -[]S2980G-[]8T %
  []
 
 [35]
-Underfull \hbox (badness 2635) in paragraph at lines 73--77
+Underfull \hbox (badness 2635) in paragraph at lines 77--81
 \T1/pnc/m/n/10 Module-Lattice-Based Key-Encapsulation Mech-a-nism Stan-dard, 20
 24.
  []
@@ -1138,10 +1121,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 18678 strings out of 478994
- 353089 string characters out of 5858184
+ 18679 strings out of 478994
+ 353094 string characters out of 5858184
  1168608 words of memory out of 5000000
- 35681 multiletter control sequences out of 15000+600000
+ 35682 multiletter control sequences out of 15000+600000
  470583 words of font info for 145 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  143i,10n,144p,432b,367s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1165,7 +1148,7 @@ pe1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw
 /ncntrsbk/uncb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrs
 bk/uncr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrsbk/uncr
 i8a.pfb>
-Output written on book.pdf (36 pages, 9046959 bytes).
+Output written on book.pdf (36 pages, 9047508 bytes).
 PDF statistics:
  225 PDF objects out of 1000 (max. 8388607)
  150 compressed objects within 2 object streams

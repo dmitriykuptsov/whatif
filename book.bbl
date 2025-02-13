@@ -4,18 +4,22 @@
 {Mininet: An Instant Virtual Network on your Laptop}.
 \newblock https://mininet.org/.
 
-\bibitem{rfc7401}
-{RFC 7401 Host Identity Protocol Version 2 (HIPv2)}.
-\newblock https://www.rfc-editor.org/rfc/rfc7401.html.
-
 \bibitem{ssl}
-{The Secure Sockets Layer (SSL) Protocol Version 3.0}.
+{RFC 6101: The Secure Sockets Layer (SSL) Protocol Version 3.0}.
 \newblock https://datatracker.ietf.org/doc/html/rfc6101.
 
+\bibitem{rfc7401}
+{RFC 7401: Host Identity Protocol Version 2 (HIPv2)}.
+\newblock https://www.rfc-editor.org/rfc/rfc7401.html.
+
 \bibitem{rfc4306}
-{RFC4306 Internet Key Exchange (IKEv2) Protocol,
+{RFC 4306: Internet Key Exchange (IKEv2) Protocol,
   \url{https://datatracker.ietf.org/doc/html/rfc4306}}.
 \newblock Online, 2005.
+
+\bibitem{tls}
+{RFC 5246: The Transport Layer Security (TLS) Protocol Version 1.2}.
+\newblock https://datatracker.ietf.org/doc/html/rfc5246, 2008.
 
 \bibitem{ssl:vpn}
 {Bypassing Deep Packet Inspection: Tunneling Traffic Over TLS VPN
@@ -23,22 +27,22 @@
 \newblock Online, 2021.
 
 \bibitem{hip-vpls:mininet}
-Simulating host identity protocol-based virtual private lan service using
-  mininet framework.
+{Simulating Host Identity Protocol-Based Virtual Private LAN Service Using
+  Mininet Framework}.
 \newblock
   https://www.linuxjournal.com/content/simulating-host-identity-protocol-based-virtual-private-lan-service-using-mininet-framework,
   2022.
 
 \bibitem{hipvpls-hw}
-Hip-vpls.
+{HIP-VPLS}.
 \newblock https://github.com/strangebit-io/hip-vpls-hw-with-controller, 2023.
 
 \bibitem{hipvpls-controller}
-Hip-vpls controller.
+{HIP-VPLS controller}.
 \newblock https://github.com/strangebit-io/hip-vpls-controller, 2023.
 
 \bibitem{hip-l3vpn}
-Hip-based l3-vpn.
+{HIP-based L3-VPN}.
 \newblock https://github.com/dmitriykuptsov/hip-vpls-routing, 2024.
 
 \bibitem{pyhip}
