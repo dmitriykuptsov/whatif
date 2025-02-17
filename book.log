@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  13 FEB 2025 16:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  17 FEB 2025 19:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1051,10 +1051,10 @@ Package pdftex.def Info: graphics/testbed.png  used on input line 698.
 <graphics/l3-vpn.png, id=135, 443.91847pt x 371.28712pt>
 File: graphics/l3-vpn.png Graphic file (type png)
 <use graphics/l3-vpn.png>
-Package pdftex.def Info: graphics/l3-vpn.png  used on input line 768.
+Package pdftex.def Info: graphics/l3-vpn.png  used on input line 774.
 (pdftex.def)             Requested size: 332.895pt x 278.43066pt.
 
-Overfull \hbox (39.17044pt too wide) in paragraph at lines 785--795
+Overfull \hbox (39.17044pt too wide) in paragraph at lines 791--801
 [][] 
  []
 
@@ -1123,7 +1123,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  18679 strings out of 478994
  353094 string characters out of 5858184
- 1168608 words of memory out of 5000000
+ 1169608 words of memory out of 5000000
  35682 multiletter control sequences out of 15000+600000
  470583 words of font info for 145 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1148,7 +1148,7 @@ pe1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw
 /ncntrsbk/uncb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrs
 bk/uncr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrsbk/uncr
 i8a.pfb>
-Output written on book.pdf (36 pages, 9047508 bytes).
+Output written on book.pdf (36 pages, 9047755 bytes).
 PDF statistics:
  225 PDF objects out of 1000 (max. 8388607)
  150 compressed objects within 2 object streams

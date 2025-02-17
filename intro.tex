@@ -206,7 +206,7 @@ little application in real-life settings.
 
 \subsection{Cryptographic hash functions}
 
-Mathematically, speaking hash function is a special one-way function: For a given  
+Mathematically speaking, hash function is a special one-way function: For a given  
 pre-image of an arbitrary size it produces an image or hash value of a fixed size, 
 which is universally unique. Ideally, secure hash functions should guarantee 
 that the result it produces is irreversible. That it is, it 
@@ -473,7 +473,7 @@ weak Microsoft Point-to-Point Encryption (MPPE), which is considered insecure. P
 GRE and PPP protocols under a single umbrella. It is the PPP protocol~\cite{tcpip}
 that provides such services as authentication (using MS-CHAPv2, PAP or strong EAP protocol) 
 and link configuration (\ie using Link Control Protocol (LCP)). Overall, it is not recommended
-to use PPTP in modern VPN setups. L2TP with IPSec AES-256 is a more secure alternative.
+to use PPTP in modern VPN setups. L2TP with IPSec AES-256 encryption is more secure alternative.
 
 SSTP protocol is built on top of existing SSL. It allows tunneling user traffic over protected 
 channel, and yet the traffic looks like normal HTTPS traffic to service providers.
@@ -749,6 +749,12 @@ we let some nodes play the hub role, that is they will be the backbone
 of the overlay network. While some nodes will be the spoke nodes
 and will be connected directly to the sites. It is the hierarchy 
 that makes the network scalable. 
+
+It is logical to ask why would someone need to build the multipoint to 
+multipoint L3-VPN? Well, hub-and-spoke architecture adds reliability 
+to the system: if one node will fail, the entire network will not.
+It is, therefore, suggested to build the hub-and-spoke type of L3-VPN
+if high dependability of an overlay is a must.
 
 It is worth to look at the overall architecture which we have implemented in
 Mininet framework~\cite{hip-l3vpn}. The logical diagram is shown in Figure~\ref{fig:l3vpn}. 
