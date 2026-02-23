@@ -24,14 +24,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.80445092"
-     inkscape:cx="234.32132"
-     inkscape:cy="272.85692"
-     inkscape:window-width="1440"
-     inkscape:window-height="750"
+     inkscape:cx="152.27778"
+     inkscape:cy="274.1"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
      inkscape:window-x="0"
-     inkscape:window-y="25"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     showgrid="false" />
   <defs
      id="defs1">
     <marker
@@ -681,7 +682,7 @@
          id="tspan32"
          style="font-size:2.82222px;stroke-width:0.264583"
          x="45.645363"
-         y="114.78584">0.0.0.0.0</tspan></text>
+         y="114.78584">0.0.0.0</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:2.82222px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
@@ -826,6 +827,9 @@
     <path
        style="fill:none;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker55)"
        d="M 87.816108,65.122059 C 117.08815,65.450957 132.54642,50.32159 132.54642,50.32159 v 0.328899 0"
-       id="path43" />
+       id="path43"
+       inkscape:export-filename="l3-vpn.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
   </g>
 </svg>

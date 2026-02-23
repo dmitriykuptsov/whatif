@@ -24,6 +24,7 @@
 \contentsline {section}{\numberline {3.1}Hardware-enabled symmetric cryptography}{21}{}%
 \contentsline {section}{\numberline {3.2}Host Identity Protocol based VPLS}{22}{}%
 \contentsline {section}{\numberline {3.3}Scalable multipoint to multipoint VPN using HIP protocol}{28}{}%
-\contentsline {section}{\numberline {3.4}Comparison of various solutions}{29}{}%
-\contentsline {chapter}{\numberline {4.}Conclusions}{33}{}%
-\contentsline {chapter}{Bibliography}{35}{}%
+\contentsline {section}{\numberline {3.4}Comparison of various solutions}{30}{}%
+\contentsline {chapter}{\numberline {4.}Future work}{33}{}%
+\contentsline {chapter}{\numberline {5.}Conclusions}{35}{}%
+\contentsline {chapter}{Bibliography}{37}{}%

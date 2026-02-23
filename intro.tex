@@ -134,7 +134,7 @@ heart of any symmetric key cryptography algorithm. Although this type
 of cryptography is efficient because of the usage of efficient operations, 
 it comes with a limitation though. In symmetric key cryptography, 
 both sender and receiver need to share the same key, which complicates 
-such important aspects as key distribution and revocation and so alone 
+such important aspects as key distribution and revocation. And so, alone 
 this encryption solution a very hard to use in modern cryptosystems. 
 Typically, asymmetric key cryptography such as RSA or DH is used to derive session 
 keys – TLS, HIP, and many other protocols follow this design idea.
@@ -153,7 +153,7 @@ while achieving fast processing and parallelization, is considered insecure in
 many settings.
 
 The other type of symmetric key algorithm is stream cipher. Here the encryption 
-and decryption are performed on separate bits, one bit at a time. CR4 is an example 
+and decryption are performed on separate bits, one bit at a time. RC4 is an example 
 of a stream cipher. Stream ciphers are extremely important in real-time processing, 
 for example, Wi-Fi uses stream ciphers to encrypt the data plane traffic.
 
@@ -179,7 +179,7 @@ the sender computes $n=pq$ and evaluates Euler’s phi function: $\phi(n)=(p-1)(
 This is the same as the number of numbers co-prime to $n$. The sender then selects at 
 random encryption exponent $e$ such that $1<e<\phi(n)$ and also $e$ should be co-prime to $\phi(n)$.
 Finally, the sender or the dealer computes the decryption exponent $d$, such that 
-$ed \equiv 1\ mod\ \phi(n)$ using modular multiplicative inverse (for that purpose extended Euclidian 
+$ed \equiv 1\ mod\ \phi(n)$ using modular multiplicative inverse (for that purpose extended Euclidean 
 algorithm can be used).
 
 The public key is then $(n, e)$, and the private key is $(n, d)$. To encrypt the message $m$ 
@@ -269,8 +269,8 @@ on LWE.
 A lattice is a mathematical structure that consists of integers in $n$ dimensions 
 arranged in a structured lattice-like way. Mathematically, the lattice is defined as follows:
 $$\Lambda({\bf B}) = \{{\bf Bx}, {\bf x} \in \mathbb{Z}^n \}$$ where ${\bf B}$ is a matrix of basis vectors
-that generates the lattice. We should note that there exist a large number of basis vectors, some are {\it good}
-some are {\it bad}.
+that generates the lattice. %We should note that there exist a large number of basis vectors, some are {\it good}
+%some are {\it bad}.
 
 A { \bf closest vector problem (CVP) } on lattices, which is considered NP-hard, and believed unsolvable even on 
 quantum computers, can be defined as follows. Given a point $t \in \mathbb{R}^n$ and a lattice
@@ -324,8 +324,8 @@ task at hand.
 
 To encrypt the message $\mu \in \{0, 1\}$, we choose ${\bf r} \sim U(\{0, 1\}^m)$. Then we compute ${\bf u}={\bf rA}$ and 
 $v={\bf rb}+\lfloor q/2 \rceil \mu$. The ciphertext is $({\bf u}, v)$. To decrypt the message we can 
-compute $v - \bf{u s}$: if the result is less than $q/4$ output $0$, otherwise, if the result
-is larger than $q/4$ output $1$. For decryption to work correctly, we require that the parameter $\sigma = q/(16m)$. 
+compute $v - \bf{u s}$: if the result is close to $0$ output $0$, otherwise, if the result
+is close $q/2$ output $1$. %For decryption to work correctly, we require that the parameter $\sigma = q/(4m)$. 
 
 The major disadvantage of lattice-based cryptography is the size of the keys and actual ciphertext. For example,
 the security of LWE depends on two parameters $n$ and $q$. By choosing $n=512$ and $q=2^{16}$, the size of ciphertext
@@ -353,7 +353,7 @@ the communicating parties. In practice, when making connections, the long-term i
 are not verified. Of course, solutions such as SSL can readily solve the problem at hand. However, SSL 
 is suitable only for TCP connections, and most of the time, practical use cases include only secure web 
 surfing and the establishment of VPN tunnels. Host Identity Protocol, on the other hand, is more flexible: 
-it allows peers to create authenticated secure channels on the network layer, so all upper-layer protocols 
+it allows peers to create authenticated secure channels on the network layer (well, more precisely between layer 3 and layer 4), so all upper-layer protocols 
 can benefit from such channels. More on the protocol can be found in~\cite{gurtov:hip}.
 
 HIP relies on the 4-way handshake to establish an authenticated session. During the handshake, the 
@@ -411,7 +411,7 @@ for building L2, L3 and L4 overlays.
 Virtual Private LAN Services (VPLS) are pretty common nowadays. 
 }
 In this section we will cover 
-to standard ways to build VPLS networks (using, for example, 802.1q QinQ tunneling and MPLS).
+to standard ways to build VPLS networks (using, for example, 802.1Q QinQ tunneling and MPLS).
 
 \subsubsection{QinQ tunneling}
 
@@ -467,8 +467,8 @@ There are several protocols available for such an arrangement. Examples are:
 which is an older protocol that can be combined with IPSec for encryption;
 (v) Internet Protocol Security (IPSec).
 
-GRE on its own does not provide security and can be used together with IPsec to secure 
-the traffic. PPTP, in turn, does not provide strong security out of the box. PPTP uses 
+GRE on its own does not provide security at all and can be used together with IPsec to secure 
+the traffic. PPTP does not provide strong security out of the box. PPTP uses 
 weak Microsoft Point-to-Point Encryption (MPPE), which is considered insecure. PPTP combines 
 GRE and PPP protocols under a single umbrella. It is the PPP protocol~\cite{tcpip}
 that provides such services as authentication (using MS-CHAPv2, PAP or strong EAP protocol) 
@@ -497,14 +497,14 @@ protocols, such as Internet Key Exchange (IKE)~\cite{rfc4306}, can be used to cr
 SSH, despite that it was invented for remote access to Linux-like boxes, can be used 
 to tunnel local traffic to remote machine and remote traffic to local machine~\cite{ssh:tunneling}. Thus, it can be used to create
 layer-4 tunnels. For example, the following command will tunnel all local traffic from
-port 4443 to remote web-server {\it youtube.com} on port 443:
+port 4443 to remote web-server {\it example.com} on port 443:
 
 \begin{verbatim}
-ssh -L 192.168.1.1:4443:youtube.com:443 user@strangebit.io
+ssh -L 192.168.1.1:4443:example.com:443 user@strangebit.io
 \end{verbatim}
 
 In this example, when the client types \url{https://192.168.1.1:4443/} in the browser window,
-the traffic will be forwarded to the remote {\bf youtube} server through the SSH server \url{strangebit.io}.
+the traffic will be forwarded to the remote {\bf example.com} server through the SSH server \url{strangebit.io}.
 
 There is also a possibility to perform reverse tunneling, \ie one can expose the local service to the world.
 For example, suppose you have a precious MySQL resource in your local network running on host \url{192.168.1.45} 
@@ -520,7 +520,7 @@ solution.
 \chapter{Results}
 
 In this chapter, we are going to present the results that we have obtained 
-throughout the several years that we have spent building various systems. We start 
+throughout the several years that we have spent building VPLS system. We start 
 with the results for the cryptographic library which we have implemented to 
 boost the performance of AES and HMAC algorithms on Intel CPUs. We then 
 present the results for complete HIP-VPLS architecture and present the 
@@ -541,7 +541,8 @@ the AES and SHA-based HMAC operations. The third implementation was pure C libra
 which was using Intel NI instructions. The results for AES-256 and HMAC operations 
 for varying block sizes are shown in Figure~\ref{fig:aes} 
 and in Figure~\ref{fig:hmac}. The plots show the average 
-running time in microseconds with the $95\%$ confidence intervals. 
+running time in microseconds with the $95\%$ confidence intervals. For all configurations
+we have performed $100$ measurements.
 
 \begin{figure}[!ht]
     \centering
@@ -607,7 +608,7 @@ The logical network diagram of our Mininet prototype is shown in the Figure~\ref
     \label{fig:mininet}
 \end{figure}
 
-Our HIP-VPLS implemnetation~\cite{hip-vpls:mininet} in Mininet was using static configuration, meaning that 
+Our HIP-VPLS implementation~\cite{hip-vpls:mininet} in Mininet was using static configuration, meaning that 
 HIP-VPLS mesh, resolver and firewall rules were configured prior to deployment 
 of the overlay network and remained unchanged throughout the experiments. An interested reader
 can take a look at~\cite{hip-vpls:mininet} for precise steps that are required to 
@@ -642,7 +643,8 @@ have performed a series of bandwidth tests using {\it iperf} tool. To run
 the experiments we have used the UTM emulator (installed on MacBook M1) 
 with Ubuntu 22.04 installed. All in all the results were the following: 
 the $95\%$ confidence interval for sample mean throughput was 
-$58.9 \pm 0.52$ Mbit/s.
+$58.9 \pm 0.52$ Mbit/s. Again for every setting we have perfomed $100$ 
+measurement rounds.
 
 We now turn our attention to the real-life deployment 
 of HIP-VPLS~\cite{hipvpls-hw, hipvpls-controller}. The system architecture is similar to our Minent prototype
@@ -669,10 +671,10 @@ the controller in the Internet, and one IP in the private range; this server
 was playing the role of HIP controller), several legacy microcomputers, 
 IP camera, and DHCP and DNS servers.
 
-In our testbed the central controller was responsible 
-reporting the liveness of HIP switches as well as provisioning 
+In our testbed the central controller was responsible for collecting
+liveness reports from HIP switches as well as provisioning 
 the devices with the mesh configuration information, firewall rules 
-and MAC-based ACL. For that purpose, we developed a simple 
+and MAC-based ACLs. For that purpose, we developed a simple 
 secure protocol which was utilizing TLS. For example, consider 
 the Figure~\ref{devices} which shows the HIP switch registration
 and status information.
@@ -700,7 +702,7 @@ MAC-based ACL).
     \label{fig:testbed}
 \end{figure}
 
-To conclude we have performed a series of real-life experiments to measure the 
+To conclude, we have performed a series of real-life experiments to measure the 
 performance of the HIP-VPLS network. In Table~\ref{tab:vpls-performance} we show
 sample statistics for upload and download throughput. In addition, we have also
 measured latency. To perform the measurements we have used {\bf speedtest}
@@ -779,10 +781,10 @@ process should be automated using for example central controller.
 To get the taste of the performance of this setup we have performed 
 several rounds of experiments with the {\it iperf} utility and measured
 the throughput with encryption/authentication enabled. The results 
-are the following: $19.7 \pm 0.06$ Mbit/s. This was expected, since the packet
+are the following: $19.7 \pm 0.06$ Mbit/s (again we have performed $100$ measurement rounds). This was expected, since the packet
 is decrypted and encrypted, as well as HMAC is recalcutated at every hop on 
-the path from source CE to destination CE. Perphas, hop-by-hop encryption and authenication can
-be done selectively with global secret key so that better performance can be achived.
+the path from source CE to destination CE. Perphaps, hop-by-hop encryption and authenication can
+be done selectively with global secret key so that better performance can be achieved.
 
 \section{Comparison of various solutions}
 
@@ -808,10 +810,10 @@ compare three different approaches for building overlays with Host
 Identity Protocol. The first one is scalable L2-VPLS with hub-and-spoke
 architecture. The second one, L3-VPN, also with hub-and-spoke 
 design. And finally, we have HIP-VPLS at our disposal with full mesh connectivity 
-of provider equipment (PE).
+comprising provider equipment (PE).
 
 The first characteristic is the size of the forwarding table on the PE elements. For 
-L2-VPLS and L3-VPN it is equal to $O(n)$, where $n$ is the number of regular hosts in the
+L2-VPLS and HIP-VPLS it is equal to $O(n)$, where $n$ is the number of regular hosts in the
 network. This is obvious, as the MAC address table at least on the edge needs to know
 the mapping for each and every host in the network (consider when all hosts talk to 
 all other hosts). For L3-VPN the size is considerably smaller since the routing table
@@ -841,6 +843,17 @@ instance of STP protocol. There is no need to implement 802.1D STP protocol for 
 since they do not forward Ethernet frames (received from public interface) to all, 
 but private interface.
 
+\chapter{Future work}
+
+We foresee at least three possible research directions. The first one, is the implementation
+of post-quantum cryptography algorithms in Host Identity Protocol. One can take a look
+at the lattice-based cryptography as the alternative to RSA and DSA algorithms. The second
+research direction can consider separation of control plane and data plane routines. Here 
+one can consider implmenting IPSec data plane in pure C and leave the control plane as it is (that is
+it can be based on Python). The data plane will be handling IPSec traffic and triggering base exachange wherever needed.
+And finally, the third research direction can consider real life deployment of the 
+architecture and more measurements in such real life environments.
+
 \chapter{Conclusions}
 
 We started this work with the background material on cryptography. Here we covered
@@ -853,8 +866,9 @@ SSL, IPSec, and SSH protocols. We covered briefly QinQ tunneling and MPLS protoc
 In the results section, we covered the results for various cryptographic libraries,
 including the library which uses Intel NI instructions designed to boost the AES and 
 HMAC. We concluded that the Python library with C-bindings is not enough for the 
-production setup, and suggested implementing the HIP-VPLS in Rust or C language.
-We then moved to the desciption of scalable L3-VPN and HIP-VPLS solutions. We concluded 
+production setup, and suggested implementing the HIP-VPLS in Rust or C language (or separate 
+control and data plane, and suggested implementing data plane in C language)..
+We then moved to the description of scalable L3-VPN and HIP-VPLS solutions. We concluded 
 the work with a comparison of various characteristics of scalable L2-VPLS, L3-VPN and 
 HIP-VPLS solution. 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  17 FEB 2025 19:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.6.15)  23 FEB 2026 10:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -777,7 +777,7 @@ LaTeX Info: Redefining \] on input line 2924.
 \c@definition=\count331
 \c@theorem=\count332
 \c@corollary=\count333
-LaTeX Font Info:    Trying to load font information for T1+pnc on input line 60
+LaTeX Font Info:    Trying to load font information for T1+pnc on input line 59
 .
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/t1pnc.fd
@@ -789,20 +789,20 @@ LaTeX Warning: Label `fig:mininet' multiply defined.
 )
 \openout1 = `book.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
  (/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count334
@@ -933,18 +933,18 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 68
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 67
 .
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 19.70294pt on input line 68.
+(Font)              scaled to size 19.70294pt on input line 67.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.40245pt on input line 76.
+(Font)              scaled to size 10.40245pt on input line 75.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 10.40245pt on input line 79.
+(Font)              scaled to size 10.40245pt on input line 78.
  [1
 
 
@@ -953,26 +953,26 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 18.99994pt on input line 86.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 86.
+(Font)              scaled to size 18.99994pt on input line 85.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
 
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 86.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
 
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (./book.toc)
+) (./book.toc
+[3])
 \tf@toc=\write4
 \openout4 = `book.toc'.
 
+ (./intro.tex [4] [5
 
-(./intro.tex [3] [4
-
-] [5]
+]
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 11.39996pt on input line 50.
  [6] [7] [8
@@ -1012,12 +1012,12 @@ File: t1txtt.fd 2000/12/15 v3.1
 <graphics/crypto/aes.pdf, id=90, 505.89pt x 505.89pt>
 File: graphics/crypto/aes.pdf Graphic file (type pdf)
 <use graphics/crypto/aes.pdf>
-Package pdftex.def Info: graphics/crypto/aes.pdf  used on input line 548.
+Package pdftex.def Info: graphics/crypto/aes.pdf  used on input line 549.
 (pdftex.def)             Requested size: 332.895pt x 332.90036pt.
 <graphics/crypto/hmac.pdf, id=91, 505.89pt x 505.89pt>
 File: graphics/crypto/hmac.pdf Graphic file (type pdf)
 <use graphics/crypto/hmac.pdf>
-Package pdftex.def Info: graphics/crypto/hmac.pdf  used on input line 555.
+Package pdftex.def Info: graphics/crypto/hmac.pdf  used on input line 556.
 (pdftex.def)             Requested size: 332.895pt x 332.90036pt.
  [21
 
@@ -1026,41 +1026,44 @@ Package pdftex.def Info: graphics/crypto/hmac.pdf  used on input line 555.
 <graphics/mininet.png, id=111, 369.2997pt x 305.16008pt>
 File: graphics/mininet.png Graphic file (type png)
 <use graphics/mininet.png>
-Package pdftex.def Info: graphics/mininet.png  used on input line 605.
+Package pdftex.def Info: graphics/mininet.png  used on input line 606.
 (pdftex.def)             Requested size: 258.91896pt x 213.95981pt.
  [24 <./graphics/mininet.png>]
 <graphics/hw-hipls.png, id=116, 369.2997pt x 305.16008pt>
 File: graphics/hw-hipls.png Graphic file (type png)
 <use graphics/hw-hipls.png>
-Package pdftex.def Info: graphics/hw-hipls.png  used on input line 635.
+Package pdftex.def Info: graphics/hw-hipls.png  used on input line 636.
 (pdftex.def)             Requested size: 258.91896pt x 213.95981pt.
  [25 <./graphics/hw-hipls.png>]
 <graphics/devices.png, id=122, 1445.4pt x 903.375pt>
 File: graphics/devices.png Graphic file (type png)
 <use graphics/devices.png>
-Package pdftex.def Info: graphics/devices.png  used on input line 682.
+Package pdftex.def Info: graphics/devices.png  used on input line 684.
 (pdftex.def)             Requested size: 369.88585pt x 231.17775pt.
  [26 <./graphics/devices.png>]
 <graphics/testbed.png, id=127, 518.53725pt x 597.13087pt>
 File: graphics/testbed.png Graphic file (type png)
 <use graphics/testbed.png>
-Package pdftex.def Info: graphics/testbed.png  used on input line 698.
+Package pdftex.def Info: graphics/testbed.png  used on input line 700.
 (pdftex.def)             Requested size: 332.895pt x 383.34694pt.
 
 [27 <./graphics/testbed.png>] [28]
 <graphics/l3-vpn.png, id=135, 443.91847pt x 371.28712pt>
 File: graphics/l3-vpn.png Graphic file (type png)
 <use graphics/l3-vpn.png>
-Package pdftex.def Info: graphics/l3-vpn.png  used on input line 774.
+Package pdftex.def Info: graphics/l3-vpn.png  used on input line 776.
 (pdftex.def)             Requested size: 332.895pt x 278.43066pt.
 
-Overfull \hbox (39.17044pt too wide) in paragraph at lines 791--801
+Overfull \hbox (39.17044pt too wide) in paragraph at lines 793--803
 [][] 
  []
 
 [29 <./graphics/l3-vpn.png>] [30] [31] [32
 
-]) (./book.bbl [33] [34
+] [33] [34
+
+]) (./book.bbl [35]
+[36
 
 ]
 Underfull \hbox (badness 2521) in paragraph at lines 8--10
@@ -1109,13 +1112,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--57
 -[]S2980G-[]8T %
  []
 
-[35]
+[37]
 Underfull \hbox (badness 2635) in paragraph at lines 77--81
 \T1/pnc/m/n/10 Module-Lattice-Based Key-Encapsulation Mech-a-nism Stan-dard, 20
 24.
  []
 
-) [36] (./book.aux)
+) [38] (./book.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1123,7 +1126,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  18679 strings out of 478994
  353094 string characters out of 5858184
- 1169608 words of memory out of 5000000
+ 1168608 words of memory out of 5000000
  35682 multiletter control sequences out of 15000+600000
  470583 words of font info for 145 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1148,10 +1151,10 @@ pe1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw
 /ncntrsbk/uncb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrs
 bk/uncr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/ncntrsbk/uncr
 i8a.pfb>
-Output written on book.pdf (36 pages, 9047755 bytes).
+Output written on book.pdf (38 pages, 9048298 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 150 compressed objects within 2 object streams
+ 234 PDF objects out of 1000 (max. 8388607)
+ 157 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  53 words of extra memory for PDF output out of 10000 (max. 10000000)
 
